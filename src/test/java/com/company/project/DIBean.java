@@ -1,34 +1,76 @@
 package com.company.project;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+
 public class DIBean {
 
-    private String name;
+    //=============
+    private String str;
+    private Integer aInteger;
+    private Boolean aBoolean;
 
-    private Integer age;
+    //=============
+    private String[] strs;
+    private List<String> list;
+    private Map<String, String> map;
+    private Properties prop;
 
-    private boolean isGood;
 
-    public String getName() {
-        return name;
+    public String getStr() {
+        return str;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setStr(String str) {
+        this.str = str;
     }
 
-    public Integer getAge() {
-        return age;
+    public Integer getaInteger() {
+        return aInteger;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setaInteger(Integer aInteger) {
+        this.aInteger = aInteger;
     }
 
-    public boolean isGood() {
-        return isGood;
+    public Boolean getaBoolean() {
+        return aBoolean;
     }
 
-    public void setIsGood(boolean good) {
-        isGood = good;
+    public void setaBoolean(Boolean aBoolean) {
+        this.aBoolean = aBoolean;
+    }
+
+    public String[] getStrs() {
+        return strs;
+    }
+
+    public void setStrs(String[] strs) {
+        this.strs = strs;
+    }
+
+    public List<String> getList() {
+        return list;
+    }
+
+    public void setList(List<String> list) {
+        this.list = list;
+    }
+
+    public Map<String, String> getMap() {
+        return map;
+    }
+
+    public void setMap(Map<String, String> map) {
+        this.map = map;
+    }
+
+    public Properties getProp() {
+        return prop;
+    }
+
+    public void setProp(Properties prop) {
+        this.prop = prop;
     }
 }

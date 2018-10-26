@@ -1,22 +1,18 @@
 package com.company.project;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.lang.invoke.MethodHandles;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/spring-context.xml")
 public class SpringTestBase {
 
-    @Autowired
-    private DIBean bean;
+//    protected static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+    protected static final Logger LOGGER = LoggerFactory.getLogger(SpringTestBase.class);
 
-    @Test
-    public void test_(){
-        System.out.println(bean.getName());
-        System.out.println(bean.getAge());
-        System.out.println(bean.isGood());
-    }
 }
