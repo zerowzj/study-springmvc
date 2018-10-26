@@ -1,6 +1,6 @@
 package com.company.project;
 
-public class DIObject {
+public class DIBean {
 
     private String name;
 
