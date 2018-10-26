@@ -4,10 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="DIObject" class="com.company.project.DIBean">
-        <property name="str" value="11"/>
-        <property name="aInteger" value="11"/>
+        <property name="aString" value="wangzhj"/>
+        <property name="aInteger" value="35"/>
         <property name="aBoolean" value="false"/>
-        <property name="strs">
+        <property name="array">
             <array>
                 <value>1</value>
                 <value>2</value>

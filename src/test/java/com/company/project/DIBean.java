@@ -7,24 +7,15 @@ import java.util.Properties;
 public class DIBean {
 
     //=============
-    private String str;
+    private String aString;
     private Integer aInteger;
     private Boolean aBoolean;
 
     //=============
-    private String[] strs;
+    private String[] array;
     private List<String> list;
     private Map<String, String> map;
     private Properties prop;
-
-
-    public String getStr() {
-        return str;
-    }
-
-    public void setStr(String str) {
-        this.str = str;
-    }
 
     public Integer getaInteger() {
         return aInteger;
@@ -42,13 +33,6 @@ public class DIBean {
         this.aBoolean = aBoolean;
     }
 
-    public String[] getStrs() {
-        return strs;
-    }
-
-    public void setStrs(String[] strs) {
-        this.strs = strs;
-    }
 
     public List<String> getList() {
         return list;
@@ -72,5 +56,21 @@ public class DIBean {
 
     public void setProp(Properties prop) {
         this.prop = prop;
+    }
+
+    public String getaString() {
+        return aString;
+    }
+
+    public void setaString(String aString) {
+        this.aString = aString;
+    }
+
+    public String[] getArray() {
+        return array;
+    }
+
+    public void setArray(String[] array) {
+        this.array = array;
     }
 }
