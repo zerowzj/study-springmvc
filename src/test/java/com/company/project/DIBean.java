@@ -11,8 +11,6 @@ public class DIBean {
     private Integer aInteger;
     private Boolean aBoolean;
 
-    private boolean isGood;
-
     //=============
     private String[] array;
     private List<String> list;
