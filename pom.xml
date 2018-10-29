@@ -38,8 +38,9 @@
             <version>2.5</version>
             <scope>provided</scope>
         </dependency>
-
-        <!-- Spring -->
+        <!-- ==================== -->
+        <!--        核心容器       -->
+        <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -50,6 +51,9 @@
             <artifactId>spring-beans</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <!-- ==================== -->
+        <!--       应用上下文      -->
+        <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -60,33 +64,45 @@
             <artifactId>spring-context-support</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <!-- ==================== -->
+        <!--   Spring面向切面编程   -->
+        <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
+        <!-- ==================== -->
+        <!--      对象实体映射      -->
+        <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <!-- ==================== -->
+        <!--         Web模块      -->
+        <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <!-- ==================== -->
+        <!--         MVC模块      -->
+        <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-oxm</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <!-- Spring Test -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
