@@ -10,12 +10,18 @@ public class SpringDITest extends SpringTestBase {
 
     @Test
     public void test_() {
-        LOGGER.info("str={}", bean.getStr());
-        LOGGER.info("int={}", bean.getaInteger());
-        LOGGER.info("boolean={}", bean.getaBoolean());
-        LOGGER.info("arrays={}", bean.getStrs());
-        LOGGER.info("list={}", bean.getList());
-        LOGGER.info("map={}", bean.getMap());
-        LOGGER.info("prop={}", bean.getProp());
+        LOGGER.info("string= {}", bean.getaString());
+        LOGGER.info("int= {}", bean.getaInteger());
+        LOGGER.info("boolean= {}", bean.getaBoolean());
+        LOGGER.info("array= {}", bean.getArray());
+        LOGGER.info("list= {}", bean.getList());
+        LOGGER.info("map= {}", bean.getMap());
+        LOGGER.info("prop= {}", bean.getProp());
+    }
+
+
+    @Test
+    public void test_1() {
+
     }
 }
