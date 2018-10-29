@@ -1,6 +1,5 @@
 package com.company.project.dao.useradmin;
 
-
 import com.company.project.dao.userbase.UserBaseEO;
 
 /**

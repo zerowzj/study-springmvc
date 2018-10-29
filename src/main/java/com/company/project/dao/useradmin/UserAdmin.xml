@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.project.dao.useradmin.UserAdminDao">
-    <resultMap id="userAdminEO" type="UserAdminEO" extends="com.company.project.dao.userbase.UserBaseDao.userBaseEO">
+    <resultMap id="userAdminEO" type="com.company.project.dao.useradmin.UserAdminEO" extends="com.company.project.dao.userbase.UserBaseDao.userBaseEO">
         <result property="uaId" column="UA_ID"/>
     </resultMap>
     <sql id="Base_Column_List">
@@ -10,7 +10,7 @@
         UA.UA_ID
     </sql>
 
-    <insert id="insert" parameterType="userAdminEO">
+    <insert id="insert" parameterType="com.company.project.dao.useradmin.UserAdminEO">
         INSERT INTO USER_ADMIN (UA_ID) VALUES (#{uaId})
     </insert>
 

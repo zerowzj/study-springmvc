@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.project.dao.userbase.UserBaseDao">
-    <resultMap id="userBaseEO" type="UserBaseEO">
+    <resultMap id="userBaseEO" type="com.company.project.dao.userbase.UserBaseEO">
         <result property="ubId" column="UB_ID"/>
         <result property="ubLoginName" column="UB_LOGIN_NAME"/>
         <result property="ubLoginPwd" column="UB_LOGIN_PWD"/>
@@ -13,7 +13,7 @@
         UB.UB_LOGIN_PWD
     </sql>
 
-    <insert id="insert" useGeneratedKeys="true" keyProperty="ubId" parameterType="UserBaseEO">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="ubId" parameterType="com.company.project.dao.userbase.UserBaseEO">
         INSERT INTO USER_BASE (UB_LOGIN_NAME, UB_LOGIN_PWD) VALUES (#{ubLoginName}, #{ubLoginPwd})
         <selectKey keyProperty="ubId" resultType="java.lang.Long" order="AFTER">
             SELECT LAST_INSERT_ID()
