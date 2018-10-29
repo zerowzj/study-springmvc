@@ -54,5 +54,5 @@
     <!-- =================== -->
     <!--         其他         -->
     <!-- =================== -->
-    <bean class="com.company.project.webapi.support.context.SpringContext"/>
+    <bean class="com.company.project.support.context.SpringContext"/>
 </beans>
