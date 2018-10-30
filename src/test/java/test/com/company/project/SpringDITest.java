@@ -28,7 +28,6 @@ public class SpringDITest {
         LOGGER.info("prop= {}", bean.getProp());
     }
 
-
     @Test
     public void test_1() {
 
