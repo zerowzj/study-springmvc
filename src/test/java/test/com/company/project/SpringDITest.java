@@ -27,9 +27,4 @@ public class SpringDITest {
         LOGGER.info("map= {}", bean.getMap());
         LOGGER.info("prop= {}", bean.getProp());
     }
-
-    @Test
-    public void test_1() {
-
-    }
 }
