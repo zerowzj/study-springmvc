@@ -2,9 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
-    <context:component-scan base-package="com.company.project.dao,com.company.project.service"
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <!-- 扫描加载Bean -->
+    <context:component-scan base-package="com.company.project.dao, com.company.project.service"
                             use-default-filters="true">
     </context:component-scan>
+    <!-- 加载配置文件 -->
+    <util:properties id="config" location="classpath*:*.properties"/>
+    <context:property-placeholder location="classpath*:*.properties" ignore-unresolvable="true"/>
 </beans>
