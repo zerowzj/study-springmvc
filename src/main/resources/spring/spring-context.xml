@@ -37,7 +37,7 @@
             <aop:before method="doBefore" pointcut-ref="myPointCut"/>
         </aop:aspect>
     </aop:config>
-    <!--  -->
+
     <bean class="com.company.project.support.aop.MyAspect"/>
     <aop:aspectj-autoproxy/>
 </beans>
