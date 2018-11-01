@@ -39,7 +39,7 @@
         </tx:attributes>
     </tx:advice>
     <aop:config>
-        <aop:pointcut id="txPointCut" expression="execution(public * com.company.project.service..*.*..())"/>
+        <aop:pointcut id="txPointCut" expression="execution(public * com.company.project.service..*.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"/>
     </aop:config>
 </beans>
