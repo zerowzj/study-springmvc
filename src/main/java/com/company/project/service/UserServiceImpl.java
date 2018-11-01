@@ -14,11 +14,11 @@ public class UserServiceImpl implements UserService {
     private UserBaseDao ubDao;
     @Autowired
     private UserAdminDao uaDao;
-    @Value("${}")
-    private String str;
 
     @Override
     public void checkInAdmin(UserAdminEO uaEO) {
+
+        System.out.println("ssssssssssssssss");
 
     }
 }

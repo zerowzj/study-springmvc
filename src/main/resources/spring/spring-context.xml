@@ -4,36 +4,33 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:util="http://www.springframework.org/schema/util"
        xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
-        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
-        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     <!-- 扫描加载Bean -->
     <context:component-scan base-package="com.company.project.dao, com.company.project.service"
                             use-default-filters="true">
     </context:component-scan>
+
     <!-- 加载配置文件 -->
     <util:properties id="config" location="classpath*:*.properties"/>
     <context:property-placeholder location="classpath*:*.properties" ignore-unresolvable="true"/>
-    <!-- AOP -->
-    <aop:config>
-        <aop:pointcut id="" expression=""/>
-    </aop:config>
 
-    <!-- 事务 -->
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="**" propagation="REQUIRED"/>
-        </tx:attributes>
-    </tx:advice>
+    <!-- AOP -->
+    <bean id="monitor" class="com.company.project.support.aop.Monitor"/>
+    <bean id="logger" class="com.company.project.support.aop.Logger"/>
     <aop:config>
-        <aop:pointcut id="" expression=""/>
-        <aop:aspect>
+        <aop:pointcut id="myPointCut" expression="execution(* com.company.project.service..*.*(..))"/>
+        <aop:aspect ref="monitor" order="2">
+            <aop:before method="doBefore" pointcut-ref="myPointCut"/>
+            <!--<aop:after method="doAfter" pointcut-ref="myPointCut"/>-->
+            <!--<aop:after-throwing method="doAfterThrowing" pointcut-ref="myPointCut"/>-->
+            <!--<aop:after-returning method="doAfterReturning" pointcut-ref="myPointCut"/>-->
+            <!--<aop:around method="doAround" pointcut-ref="myPointCut"/>-->
+        </aop:aspect>
+        <aop:aspect ref="logger" order="1">
+            <aop:before method="doBefore" pointcut-ref="myPointCut"/>
         </aop:aspect>
     </aop:config>
 </beans>
