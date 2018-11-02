@@ -15,10 +15,13 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserAdminDao uaDao;
 
+//    @Value("#{config['name']}")
+//    @Value("#{config.name}")
+//    @Value("${name}")
+    private String name;
+
     @Override
     public void checkInAdmin(UserAdminEO uaEO) {
-
-        System.out.println("ssssssssssssssss");
-
+        System.out.println("name=" + name);
     }
 }
