@@ -61,7 +61,4 @@
     <!-- ==================== -->
     <!--<rabbit:connection-factory id="connectionFactory" addresses="${rabbit.mq.server}"-->
     <!--username="${rabbit.mq.username}" password="${rabbit.mq.password}"/>-->
-    <!-- ==================== -->
-    <!--          -->
-    <!-- ==================== -->
 </beans>
