@@ -10,9 +10,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/spring-context.xml")
-public class SpringDITest {
+public class SpringDI_Test {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(SpringDITest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SpringDI_Test.class);
 
     @Autowired
     private DIBean bean;

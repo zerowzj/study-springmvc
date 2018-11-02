@@ -1,16 +1,11 @@
 package test.com.company.project;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:spring/spring-context.xml", "classpath:spring/spring-dao.xml"})
-public class SpringRabbitMQTest {
+@ContextConfiguration("/spring-context.xml")
+public class SpringAOP_Test {
 
-    @Test
-    public void test() {
-
-    }
 }
