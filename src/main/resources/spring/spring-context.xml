@@ -2,8 +2,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     <!-- ==================== -->
     <!--      扫描加载Bean     -->
     <!-- ==================== -->
@@ -18,7 +19,7 @@
     <!-- ==================== -->
     <!--        AOP           -->
     <!-- ==================== -->
-    <!--   -->
+    <!-- 【1】 -->
     <bean id="myBeforeAdvice" class="com.company.project.support.aop.MyBeforeAdvice"/>
     <bean class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="proxyInterfaces">
@@ -33,25 +34,28 @@
             </list>
         </property>
     </bean>
-    <!--   -->
-    <!--<bean id="monitor" class="com.company.project.support.aop.Monitor"/>
+    <!-- 【2】 -->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
+    </bean>
+    <!-- 【3】 -->
+    <bean id="monitor" class="com.company.project.support.aop.Monitor"/>
     <bean id="logger" class="com.company.project.support.aop.Logger"/>
     <aop:config>
         <aop:pointcut id="myPointCut" expression="execution(public * com.company.project.service..*.*(..))"/>
         <aop:aspect ref="monitor" order="6">
             <aop:before method="doBefore" pointcut-ref="myPointCut"/>
-            &lt;!&ndash;<aop:after method="doAfter" pointcut-ref="myPointCut"/>&ndash;&gt;
-            &lt;!&ndash;<aop:after-throwing method="doAfterThrowing" pointcut-ref="myPointCut"/>&ndash;&gt;
-            &lt;!&ndash;<aop:after-returning method="doAfterReturning" pointcut-ref="myPointCut"/>&ndash;&gt;
-            &lt;!&ndash;<aop:around method="doAround" pointcut-ref="myPointCut"/>&ndash;&gt;
+            <aop:after method="doAfter" pointcut-ref="myPointCut"/>
+            <aop:after-throwing method="doAfterThrowing" pointcut-ref="myPointCut"/>
+            <aop:after-returning method="doAfterReturning" pointcut-ref="myPointCut"/>
+            <aop:around method="doAround" pointcut-ref="myPointCut"/>
         </aop:aspect>
         <aop:aspect ref="logger" order="3">
             <aop:before method="doBefore" pointcut-ref="myPointCut"/>
         </aop:aspect>
     </aop:config>
-    &lt;!&ndash;   &ndash;&gt;
+    <!-- 【4】 -->
     <bean class="com.company.project.support.aop.MyAspect"/>
-    <aop:aspectj-autoproxy/>-->
+    <aop:aspectj-autoproxy/>
     <!-- ==================== -->
     <!--      集成RabbitMQ    -->
     <!-- ==================== -->
