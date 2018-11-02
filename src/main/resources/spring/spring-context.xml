@@ -14,7 +14,9 @@
     <!-- ==================== -->
     <!--      加载配置文件     -->
     <!-- ==================== -->
+    <!-- 【1】 -->
     <!--<util:properties id="config" location="classpath*:*.properties"/>-->
+    <!-- 【2】 -->
     <!--<context:property-placeholder location="classpath*:*.properties" ignore-unresolvable="true"/>-->
     <!-- ==================== -->
     <!--        AOP           -->
@@ -35,9 +37,10 @@
         </property>
     </bean>
     <!-- 【2】 -->
+    <!-- 【3】 -->
     <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
     </bean>
-    <!-- 【3】 -->
+    <!-- 【4】 -->
     <bean id="monitor" class="com.company.project.support.aop.Monitor"/>
     <bean id="logger" class="com.company.project.support.aop.Logger"/>
     <aop:config>
@@ -53,9 +56,12 @@
             <aop:before method="doBefore" pointcut-ref="myPointCut"/>
         </aop:aspect>
     </aop:config>
-    <!-- 【4】 -->
+    <!-- 【5】 -->
     <bean class="com.company.project.support.aop.MyAspect"/>
     <aop:aspectj-autoproxy/>
+    <!-- ==================== -->
+    <!--        扩展点        -->
+    <!-- ==================== -->
     <!-- ==================== -->
     <!--      集成RabbitMQ    -->
     <!-- ==================== -->
