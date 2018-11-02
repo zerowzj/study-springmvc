@@ -1,6 +1,5 @@
 package test.com.company.project;
 
-import com.company.project.dao.userbase.UserBaseDao;
 import com.company.project.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
