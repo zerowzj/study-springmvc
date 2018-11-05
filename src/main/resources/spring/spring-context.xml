@@ -70,9 +70,9 @@
                                username="${rabbit.mq.username}" password="${rabbit.mq.password}"/>
     <!-- 生产者 -->
     <!-- 交换器 -->
-    <rabbit:direct-exchange name="directExchange">
+    <rabbit:direct-exchange id="my_direct_exchange" name="my_direct_exchange">
         <rabbit:bindings>
-            <rabbit:binding></rabbit:binding>
+            <rabbit:binding queue="my_queue" key="my_routing_key"></rabbit:binding>
         </rabbit:bindings>
     </rabbit:direct-exchange>
     <!--<rabbit:topic-exchange name="topicExchange">
@@ -80,14 +80,15 @@
     <rabbit:fanout-exchange name="fanoutExchange">
     </rabbit:fanout-exchange>-->
     <!-- 队列 -->
-    <rabbit:queue></rabbit:queue>
-
+    <rabbit:queue id="my_queue" name="my_queue" auto-declare="true">
+    </rabbit:queue>
     <!-- 模板 -->
-    <rabbit:template></rabbit:template>
+    <rabbit:template id="rabbitTemplate" queue="my_queue" routing-key="my_routing_key" connection-factory="connectionFactory">
+    </rabbit:template>
 
     <!-- 消费者 -->
-    <bean id="demoMessageListener" class="com.company.project.support.mq.DemoMessageListener"/>
-    <rabbit:listener-container connection-factory="connectionFactory">
-        <rabbit:listener queues="" ref="demoMessageListener"/>
-    </rabbit:listener-container>
+    <!--<bean id="demoMessageListener" class="com.company.project.support.mq.DemoMessageListener"/>-->
+    <!--<rabbit:listener-container connection-factory="connectionFactory">-->
+        <!--<rabbit:listener queues="my_queue" ref="demoMessageListener"/>-->
+    <!--</rabbit:listener-container>-->
 </beans>
