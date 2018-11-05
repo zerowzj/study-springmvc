@@ -71,21 +71,23 @@
     <!-- 生产者 -->
     <!-- 交换器 -->
     <rabbit:direct-exchange name="directExchange">
-
+        <rabbit:bindings>
+            <rabbit:binding></rabbit:binding>
+        </rabbit:bindings>
     </rabbit:direct-exchange>
-    <rabbit:topic-exchange name="topicExchange">
-
+    <!--<rabbit:topic-exchange name="topicExchange">
     </rabbit:topic-exchange>
     <rabbit:fanout-exchange name="fanoutExchange">
-
-    </rabbit:fanout-exchange>
+    </rabbit:fanout-exchange>-->
     <!-- 队列 -->
     <rabbit:queue></rabbit:queue>
+
     <!-- 模板 -->
     <rabbit:template></rabbit:template>
 
     <!-- 消费者 -->
+    <bean id="demoMessageListener" class="com.company.project.support.mq.DemoMessageListener"/>
     <rabbit:listener-container connection-factory="connectionFactory">
-        <rabbit:listener ref=""></rabbit:listener>
+        <rabbit:listener queues="" ref="demoMessageListener"/>
     </rabbit:listener-container>
 </beans>
