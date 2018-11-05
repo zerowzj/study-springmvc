@@ -68,4 +68,24 @@
     <!--  -->
     <rabbit:connection-factory id="connectionFactory" addresses="${rabbit.mq.server}"
                                username="${rabbit.mq.username}" password="${rabbit.mq.password}"/>
+    <!-- 生产者 -->
+    <!-- 交换器 -->
+    <rabbit:direct-exchange name="directExchange">
+
+    </rabbit:direct-exchange>
+    <rabbit:topic-exchange name="topicExchange">
+
+    </rabbit:topic-exchange>
+    <rabbit:fanout-exchange name="fanoutExchange">
+
+    </rabbit:fanout-exchange>
+    <!-- 队列 -->
+    <rabbit:queue></rabbit:queue>
+    <!-- 模板 -->
+    <rabbit:template></rabbit:template>
+
+    <!-- 消费者 -->
+    <rabbit:listener-container connection-factory="connectionFactory">
+        <rabbit:listener ref=""></rabbit:listener>
+    </rabbit:listener-container>
 </beans>
