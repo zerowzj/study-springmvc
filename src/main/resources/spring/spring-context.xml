@@ -65,7 +65,7 @@
     <!-- ==================== -->
     <!--      集成RabbitMQ    -->
     <!-- ==================== -->
-    <!--  -->
+    <!-- 连接 -->
     <rabbit:connection-factory id="connectionFactory" addresses="${rabbit.mq.server}"
                                username="${rabbit.mq.username}" password="${rabbit.mq.password}"/>
     <!-- 生产者 -->
@@ -80,7 +80,7 @@
     <rabbit:fanout-exchange name="fanoutExchange">
     </rabbit:fanout-exchange>-->
     <!-- 队列 -->
-    <rabbit:queue name="my_queue" id="my_queue">
+    <rabbit:queue name="my_queue" id="my_queue" durable="true" auto-delete="false" exclusive="false" auto-declare="true">
     </rabbit:queue>
     <!-- 模板 -->
     <rabbit:template id="rabbitTemplate" exchange="my_direct_exchange" connection-factory="connectionFactory">

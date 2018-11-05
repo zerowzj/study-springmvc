@@ -16,6 +16,6 @@ public class SpringRabbitMQ_Test {
 
     @Test
     public void test() {
-        rabbitTemplate.convertAndSend("sddddddddddddfsdf");
+        rabbitTemplate.convertAndSend("ssssssssss", "sddddddddddddfsdf");
     }
 }
