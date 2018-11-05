@@ -106,10 +106,13 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <!-- ==================== -->
+        <!--               -->
+        <!-- ==================== -->
         <dependency>
             <groupId>org.springframework.amqp</groupId>
             <artifactId>spring-rabbit</artifactId>
-            <version>1.5.2.RELEASE</version>
+            <version>1.7.0.RELEASE</version>
         </dependency>
 
         <dependency>

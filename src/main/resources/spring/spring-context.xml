@@ -2,9 +2,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:rabbit="http://www.springframework.org/schema/rabbit"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
     <!-- ==================== -->
     <!--      扫描加载Bean     -->
     <!-- ==================== -->
@@ -65,6 +65,7 @@
     <!-- ==================== -->
     <!--      集成RabbitMQ    -->
     <!-- ==================== -->
-    <!--<rabbit:connection-factory id="connectionFactory" addresses="${rabbit.mq.server}"-->
-    <!--username="${rabbit.mq.username}" password="${rabbit.mq.password}"/>-->
+    <!--  -->
+    <rabbit:connection-factory id="connectionFactory" addresses="${rabbit.mq.server}"
+                               username="${rabbit.mq.username}" password="${rabbit.mq.password}"/>
 </beans>
