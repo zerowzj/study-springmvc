@@ -2,6 +2,7 @@ package test.com.company.project;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -16,6 +17,7 @@ public class SpringRabbitMQ_Test {
 
     @Test
     public void test() {
+//        Message msg = new Message();
         rabbitTemplate.convertAndSend("sddddddddddddfsdf");
     }
 }
