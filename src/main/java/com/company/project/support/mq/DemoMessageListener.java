@@ -11,6 +11,6 @@ public class DemoMessageListener implements MessageListener {
 
     @Override
     public void onMessage(Message message) {
-
+        LOGGER.info("===>{}", message.toString());
     }
 }
