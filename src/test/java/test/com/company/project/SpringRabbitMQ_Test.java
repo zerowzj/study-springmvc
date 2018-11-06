@@ -16,6 +16,6 @@ public class SpringRabbitMQ_Test {
 
     @Test
     public void test() {
-        rabbitTemplate.convertAndSend("ssssssssss", "sddddddddddddfsdf");
+        rabbitTemplate.convertAndSend("my_routing_key", "sddddddddddddfsdf");
     }
 }
