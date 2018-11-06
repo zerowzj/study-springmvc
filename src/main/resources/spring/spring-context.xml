@@ -14,14 +14,14 @@
     <!-- ==================== -->
     <!--      加载配置文件     -->
     <!-- ==================== -->
-    <!-- 【1】 -->
+    <!-- 【一】 -->
     <!--<util:properties id="config" location="classpath*:*.properties"/>-->
-    <!-- 【2】 -->
+    <!-- 【二】 -->
     <!--<context:property-placeholder location="classpath*:*.properties" ignore-unresolvable="true"/>-->
     <!-- ==================== -->
     <!--        AOP           -->
     <!-- ==================== -->
-    <!-- 【1】 -->
+    <!-- 【一】 -->
     <bean id="myBeforeAdvice" class="com.company.project.support.aop.MyBeforeAdvice"/>
     <bean class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="proxyInterfaces">
@@ -36,11 +36,11 @@
             </list>
         </property>
     </bean>
-    <!-- 【2】 -->
-    <!-- 【3】 -->
+    <!-- 【二】 -->
+    <!-- 【三】 -->
     <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
     </bean>
-    <!-- 【4】 -->
+    <!-- 【四】 -->
     <bean id="monitor" class="com.company.project.support.aop.Monitor"/>
     <bean id="logger" class="com.company.project.support.aop.Logger"/>
     <aop:config>
@@ -56,7 +56,7 @@
             <aop:before method="doBefore" pointcut-ref="myPointCut"/>
         </aop:aspect>
     </aop:config>
-    <!-- 【5】 -->
+    <!-- 【五】 -->
     <bean class="com.company.project.support.aop.MyAspect"/>
     <aop:aspectj-autoproxy/>
     <!-- ==================== -->
@@ -70,7 +70,8 @@
                                username="${rabbit.mq.username}" password="${rabbit.mq.password}"/>
     <!-- 生产者 -->
     <!-- 交换器 -->
-    <rabbit:direct-exchange name="my_direct_exchange" id="my_direct_exchange" durable="true" auto-delete="false">
+    <rabbit:direct-exchange name="my_direct_exchange" id="my_direct_exchange"
+                            durable="true" auto-delete="false" auto-declare="true">
         <rabbit:bindings>
             <rabbit:binding key="my_routing_key" queue="my_queue"></rabbit:binding>
         </rabbit:bindings>
@@ -80,10 +81,12 @@
     <rabbit:fanout-exchange name="fanoutExchange">
     </rabbit:fanout-exchange>-->
     <!-- 队列 -->
-    <rabbit:queue name="my_queue" id="my_queue" durable="true" auto-delete="false" exclusive="false" auto-declare="true">
+    <rabbit:queue name="my_queue" id="my_queue"
+                  durable="true" auto-delete="false" exclusive="false" auto-declare="true">
     </rabbit:queue>
     <!-- 模板 -->
-    <rabbit:template id="rabbitTemplate" exchange="my_direct_exchange" connection-factory="connectionFactory">
+    <rabbit:template id="rabbitTemplate" connection-factory="connectionFactory"
+                     exchange="my_direct_exchange" routing-key="my_routing_key">
     </rabbit:template>
 
     <!-- 消费者 -->
