@@ -34,19 +34,33 @@ public class ApiRouter implements ApplicationContextAware {
     /**
      * 路由
      *
+     * @param action   动作
+     * @param request  Http请求
+     * @param response Http响应
+     * @return Map
+     */
+    @RequestMapping(value = "/{action}")
+    public Map<String, Object> routeByModule(@PathVariable String action,
+                                             HttpServletRequest request, HttpServletResponse response) {
+        return doProcess(request, response, action);
+    }
+
+    /**
+     * 路由
+     *
      * @param module   模块
      * @param action   动作
      * @param request  Http请求
      * @param response Http响应
      * @return Map
      */
-    @RequestMapping(value = {"/{action}", "/{module}/{action}"})
-    public Map<String, Object> routeByModule(@PathVariable String module, @PathVariable String action,
-                                             HttpServletRequest request, HttpServletResponse response) {
-        return doProcess(request, response, module, action);
-    }
+//    @RequestMapping(value = {"/api/{module}/{action}"})
+//    public Map<String, Object> routeByModule(@PathVariable String module, @PathVariable String action,
+//                                             HttpServletRequest request, HttpServletResponse response) {
+//        return doProcess(request, response, module, action);
+//    }
 
-    private Map<String, Object> doProcess(HttpServletRequest request, HttpServletResponse response, String... array) {
+    private Map<String, Object> doProcess(HttpServletRequest request, HttpServletResponse response, String array) {
         String actionName = Joiner.on("_").join(ACTION_PREFIX, array);
         if (!CXT.containsBean(actionName)) {
             throw new IllegalStateException("");

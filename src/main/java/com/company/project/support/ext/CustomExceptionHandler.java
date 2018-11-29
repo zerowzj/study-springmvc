@@ -28,6 +28,7 @@ public class CustomExceptionHandler {
     public Map<String, Object> resolveException(HttpServletRequest request, HttpServletResponse response,
                                                 Exception ex) {
         LOGGER.info("erorrrrrrrrrrrrrrrrrrrrr");
+        ex.printStackTrace();
         LOGGER.error("发生异常", ex);
         return Results.error("9999", "系统异常");
     }
