@@ -1,4 +1,4 @@
-package test.com.company.project;
+package study.spring;
 
 import java.util.List;
 import java.util.Map;

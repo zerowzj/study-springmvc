@@ -62,40 +62,4 @@
     <!-- ==================== -->
     <!--        扩展点        -->
     <!-- ==================== -->
-    <!-- ==================== -->
-    <!--      集成RabbitMQ    -->
-    <!-- ==================== -->
-    <!-- 连接 -->
-    <rabbit:connection-factory id="connectionFactory" addresses="${rabbit.mq.server}"
-                               username="${rabbit.mq.username}" password="${rabbit.mq.password}"
-                                publisher-confirms="true" publisher-returns="true"/>
-    <!-- 生产者 -->
-    <!-- 交换器 -->
-    <rabbit:direct-exchange name="my_direct_exchange" id="my_direct_exchange"
-                            durable="true" auto-delete="false" auto-declare="true">
-        <rabbit:bindings>
-            <rabbit:binding key="my_routing_key" queue="my_queue"></rabbit:binding>
-        </rabbit:bindings>
-    </rabbit:direct-exchange>
-    <!--<rabbit:topic-exchange name="topicExchange">
-    </rabbit:topic-exchange>
-    <rabbit:fanout-exchange name="fanoutExchange">
-    </rabbit:fanout-exchange>-->
-    <!-- 队列 -->
-    <rabbit:queue name="my_queue" id="my_queue"
-                  durable="true" auto-delete="false" exclusive="false" auto-declare="true">
-    </rabbit:queue>
-    <!-- 模板 -->
-    <bean id="rabbitConfirmCallback" class="com.company.project.support.mq.RabbitConfirmCallback" />
-    <bean id="rabbitReturnCallback" class="com.company.project.support.mq.RabbitReturnCallback" />
-    <rabbit:template id="rabbitTemplate" connection-factory="connectionFactory"
-                     exchange="my_direct_exchange" routing-key="my_routing_key"
-                     confirm-callback="rabbitConfirmCallback" return-callback="rabbitReturnCallback">
-    </rabbit:template>
-
-    <!-- 消费者 -->
-    <!--<bean id="demoMessageListener" class="com.company.project.support.mq.DemoMessageListener"/>-->
-    <!--<rabbit:listener-container connection-factory="connectionFactory">-->
-        <!--<rabbit:listener queues="my_queue" ref="demoMessageListener"/>-->
-    <!--</rabbit:listener-container>-->
 </beans>

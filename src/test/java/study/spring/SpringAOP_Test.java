@@ -1,4 +1,4 @@
-package test.com.company.project;
+package study.spring;
 
 import com.google.common.primitives.Floats;
 import org.junit.Test;

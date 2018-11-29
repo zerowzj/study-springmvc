@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="DIObject" class="test.com.company.project.DIBean">
+    <bean id="DIObject" class="study.spring.DIBean">
         <property name="aString" value="wangzhj"/>
         <property name="aInteger" value="35"/>
         <property name="aBoolean" value="false"/>

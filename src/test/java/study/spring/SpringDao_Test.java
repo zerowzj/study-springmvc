@@ -1,6 +1,6 @@
-package test.com.company.project;
+package study.spring;
 
-import com.company.project.service.UserService;
+import com.company.project.dao.userbase.UserBaseDao;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,13 +9,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/spring-context.xml", "classpath:spring/spring-dao.xml"})
-public class SpringService_Test {
+public class SpringDao_Test {
 
     @Autowired
-    private UserService userService;
+    private UserBaseDao userBaseDao;
 
     @Test
     public void test() {
-        userService.checkInAdmin(null);
+        userBaseDao.get(65L);
     }
 }

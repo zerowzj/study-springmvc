@@ -1,4 +1,4 @@
-package test.com.company.project;
+package study.spring;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

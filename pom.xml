@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <!-- ==================== -->
-    <!--       项目           -->
-    <!-- ==================== -->
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.company.project</groupId>
     <artifactId>study-spring</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
-    <!-- ==================== -->
-    <!--       属性           -->
-    <!-- ==================== -->
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.3.7.RELEASE</spring.version>
@@ -66,7 +61,7 @@
             <version>${spring.version}</version>
         </dependency>
         <!-- ==================== -->
-        <!--   Spring面向切面编程   -->
+        <!--   Spring面向切面编程  -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -107,14 +102,7 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <!-- ==================== -->
-        <!--               -->
-        <!-- ==================== -->
-        <dependency>
-            <groupId>org.springframework.amqp</groupId>
-            <artifactId>spring-rabbit</artifactId>
-            <version>1.5.2.RELEASE</version>
-        </dependency>
+
         <!-- ==================== -->
         <!--               -->
         <!-- ==================== -->
@@ -124,7 +112,7 @@
             <version>${spring.version}</version>
         </dependency>
         <!-- ==================== -->
-        <!--               -->
+        <!--     Spring Test      -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>

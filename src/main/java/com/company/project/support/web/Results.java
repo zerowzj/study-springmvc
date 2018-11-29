@@ -9,7 +9,7 @@ import java.util.Map;
  *
  * @author wangzhj
  */
-public class Results {
+public abstract class Results {
 
     private static final String KEY_CODE = "code";
 
