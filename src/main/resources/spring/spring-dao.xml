@@ -7,15 +7,6 @@
             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
             http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
     <!-- ==================== -->
-    <!--      DataSource      -->
-    <!-- ==================== -->
-    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="${ds.url}"/>
-        <property name="username" value="${ds.username}"/>
-        <property name="password" value="${ds.password}"/>
-    </bean>
-    <!-- ==================== -->
     <!--      集成Mybatis     -->
     <!-- ==================== -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
