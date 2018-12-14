@@ -14,7 +14,7 @@
         <property name="password" value="${ds.password}"/>
     </bean>
     <!-- ==================== -->
-    <!--       读写分离       -->
+    <!--       读写分离        -->
     <!-- ==================== -->
     <bean id="ds_master" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
@@ -34,8 +34,7 @@
         <property name="username" value="root"/>
         <property name="password" value=""/>
     </bean>
-    <bean id="randomStrategy"
-          class="io.shardingsphere.api.algorithm.masterslave.RandomMasterSlaveLoadBalanceAlgorithm"/>
+    <bean id="randomStrategy" class="io.shardingsphere.api.algorithm.masterslave.RandomMasterSlaveLoadBalanceAlgorithm"/>
     <master-slave:data-source id="masterSlaveDataSource" master-data-source-name="ds_master"
                               slave-data-source-names="ds_slave0, ds_slave1" strategy-ref="randomStrategy">
         <master-slave:props>
