@@ -3,6 +3,7 @@ package com.company.project.service;
 import com.company.project.dao.useradmin.UserAdminDao;
 import com.company.project.dao.useradmin.UserAdminEO;
 import com.company.project.dao.userbase.UserBaseDao;
+import com.company.project.dao.userbase.UserBaseEO;
 import io.shardingsphere.api.HintManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,15 +23,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void checkInAdmin(UserAdminEO uaEO) {
-        HintManager hintManager = HintManager.getInstance();
-        hintManager.setMasterRouteOnly();
+        ubDao.insert(uaEO);
+        //uaEO.setUaId(uaEO.getUbId());
+        uaDao.insert(uaEO);
         System.out.println("name=" + name);
     }
 
     @Override
     public UserAdminEO get(Long uaId) {
-        // HintManager manager = HintManager.getInstance();
-        // manager.setMasterRouteOnly();
+        HintManager manager = HintManager.getInstance();
+        manager.setMasterRouteOnly();
         return uaDao.get(uaId);
     }
 }
