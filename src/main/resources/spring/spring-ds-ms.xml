@@ -33,7 +33,8 @@
     <master-slave:data-source id="dataSource"
                               master-data-source-name="ds_master"
                               slave-data-source-names="ds_slave0, ds_slave1"
-                              strategy-ref="randomStrategy">
+                              strategy-ref="randomStrategy"
+                              strategy-type="">
         <master-slave:props>
             <prop key="sql.show">true</prop>
             <prop key="executor.size">10</prop>
