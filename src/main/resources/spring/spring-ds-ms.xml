@@ -26,7 +26,7 @@
         <property name="username" value="root"/>
         <property name="password" value="123123"/>
     </bean>
-    <!-- 负载均衡策略 -->
+    <!-- 负载均衡策略（随机和轮询） -->
     <bean id="randomStrategy"
           class="io.shardingsphere.api.algorithm.masterslave.RandomMasterSlaveLoadBalanceAlgorithm"/>
     <!-- 数据源 -->
