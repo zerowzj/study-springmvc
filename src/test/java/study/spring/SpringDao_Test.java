@@ -18,6 +18,6 @@ public class SpringDao_Test {
 
     @Test
     public void get_test() {
-        userBaseDao.get(65L);
+        userBaseDao.get(1L);
     }
 }
