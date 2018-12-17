@@ -5,49 +5,41 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://shardingsphere.io/schema/shardingsphere/sharding http://shardingsphere.io/schema/shardingsphere/sharding/sharding.xsd">
     <!-- ==================== -->
-    <!--       分库分表        -->
+    <!--       水平分表        -->
     <!-- ==================== -->
     <!-- 数据源 -->
-    <bean id="ds0" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+    <bean id="ds" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/ds0"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/ds"/>
         <property name="username" value="root"/>
         <property name="password" value="123123"/>
     </bean>
-    <bean id="ds1" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/ds1"/>
-        <property name="username" value="root"/>
-        <property name="password" value="123123"/>
-    </bean>
-    <!-- 分库算法 -->
-    <bean id="preciseModuloDatabaseShardingAlgorithm"
-          class="io.shardingsphere.example.spring.namespace.jpa.algorithm.PreciseModuloDatabaseShardingAlgorithm"/>
-    <!-- 分表算法 -->
-    <bean id="preciseModuloTableShardingAlgorithm"
+    <!-- 分库算法及策略 -->
+    <!-- 分表算法及策略 -->
+    <bean id="tableShardingAlgorithm"
           class="io.shardingsphere.example.spring.namespace.jpa.algorithm.PreciseModuloTableShardingAlgorithm"/>
-    <!-- 分库策略 -->
-    <sharding:standard-strategy id="databaseShardingStrategy" sharding-column="user_id"
-                                precise-algorithm-ref="preciseModuloDatabaseShardingAlgorithm"/>
-    <!-- 分表策略 -->
-    <sharding:standard-strategy id="tableShardingStrategy" sharding-column="order_id"
-                                precise-algorithm-ref="preciseModuloTableShardingAlgorithm"/>
+    <sharding:standard-strategy id="tableShardingStrategy"
+                                sharding-column="USER_ID"
+                                precise-algorithm-ref="tableShardingAlgorithm"/>
     <!-- 数据源 -->
     <sharding:data-source id="shardingDataSource">
-        <sharding:sharding-rule data-source-names="ds0,ds1">
+        <sharding:sharding-rule data-source-names="ds">
             <!-- 表规则 -->
             <sharding:table-rules>
-                <sharding:table-rule logic-table="t_order" actual-data-nodes="ds$->{0..1}.t_order$->{0..1}"
+                <sharding:table-rule logic-table="USER_BASE"
+                                     actual-data-nodes="ds.USER_BASE->{0..1}"
                                      database-strategy-ref="databaseShardingStrategy"
-                                     table-strategy-ref=" " generate-key-column-name="order_id"/>
-                <sharding:table-rule logic-table="t_order_item" actual-data-nodes="ds$->{0..1}.t_order_item$->{0..1}"
+                                     table-strategy-ref=" "
+                                     generate-key-column-name="UB_ID"/>
+                <sharding:table-rule logic-table="USER_ADMIN"
+                                     actual-data-nodes="ds.USER_ADMIN$->{0..1}"
                                      database-strategy-ref="databaseShardingStrategy"
                                      table-strategy-ref="tableShardingStrategy"
                                      generate-key-column-name="order_item_id"/>
             </sharding:table-rules>
             <!-- 绑定表规则 -->
             <sharding:binding-table-rules>
-                <sharding:binding-table-rule logic-tables="t_order, t_order_item"/>
+                <sharding:binding-table-rule logic-tables="USER_BASE, USER_ADMIN"/>
             </sharding:binding-table-rules>
         </sharding:sharding-rule>
     </sharding:data-source>
