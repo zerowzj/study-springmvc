@@ -5,4 +5,6 @@ import com.company.project.dao.useradmin.UserAdminEO;
 public interface UserService {
 
     void checkInAdmin(UserAdminEO uaEO);
+
+    UserAdminEO get(Long uaId);
 }

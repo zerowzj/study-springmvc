@@ -9,14 +9,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/spring-context.xml",
-        "classpath:spring/spring-dao.xml"})
+        "classpath:spring/spring-dao.xml",
+        "classpath:spring/spring-ds-ms.xml"})
 public class SpringService_Test {
 
     @Autowired
     private UserService userService;
 
     @Test
-    public void test() {
-        userService.checkInAdmin(null);
+    public void get_test() {
+        userService.get(1L);
     }
 }

@@ -5,7 +5,6 @@ import com.company.project.dao.useradmin.UserAdminEO;
 import com.company.project.dao.userbase.UserBaseDao;
 import io.shardingsphere.api.HintManager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service("userService")
@@ -16,7 +15,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserAdminDao uaDao;
 
-//    @Value("#{config['name']}")
+    //    @Value("#{config['name']}")
 //    @Value("#{config.name}")
 //    @Value("${name}")
     private String name;
@@ -26,5 +25,12 @@ public class UserServiceImpl implements UserService {
         HintManager hintManager = HintManager.getInstance();
         hintManager.setMasterRouteOnly();
         System.out.println("name=" + name);
+    }
+
+    @Override
+    public UserAdminEO get(Long uaId) {
+        // HintManager manager = HintManager.getInstance();
+        // manager.setMasterRouteOnly();
+        return uaDao.get(uaId);
     }
 }
