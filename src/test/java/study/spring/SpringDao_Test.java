@@ -1,6 +1,9 @@
 package study.spring;
 
+import com.company.project.dao.useradmin.UserAdminDao;
+import com.company.project.dao.useradmin.UserAdminEO;
 import com.company.project.dao.userbase.UserBaseDao;
+import com.company.project.dao.userbase.UserBaseEO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -19,9 +22,23 @@ public class SpringDao_Test {
 
     @Autowired
     private UserBaseDao userBaseDao;
+    @Autowired
+    private UserAdminDao userAdminDao;
+
+    @Test
+    public void insert_test() {
+        UserBaseEO ubEO = new UserBaseEO();
+        ubEO.setUbLoginName("test1");
+        ubEO.setUbLoginPwd("test1");
+        userBaseDao.insert(ubEO);
+
+        UserAdminEO uaEO = new UserAdminEO();
+        uaEO.setUaId(ubEO.getUbId());
+        userAdminDao.insert(uaEO);
+    }
 
     @Test
     public void get_test() {
-        userBaseDao.get(1L);
+        UserAdminEO uaEO = userAdminDao.get(1L);
     }
 }

@@ -8,7 +8,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:spring/spring-context.xml", "classpath:spring/spring-dao.xml"})
+@ContextConfiguration({"classpath:spring/spring-context.xml",
+        "classpath:spring/spring-dao.xml"})
 public class SpringService_Test {
 
     @Autowired

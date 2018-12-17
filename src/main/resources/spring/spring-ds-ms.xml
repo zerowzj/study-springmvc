@@ -7,6 +7,7 @@
     <!-- ==================== -->
     <!--       读写分离        -->
     <!-- ==================== -->
+    <!-- 数据源 -->
     <bean id="ds_master" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/ds_master"/>
@@ -29,8 +30,11 @@
     <bean id="randomStrategy"
           class="io.shardingsphere.api.algorithm.masterslave.RandomMasterSlaveLoadBalanceAlgorithm"/>
     <!-- 数据源 -->
-    <master-slave:data-source id="dataSource" master-data-source-name="ds_master"
-                              slave-data-source-names="ds_slave0, ds_slave1" strategy-ref="randomStrategy">
+    <master-slave:data-source id="dataSource"
+                              master-data-source-name="ds_master"
+                              slave-data-source-names="ds_slave0, ds_slave1"
+                              strategy-ref="randomStrategy"
+                              strategy-type="">
         <master-slave:props>
             <prop key="sql.show">true</prop>
             <prop key="executor.size">10</prop>
