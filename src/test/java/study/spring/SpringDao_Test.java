@@ -40,5 +40,6 @@ public class SpringDao_Test {
     @Test
     public void get_test() {
         UserAdminEO uaEO = userAdminDao.get(1L);
+        LOGGER.info("uaEO={}", uaEO);
     }
 }
