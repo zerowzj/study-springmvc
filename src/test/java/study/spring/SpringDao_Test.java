@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/spring-context.xml",
         "classpath:spring/spring-dao.xml",
-        "classpath:spring/spring-datasource.xml"})
+        "classpath:spring/spring-ds-ms.xml"})
 public class SpringDao_Test {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SpringDao_Test.class);
