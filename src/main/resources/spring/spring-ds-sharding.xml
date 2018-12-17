@@ -24,14 +24,16 @@
           class="io.shardingsphere.example.spring.namespace.jpa.algorithm.PreciseModuloDatabaseShardingAlgorithm"/>
     <bean id="preciseModuloTableShardingAlgorithm"
           class="io.shardingsphere.example.spring.namespace.jpa.algorithm.PreciseModuloTableShardingAlgorithm"/>
-    <!-- 分库分表策略 -->
+    <!-- 分表策略 -->
     <sharding:standard-strategy id="databaseShardingStrategy" sharding-column="user_id"
                                 precise-algorithm-ref="preciseModuloDatabaseShardingAlgorithm"/>
+    <!-- 分表策略 -->
     <sharding:standard-strategy id="tableShardingStrategy" sharding-column="order_id"
                                 precise-algorithm-ref="preciseModuloTableShardingAlgorithm"/>
     <!-- 数据源 -->
     <sharding:data-source id="shardingDataSource">
         <sharding:sharding-rule data-source-names="ds0,ds1">
+            <!-- 表规则 -->
             <sharding:table-rules>
                 <sharding:table-rule logic-table="t_order" actual-data-nodes="ds$->{0..1}.t_order$->{0..1}"
                                      database-strategy-ref="databaseShardingStrategy"
@@ -41,6 +43,7 @@
                                      table-strategy-ref="tableShardingStrategy"
                                      generate-key-column-name="order_item_id"/>
             </sharding:table-rules>
+            <!-- 绑定表规则 -->
             <sharding:binding-table-rules>
                 <sharding:binding-table-rule logic-tables="t_order, t_order_item"/>
             </sharding:binding-table-rules>
