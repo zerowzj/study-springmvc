@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void checkInAdmin(UserAdminEO uaEO) {
         ubDao.insert(uaEO);
-        //uaEO.setUaId(uaEO.getUbId());
+        uaEO.setUaId(uaEO.getUbId());
         uaDao.insert(uaEO);
         System.out.println("name=" + name);
     }

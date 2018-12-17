@@ -3,9 +3,13 @@ package com.company.project.support.aop;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-public class Monitor {
+import java.lang.annotation.Annotation;
+
+public class Monitor implements Ordered {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Monitor.class);
 
@@ -39,8 +43,14 @@ public class Monitor {
             LOGGER.info("总共执行时长" + (end - start) + " 毫秒");
             LOGGER.info("环绕通知结束 日志记录");
         } catch (Throwable t) {
+            t.printStackTrace();
             System.out.println("出现错误");
         }
         return result;
+    }
+
+    @Override
+    public int getOrder() {
+        return 6;
     }
 }
