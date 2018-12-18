@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/spring-context.xml",
         "classpath:spring/spring-dao.xml",
-        "classpath:spring/spring-ds-ms.xml"})
+        "classpath:spring/spring-ds-sharding.xml"})
 public class SpringDao_Test {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SpringDao_Test.class);
@@ -28,6 +28,7 @@ public class SpringDao_Test {
     @Test
     public void insert_test() {
         UserBaseEO ubEO = new UserBaseEO();
+        ubEO.setUserId(System.currentTimeMillis());
         ubEO.setUbLoginName("test1");
         ubEO.setUbLoginPwd("test1");
         userBaseDao.insert(ubEO);

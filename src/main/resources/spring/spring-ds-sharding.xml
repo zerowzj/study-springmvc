@@ -17,25 +17,25 @@
     <!-- 分库算法及策略 -->
     <!-- 分表算法及策略 -->
     <bean id="tableShardingAlgorithm"
-          class="io.shardingsphere.example.spring.namespace.jpa.algorithm.PreciseModuloTableShardingAlgorithm"/>
+          class="com.company.project.common.db.PreciseModuloTableShardingAlgorithm"/>
     <sharding:standard-strategy id="tableShardingStrategy"
                                 sharding-column="USER_ID"
                                 precise-algorithm-ref="tableShardingAlgorithm"/>
     <!-- 数据源 -->
-    <sharding:data-source id="shardingDataSource">
-        <sharding:sharding-rule data-source-names="ds">
+    <sharding:data-source id="dataSource">
+        <sharding:sharding-rule data-source-names="ds"
+                                default-database-strategy-ref=""
+                                default-table-strategy-ref=""
+                                default-data-source-name=""
+                                default-key-generator-ref="">
             <!-- 表规则 -->
             <sharding:table-rules>
                 <sharding:table-rule logic-table="USER_BASE"
-                                     actual-data-nodes="ds.USER_BASE->{0..1}"
-                                     database-strategy-ref="databaseShardingStrategy"
-                                     table-strategy-ref=" "
-                                     generate-key-column-name="UB_ID"/>
+                                     actual-data-nodes="ds.USER_BASE_$->{0..1}"
+                                     table-strategy-ref="tableShardingStrategy"/>
                 <sharding:table-rule logic-table="USER_ADMIN"
-                                     actual-data-nodes="ds.USER_ADMIN$->{0..1}"
-                                     database-strategy-ref="databaseShardingStrategy"
-                                     table-strategy-ref="tableShardingStrategy"
-                                     generate-key-column-name="order_item_id"/>
+                                     actual-data-nodes="ds.USER_ADMIN_$->{0..1}"
+                                     table-strategy-ref="tableShardingStrategy"/>
             </sharding:table-rules>
             <!-- 绑定表规则 -->
             <sharding:binding-table-rules>
