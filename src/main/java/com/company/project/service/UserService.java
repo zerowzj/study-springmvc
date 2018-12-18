@@ -1,10 +1,10 @@
 package com.company.project.service;
 
-import com.company.project.dao.useradmin.UserAdminEO;
+import com.company.project.dao.userbase.UserBaseEO;
 
 public interface UserService {
 
-    void checkInAdmin(UserAdminEO uaEO);
+    void checkIn(UserBaseEO ubEO);
 
-    UserAdminEO get(Long uaId);
+    UserBaseEO get(Long ubId);
 }

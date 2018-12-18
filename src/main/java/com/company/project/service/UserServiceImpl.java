@@ -1,7 +1,5 @@
 package com.company.project.service;
 
-import com.company.project.dao.useradmin.UserAdminDao;
-import com.company.project.dao.useradmin.UserAdminEO;
 import com.company.project.dao.userbase.UserBaseDao;
 import com.company.project.dao.userbase.UserBaseEO;
 import io.shardingsphere.api.HintManager;
@@ -13,8 +11,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserBaseDao ubDao;
-    @Autowired
-    private UserAdminDao uaDao;
 
     //    @Value("#{config['name']}")
 //    @Value("#{config.name}")
@@ -22,17 +18,15 @@ public class UserServiceImpl implements UserService {
     private String name;
 
     @Override
-    public void checkInAdmin(UserAdminEO uaEO) {
-        ubDao.insert(uaEO);
-        uaEO.setUaId(uaEO.getUbId());
-        uaDao.insert(uaEO);
+    public void checkIn(UserBaseEO ubEO) {
+        ubDao.insert(ubEO);
         System.out.println("name=" + name);
     }
 
     @Override
-    public UserAdminEO get(Long uaId) {
+    public UserBaseEO get(Long ubId) {
         HintManager manager = HintManager.getInstance();
         manager.setMasterRouteOnly();
-        return uaDao.get(uaId);
+        return ubDao.get(ubId);
     }
 }

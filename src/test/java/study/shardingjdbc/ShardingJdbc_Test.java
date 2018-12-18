@@ -1,4 +1,4 @@
-package study.spring;
+package study.shardingjdbc;
 
 import com.company.project.dao.userbase.UserBaseDao;
 import com.company.project.dao.userbase.UserBaseEO;
@@ -14,13 +14,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration({"classpath:spring/spring-context.xml",
         "classpath:spring/spring-dao.xml",
         "classpath:spring/spring-ds-sharding.xml"})
-public class SpringDao_Test {
+public class ShardingJdbc_Test {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(SpringDao_Test.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ShardingJdbc_Test.class);
 
     @Autowired
     private UserBaseDao userBaseDao;
-
 
     @Test
     public void insert_test() {
@@ -29,11 +28,5 @@ public class SpringDao_Test {
         ubEO.setUbLoginName("test1");
         ubEO.setUbLoginPwd("test1");
         userBaseDao.insert(ubEO);
-
-    }
-
-    @Test
-    public void get_test() {
-
     }
 }

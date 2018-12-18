@@ -1,6 +1,5 @@
 package study.spring;
 
-import com.company.project.dao.useradmin.UserAdminEO;
 import com.company.project.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,15 +15,6 @@ public class SpringService_Test {
 
     @Autowired
     private UserService userService;
-
-    @Test
-    public void checkInAdmin_test(){
-        UserAdminEO uaEO = new UserAdminEO();
-        uaEO.setUbLoginName("test2");
-        uaEO.setUbLoginPwd("test2");
-        userService.checkInAdmin(uaEO);
-    };
-
 
     @Test
     public void get_test() {
