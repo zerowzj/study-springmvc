@@ -16,11 +16,18 @@
     </bean>
     <!-- 分库算法及策略 -->
     <!-- 分表算法及策略 -->
+    <!-- 用户 -->
     <bean id="userTableShardingAlgorithm"
           class="com.company.project.common.db.PreciseModuloTableShardingAlgorithm"/>
     <sharding:standard-strategy id="userTableShardingStrategy"
                                 sharding-column="UB_USER_ID"
                                 precise-algorithm-ref="userTableShardingAlgorithm"/>
+    <!-- 订单 -->
+    <bean id="orderTableShardingAlgorithm"
+          class="com.company.project.common.db.PreciseModuloTableShardingAlgorithm"/>
+    <sharding:standard-strategy id="orderTableShardingStrategy"
+                                sharding-column="UB_USER_ID"
+                                precise-algorithm-ref="orderTableShardingAlgorithm"/>
     <!-- 数据源 -->
     <sharding:data-source id="dataSource">
         <sharding:sharding-rule data-source-names="ds"
@@ -33,6 +40,12 @@
                 <sharding:table-rule logic-table="USER_BASE"
                                      actual-data-nodes="ds.USER_BASE_$->{0..1}"
                                      table-strategy-ref="userTableShardingStrategy"/>
+                <sharding:table-rule logic-table="ORDER_BASE"
+                                     actual-data-nodes="ds.ORDER_BASE_$->{0..1}"
+                                     table-strategy-ref="orderTableShardingStrategy"/>
+                <sharding:table-rule logic-table="ORDER_ITEM"
+                                     actual-data-nodes="ds.ORDER_ITEM_$->{0..1}"
+                                     table-strategy-ref="orderTableShardingStrategy"/>
             </sharding:table-rules>
         </sharding:sharding-rule>
     </sharding:data-source>

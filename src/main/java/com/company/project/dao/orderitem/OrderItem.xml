@@ -2,5 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.project.dao.orderitem.OrderItemDao">
+    <resultMap id="orderItemEO" type="com.company.project.dao.orderitem.OrderItemEO">
+        <id property="riId" column="RI_ID"/>
+        <result property="riOrderId" column="RI_ORDER_ID"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        RI.RI_ID,
+        RI.RI_ORDER_ID
+    </sql>
 
+    <insert id="insert" parameterType="com.company.project.dao.orderitem.OrderItemEO">
+        INSERT INTO ORDER_ITEM (RI_ORDER_ID)
+        VALUES (#{riOrderId})
+    </insert>
 </mapper>
