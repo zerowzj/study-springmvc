@@ -38,8 +38,8 @@
     <!--</bean>-->
     <!-- 【二】 -->
     <!-- 【三】 -->
-    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
-    </bean>
+    <!--<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">-->
+    <!--</bean>-->
     <!-- 【四】 -->
     <bean id="monitor" class="com.company.project.support.aop.Monitor"/>
     <bean id="logger" class="com.company.project.support.aop.Logger"/>

@@ -23,11 +23,16 @@
                                 sharding-column="UB_USER_ID"
                                 precise-algorithm-ref="userTableShardingAlgorithm"/>
     <!-- 订单 -->
-    <bean id="orderTableShardingAlgorithm"
+    <bean id="orderBaseTableShardingAlgorithm"
           class="com.company.project.common.db.PreciseModuloTableShardingAlgorithm"/>
-    <sharding:standard-strategy id="orderTableShardingStrategy"
-                                sharding-column="UB_USER_ID"
-                                precise-algorithm-ref="orderTableShardingAlgorithm"/>
+    <bean id="orderItemTableShardingAlgorithm"
+          class="com.company.project.common.db.PreciseModuloTableShardingAlgorithm"/>
+    <sharding:standard-strategy id="orderBaseTableShardingStrategy"
+                                sharding-column="RB_ORDER_ID"
+                                precise-algorithm-ref="orderBaseTableShardingAlgorithm"/>
+    <sharding:standard-strategy id="orderItemTableShardingStrategy"
+                                sharding-column="RI_ORDER_ID"
+                                precise-algorithm-ref="orderItemTableShardingAlgorithm"/>
     <!-- 数据源 -->
     <sharding:data-source id="dataSource">
         <sharding:sharding-rule data-source-names="ds"
@@ -42,11 +47,15 @@
                                      table-strategy-ref="userTableShardingStrategy"/>
                 <sharding:table-rule logic-table="ORDER_BASE"
                                      actual-data-nodes="ds.ORDER_BASE_$->{0..1}"
-                                     table-strategy-ref="orderTableShardingStrategy"/>
+                                     table-strategy-ref="orderBaseTableShardingStrategy"/>
                 <sharding:table-rule logic-table="ORDER_ITEM"
                                      actual-data-nodes="ds.ORDER_ITEM_$->{0..1}"
-                                     table-strategy-ref="orderTableShardingStrategy"/>
+                                     table-strategy-ref="orderItemTableShardingStrategy"/>
             </sharding:table-rules>
+            <!-- 绑定表规则 -->
+            <sharding:binding-table-rules>
+                <sharding:binding-table-rule logic-tables="ORDER_BASE, ORDER_ITEM"/>
+            </sharding:binding-table-rules>
         </sharding:sharding-rule>
     </sharding:data-source>
 </beans>

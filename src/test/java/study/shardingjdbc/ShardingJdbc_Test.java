@@ -1,7 +1,7 @@
 package study.shardingjdbc;
 
 import com.company.project.dao.userbase.UserBaseDao;
-import com.company.project.dao.userbase.UserBaseEO;
+import com.company.project.service.OrderService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -20,14 +20,18 @@ public class ShardingJdbc_Test {
 
     @Autowired
     private UserBaseDao userBaseDao;
+    @Autowired
+    private OrderService orderService;
 
     @Test
     public void insert_test() {
-        UserBaseEO ubEO = new UserBaseEO();
-        ubEO.setUbUserId(System.currentTimeMillis());
-        ubEO.setUbLoginName("test1");
-        ubEO.setUbLoginPwd("test1");
-        userBaseDao.insert(ubEO);
+//        UserBaseEO ubEO = new UserBaseEO();
+//        ubEO.setUbUserId(System.currentTimeMillis());
+//        ubEO.setUbLoginName("test1");
+//        ubEO.setUbLoginPwd("test1");
+//        userBaseDao.insert(ubEO);
+        orderService.checkIn();
+
     }
 
     @Test
@@ -39,4 +43,5 @@ public class ShardingJdbc_Test {
     public void get_test() {
         userBaseDao.get(11L);
     }
+
 }
