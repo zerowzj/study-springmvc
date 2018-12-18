@@ -19,9 +19,6 @@
             parameterType="com.company.project.dao.userbase.UserBaseEO">
         INSERT INTO USER_BASE (UB_USER_ID, UB_LOGIN_NAME, UB_LOGIN_PWD)
         VALUES (#{ubUserId}, #{ubLoginName}, #{ubLoginPwd})
-        <!--<selectKey keyProperty="ubId" resultType="java.lang.Long" orderbase="AFTER">-->
-        <!--SELECT LAST_INSERT_ID()-->
-        <!--</selectKey>-->
     </insert>
 
     <select id="get" parameterType="java.lang.Long" resultMap="userBaseEO">
@@ -34,6 +31,6 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM USER_BASE UB
-        WHERE UB.USER_ID = #{userId}
+        WHERE UB.UB_USER_ID = #{userId}
     </select>
 </mapper>

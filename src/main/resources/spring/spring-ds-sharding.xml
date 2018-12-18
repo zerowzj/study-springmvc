@@ -16,11 +16,11 @@
     </bean>
     <!-- 分库算法及策略 -->
     <!-- 分表算法及策略 -->
-    <bean id="tableShardingAlgorithm"
+    <bean id="userTableShardingAlgorithm"
           class="com.company.project.common.db.PreciseModuloTableShardingAlgorithm"/>
-    <sharding:standard-strategy id="tableShardingStrategy"
+    <sharding:standard-strategy id="userTableShardingStrategy"
                                 sharding-column="UB_USER_ID"
-                                precise-algorithm-ref="tableShardingAlgorithm"/>
+                                precise-algorithm-ref="userTableShardingAlgorithm"/>
     <!-- 数据源 -->
     <sharding:data-source id="dataSource">
         <sharding:sharding-rule data-source-names="ds"
@@ -32,7 +32,7 @@
             <sharding:table-rules>
                 <sharding:table-rule logic-table="USER_BASE"
                                      actual-data-nodes="ds.USER_BASE_$->{0..1}"
-                                     table-strategy-ref="tableShardingStrategy"/>
+                                     table-strategy-ref="userTableShardingStrategy"/>
             </sharding:table-rules>
         </sharding:sharding-rule>
     </sharding:data-source>
