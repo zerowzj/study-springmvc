@@ -37,6 +37,6 @@ public class ShardingJdbc_Test {
 
     @Test
     public void get_test() {
-        userBaseDao.get(34L);
+        userBaseDao.get(11L);
     }
 }
