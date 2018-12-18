@@ -24,19 +24,19 @@ public class ShardingJdbc_Test {
     @Test
     public void insert_test() {
         UserBaseEO ubEO = new UserBaseEO();
-        ubEO.setUserId(System.currentTimeMillis());
+        ubEO.setUbUserId(System.currentTimeMillis());
         ubEO.setUbLoginName("test1");
         ubEO.setUbLoginPwd("test1");
         userBaseDao.insert(ubEO);
     }
 
     @Test
-    public void getByUserId_test(){
+    public void getByUserId_test() {
         userBaseDao.getByUserId(1545095447416L);
     }
 
     @Test
-    public void get_test(){
+    public void get_test() {
         userBaseDao.get(34L);
     }
 }
