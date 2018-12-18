@@ -12,6 +12,8 @@ public class UserBaseEO extends BaseEO {
 
     /* 用户编号 */
     private Long ubId;
+    /* 用户编号 */
+    private Long userId;
     /* 用户登录名 */
     private String ubLoginName;
     /* 用户登录密码 */
@@ -23,6 +25,14 @@ public class UserBaseEO extends BaseEO {
 
     public void setUbId(Long ubId) {
         this.ubId = ubId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getUbLoginName() {
