@@ -19,7 +19,7 @@
     <bean id="tableShardingAlgorithm"
           class="com.company.project.common.db.PreciseModuloTableShardingAlgorithm"/>
     <sharding:standard-strategy id="tableShardingStrategy"
-                                sharding-column="USER_ID"
+                                sharding-column="UB_USER_ID"
                                 precise-algorithm-ref="tableShardingAlgorithm"/>
     <!-- 数据源 -->
     <sharding:data-source id="dataSource">
