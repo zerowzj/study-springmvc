@@ -29,4 +29,14 @@ public class ShardingJdbc_Test {
         ubEO.setUbLoginPwd("test1");
         userBaseDao.insert(ubEO);
     }
+
+    @Test
+    public void getByUserId_test(){
+        userBaseDao.getByUserId(1545095447416L);
+    }
+
+    @Test
+    public void get_test(){
+        userBaseDao.get(34L);
+    }
 }

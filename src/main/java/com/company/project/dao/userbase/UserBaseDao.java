@@ -5,4 +5,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository("userBaseDao")
 public interface UserBaseDao extends BaseDao<Long, UserBaseEO> {
+
+    UserBaseEO getByUserId(Long userId);
 }

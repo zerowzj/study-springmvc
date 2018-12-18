@@ -1,31 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.company.project.dao.userbase.UserBaseDao">
-    <resultMap id="userBaseEO" type="com.company.project.dao.userbase.UserBaseEO">
-        <id property="ubId" column="UB_ID"/>
-        <result property="userId" column="USER_ID"/>
-        <result property="ubLoginName" column="UB_LOGIN_NAME"/>
-        <result property="ubLoginPwd" column="UB_LOGIN_PWD"/>
-    </resultMap>
-    <sql id="Base_Column_List">
-        UB.UB_ID,
-        UB.USER_ID,
-        UB.UB_LOGIN_NAME,
-        UB.UB_LOGIN_PWD
-    </sql>
+<mapper namespace="com.company.project.dao.orderbase.OrderBaseDao">
 
-    <insert id="insert" useGeneratedKeys="true" keyProperty="ubId" parameterType="com.company.project.dao.userbase.UserBaseEO">
-        INSERT INTO USER_BASE (USER_ID, UB_LOGIN_NAME, UB_LOGIN_PWD) VALUES (#{userId}, #{ubLoginName}, #{ubLoginPwd})
-        <!--<selectKey keyProperty="ubId" resultType="java.lang.Long" orderbase="AFTER">-->
-            <!--SELECT LAST_INSERT_ID()-->
-        <!--</selectKey>-->
-    </insert>
-
-    <select id="get" parameterType="java.lang.Long" resultMap="userBaseEO">
-        SELECT
-        <include refid="Base_Column_List"/>
-        FROM USER_BASE UB
-        WHERE UB.UB_ID = #{ubId}
-    </select>
 </mapper>
