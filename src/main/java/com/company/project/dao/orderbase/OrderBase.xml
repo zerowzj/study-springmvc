@@ -15,4 +15,11 @@
         INSERT INTO ORDER_BASE (RB_ORDER_ID)
         VALUES (#{rbOrderId})
     </insert>
+    <select id="getByOrderId" parameterType="java.lang.Long" resultType="java.util.Map">
+        SELECT
+        <include refid="Base_Column_List"/>,
+        <include refid="com.company.project.dao.orderitem.OrderItemDao.Base_Column_List" />
+        FROM ORDER_BASE RB JOIN ORDER_ITEM RI ON RB.RB_ORDER_ID = RI.RI_ORDER_ID
+        WHERE RB.RB_ORDER_ID = #{orderId}
+    </select>
 </mapper>
