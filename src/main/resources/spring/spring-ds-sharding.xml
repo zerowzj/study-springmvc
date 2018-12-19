@@ -24,7 +24,7 @@
     <!--precise-algorithm-ref="userTableShardingAlgorithm"/>-->
     <sharding:inline-strategy id="userTableShardingStrategy"
                               sharding-column="UB_USER_ID"
-                              algorithm-expression="USER_BASE_${UB_USER_ID%2}"/>
+                              algorithm-expression="USER_BASE_${UB_USER_ID % 2}"/>
     <!-- 订单 -->
     <bean id="orderBaseTableShardingAlgorithm"
           class="com.company.project.common.db.PreciseModuloTableShardingAlgorithm"/>
@@ -38,6 +38,7 @@
                                 precise-algorithm-ref="orderItemTableShardingAlgorithm"/>
     <!-- 数据源 -->
     <sharding:data-source id="dataSource">
+        <!-- 分片规则 -->
         <sharding:sharding-rule data-source-names="ds"
                                 default-database-strategy-ref=""
                                 default-table-strategy-ref=""
@@ -60,6 +61,7 @@
                 <sharding:binding-table-rule logic-tables="ORDER_BASE, ORDER_ITEM"/>
             </sharding:binding-table-rules>
         </sharding:sharding-rule>
+        <!-- 分片属性 -->
         <sharding:props>
             <prop key="sql.show">true</prop>
             <prop key="executor.size">5</prop>
