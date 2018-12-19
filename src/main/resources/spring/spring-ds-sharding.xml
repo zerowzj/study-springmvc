@@ -17,11 +17,14 @@
     <!-- 分库算法及策略 -->
     <!-- 分表算法及策略 -->
     <!-- 用户 -->
-    <bean id="userTableShardingAlgorithm"
-          class="com.company.project.common.db.PreciseModuloTableShardingAlgorithm"/>
-    <sharding:standard-strategy id="userTableShardingStrategy"
-                                sharding-column="UB_USER_ID"
-                                precise-algorithm-ref="userTableShardingAlgorithm"/>
+    <!--<bean id="userTableShardingAlgorithm"-->
+    <!--class="com.company.project.common.db.PreciseModuloTableShardingAlgorithm"/>-->
+    <!--<sharding:standard-strategy id="userTableShardingStrategy"-->
+    <!--sharding-column="UB_USER_ID"-->
+    <!--precise-algorithm-ref="userTableShardingAlgorithm"/>-->
+    <sharding:inline-strategy id="userTableShardingStrategy"
+                              sharding-column="UB_USER_ID"
+                              algorithm-expression="USER_BASE_${UB_USER_ID%2}"/>
     <!-- 订单 -->
     <bean id="orderBaseTableShardingAlgorithm"
           class="com.company.project.common.db.PreciseModuloTableShardingAlgorithm"/>
