@@ -1,16 +1,10 @@
 package com.company.project.dao.userbase;
 
-
 import com.company.project.common.db.BaseEO;
 
-/**
- * 用户基本信息EO
- *
- * @author wangzhj
- */
 public class UserBaseEO extends BaseEO {
 
-    /* 用户编号 */
+    /* 主键 */
     private Long ubId;
     /* 用户编号 */
     private Long ubUserId;
