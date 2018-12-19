@@ -14,9 +14,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration({"classpath:spring/spring-context.xml",
         "classpath:spring/spring-dao.xml",
         "classpath:spring/spring-ds-sharding.xml"})
-public class ShardingJdbc_Test {
+public class UserBaseDao_Test {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ShardingJdbc_Test.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserBaseDao_Test.class);
 
     @Autowired
     private UserBaseDao userBaseDao;
