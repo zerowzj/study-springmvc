@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -31,6 +32,13 @@ public class OrderService_Test {
     public void getByOrderId_test() {
         Long orderId = 1545183209075L;
         List data = orderService.getByOrderId(orderId);
+        LOGGER.info("{}", data);
+    }
+
+    @Test
+    public void getByOrderIds_test() {
+        List<Long> orderIds = Arrays.asList(1545124477054L, 1545183209075L);
+        List data = orderService.getByOrderIds(orderIds);
         LOGGER.info("{}", data);
     }
 }

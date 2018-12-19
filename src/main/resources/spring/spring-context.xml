@@ -41,24 +41,24 @@
     <!--<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">-->
     <!--</bean>-->
     <!-- 【四】 -->
-    <bean id="monitor" class="com.company.project.support.aop.Monitor"/>
-    <bean id="logger" class="com.company.project.support.aop.Logger"/>
-    <aop:config>
-        <aop:pointcut id="myPointCut" expression="execution(public * com.company.project.service..*.*(..))"/>
-        <aop:aspect ref="monitor" order="6">
-            <aop:before method="doBefore" pointcut-ref="myPointCut"/>
-            <aop:after method="doAfter" pointcut-ref="myPointCut"/>
-            <aop:after-throwing method="doAfterThrowing" pointcut-ref="myPointCut"/>
-            <aop:after-returning method="doAfterReturning" pointcut-ref="myPointCut"/>
-            <aop:around method="doAround" pointcut-ref="myPointCut"/>
-        </aop:aspect>
-        <aop:aspect ref="logger" order="3">
-            <aop:before method="doBefore" pointcut-ref="myPointCut"/>
-        </aop:aspect>
-    </aop:config>
+    <!--<bean id="monitor" class="com.company.project.support.aop.Monitor"/>-->
+    <!--<bean id="logger" class="com.company.project.support.aop.Logger"/>-->
+    <!--<aop:config>-->
+        <!--<aop:pointcut id="myPointCut" expression="execution(public * com.company.project.service..*.*(..))"/>-->
+        <!--<aop:aspect ref="monitor" order="6">-->
+            <!--<aop:before method="doBefore" pointcut-ref="myPointCut"/>-->
+            <!--<aop:after method="doAfter" pointcut-ref="myPointCut"/>-->
+            <!--<aop:after-throwing method="doAfterThrowing" pointcut-ref="myPointCut"/>-->
+            <!--<aop:after-returning method="doAfterReturning" pointcut-ref="myPointCut"/>-->
+            <!--<aop:around method="doAround" pointcut-ref="myPointCut"/>-->
+        <!--</aop:aspect>-->
+        <!--<aop:aspect ref="logger" order="3">-->
+            <!--<aop:before method="doBefore" pointcut-ref="myPointCut"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
     <!-- 【五】 -->
-    <bean class="com.company.project.support.aop.MyAspect"/>
-    <aop:aspectj-autoproxy/>
+    <!--<bean class="com.company.project.support.aop.MyAspect"/>-->
+    <!--<aop:aspectj-autoproxy/>-->
     <!-- ==================== -->
     <!--        扩展点        -->
     <!-- ==================== -->

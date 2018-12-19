@@ -33,4 +33,9 @@ public class OrderServiceImpl implements OrderService {
     public List getByOrderId(Long orderId) {
         return orderBaseDao.getByOrderId(orderId);
     }
+
+    @Override
+    public List getByOrderIds(List<Long> orderIds) {
+        return orderBaseDao.getByOrderIds(orderIds);
+    }
 }
