@@ -64,7 +64,7 @@
         <!-- 分片属性 -->
         <sharding:props>
             <prop key="sql.show">true</prop>
-            <prop key="executor.size">5</prop>
+            <prop key="executor.size">10</prop>
         </sharding:props>
     </sharding:data-source>
 </beans>
