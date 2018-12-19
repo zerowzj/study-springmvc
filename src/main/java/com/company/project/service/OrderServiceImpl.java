@@ -7,6 +7,8 @@ import com.company.project.dao.orderitem.OrderItemEO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("orderService")
 public class OrderServiceImpl implements OrderService {
 
@@ -25,5 +27,10 @@ public class OrderServiceImpl implements OrderService {
         OrderItemEO riEO = new OrderItemEO();
         riEO.setRiOrderId(orderId);
         orderItemDao.insert(riEO);
+    }
+
+    @Override
+    public List getByOrderId(Long orderId) {
+        return orderBaseDao.getByOrderId(orderId);
     }
 }

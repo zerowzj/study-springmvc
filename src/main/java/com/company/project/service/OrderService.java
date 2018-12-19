@@ -1,9 +1,10 @@
 package com.company.project.service;
 
-import com.company.project.dao.userbase.UserBaseEO;
+import java.util.List;
 
 public interface OrderService {
 
     void checkIn();
 
+    List getByOrderId(Long orderId);
 }

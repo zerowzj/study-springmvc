@@ -57,5 +57,9 @@
                 <sharding:binding-table-rule logic-tables="ORDER_BASE, ORDER_ITEM"/>
             </sharding:binding-table-rules>
         </sharding:sharding-rule>
+        <sharding:props>
+            <prop key="sql.show">true</prop>
+            <prop key="executor.size">5</prop>
+        </sharding:props>
     </sharding:data-source>
 </beans>

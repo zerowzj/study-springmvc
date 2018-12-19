@@ -22,6 +22,7 @@ public class PreciseModuloTableShardingAlgorithm implements PreciseShardingAlgor
             LOGGER.info("targetName={}", targetName);
             //这里求余3是因为我这里有三个库，分别是我们在spring-cfg.xml配置的
             if (targetName.endsWith(shardingValue.getValue() % 2 + "")) {
+                LOGGER.info("实际表：{}", targetName);
                 return targetName;
             }
         }
