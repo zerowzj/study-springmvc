@@ -37,7 +37,7 @@ public class OrderService_Test {
 
     @Test
     public void getByOrderIds_test() {
-        List<Long> orderIds = Arrays.asList(1545124477054L, 1545183209075L);
+        List<Long> orderIds = Arrays.asList(1545124477054L, 1545183209075L, 1545124541226L);
         List data = orderService.getByOrderIds(orderIds);
         LOGGER.info("{}", data);
     }
