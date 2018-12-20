@@ -41,4 +41,10 @@ public class OrderService_Test {
         List data = orderService.getByOrderIds(orderIds);
         LOGGER.info("{}", data);
     }
+
+    @Test
+    public void getAll_test() {
+        List data = orderService.getAll();
+        LOGGER.info("data={}", data);
+    }
 }

@@ -11,4 +11,6 @@ public interface OrderBaseDao extends BaseDao<Long, OrderBaseEO> {
     List getByOrderId(Long orderId);
 
     List getByOrderIds(List<Long> orderIds);
+
+    List getAll();
 }
