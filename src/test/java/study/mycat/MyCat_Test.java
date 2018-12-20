@@ -25,8 +25,8 @@ public class MyCat_Test {
     public void insert_test() {
         UserBaseEO ubEO = new UserBaseEO();
         ubEO.setUbUserId(System.currentTimeMillis());
-        ubEO.setUbLoginName("test1");
-        ubEO.setUbLoginPwd("test1");
+        ubEO.setUbLoginName("test2");
+        ubEO.setUbLoginPwd("test2");
         userBaseDao.insert(ubEO);
     }
 
