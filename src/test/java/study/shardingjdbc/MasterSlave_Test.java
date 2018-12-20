@@ -32,7 +32,7 @@ public class MasterSlave_Test {
 
     @Test
     public void getByUserId_test() {
-        userBaseDao.getByUserId(1545095447416L);
+        userBaseDao.getByUserId(1545295957433L);
     }
 
     @Test
