@@ -14,9 +14,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration({"classpath:spring/spring-context.xml",
         "classpath:spring/spring-dao.xml",
         "classpath:spring/spring-ds.xml"})
-public class UserBaseDao_Test {
+public class MyCat_Test {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(UserBaseDao_Test.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MyCat_Test.class);
 
     @Autowired
     private UserBaseDao userBaseDao;
@@ -32,8 +32,8 @@ public class UserBaseDao_Test {
 
     @Test
     public void getByUserId_test() {
-       UserBaseEO ubEO =  userBaseDao.getByUserId(1545275728356L);
-       LOGGER.info("{}", ubEO);
+        UserBaseEO ubEO = userBaseDao.getByUserId(1545275728356L);
+        LOGGER.info("{}", ubEO);
     }
 
     @Test
