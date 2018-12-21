@@ -4,27 +4,45 @@
        xmlns:sharding="http://shardingsphere.io/schema/shardingsphere/sharding"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://shardingsphere.io/schema/shardingsphere/sharding http://shardingsphere.io/schema/shardingsphere/sharding/sharding.xsd">
-    <!-- ==================== -->
+    <!-- #################### -->
     <!--       水平分表        -->
-    <!-- ==================== -->
-    <!-- 数据源 -->
-    <bean id="ds" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+    <!-- #################### -->
+    <!-- =============== -->
+    <!--    实际数据源    -->
+    <!-- =============== -->
+    <bean id="ds0" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/ds_sharding"/>
         <property name="username" value="root"/>
         <property name="password" value="123123"/>
     </bean>
-    <!-- 分库算法及策略 -->
-    <!-- 分表算法及策略 -->
+    <bean id="ds1" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3307/ds_sharding"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123123"/>
+    </bean>
+    <!-- =============== -->
+    <!--   分库算法及策略  -->
+    <!-- =============== -->
     <!-- 用户 -->
-    <!--<bean id="userTableShardingAlgorithm"-->
-    <!--class="com.company.project.common.db.PreciseModuloTableShardingAlgorithm"/>-->
-    <!--<sharding:standard-strategy id="userTableShardingStrategy"-->
+    <bean id="userDatabaseShardingAlgorithm"
+          class="com.company.project.common.db.PreciseModuloDatabaseShardingAlgorithm"/>
+    <sharding:standard-strategy id="userDatabaseShardingStrategy"
+                                sharding-column="UB_USER_ID"
+                                precise-algorithm-ref="userDatabaseShardingAlgorithm"/>
+    <!-- =============== -->
+    <!--   分表算法及策略  -->
+    <!-- =============== -->
+    <!-- 用户 -->
+    <bean id="userTableShardingAlgorithm"
+          class="com.company.project.common.db.PreciseModuloTableShardingAlgorithm"/>
+    <sharding:standard-strategy id="userTableShardingStrategy"
+                                sharding-column="UB_USER_ID"
+                                precise-algorithm-ref="userTableShardingAlgorithm"/>
+    <!--<sharding:inline-strategy id="userTableShardingStrategy"-->
     <!--sharding-column="UB_USER_ID"-->
-    <!--precise-algorithm-ref="userTableShardingAlgorithm"/>-->
-    <sharding:inline-strategy id="userTableShardingStrategy"
-                              sharding-column="UB_USER_ID"
-                              algorithm-expression="USER_BASE_${UB_USER_ID % 2}"/>
+    <!--algorithm-expression="USER_BASE_${UB_USER_ID % 2}"/>-->
     <!-- 订单 -->
     <bean id="orderBaseTableShardingAlgorithm"
           class="com.company.project.common.db.PreciseModuloTableShardingAlgorithm"/>
@@ -36,10 +54,12 @@
     <sharding:standard-strategy id="orderItemTableShardingStrategy"
                                 sharding-column="RI_ORDER_ID"
                                 precise-algorithm-ref="orderItemTableShardingAlgorithm"/>
-    <!-- 数据源 -->
+    <!-- =============== -->
+    <!--       数据源     -->
+    <!-- =============== -->
     <sharding:data-source id="dataSource">
         <!-- 分片规则 -->
-        <sharding:sharding-rule data-source-names="ds"
+        <sharding:sharding-rule data-source-names="ds0, ds1"
                                 default-database-strategy-ref=""
                                 default-table-strategy-ref=""
                                 default-data-source-name=""
@@ -47,19 +67,20 @@
             <!-- 表规则 -->
             <sharding:table-rules>
                 <sharding:table-rule logic-table="USER_BASE"
-                                     actual-data-nodes="ds.USER_BASE_$->{0..1}"
-                                     table-strategy-ref="userTableShardingStrategy"/>
-                <sharding:table-rule logic-table="ORDER_BASE"
-                                     actual-data-nodes="ds.ORDER_BASE_$->{0..1}"
-                                     table-strategy-ref="orderBaseTableShardingStrategy"/>
-                <sharding:table-rule logic-table="ORDER_ITEM"
-                                     actual-data-nodes="ds.ORDER_ITEM_$->{0..1}"
-                                     table-strategy-ref="orderItemTableShardingStrategy"/>
+                                     actual-data-nodes="ds$->{0..1}.USER_BASE_$->{0..1}"
+                                     table-strategy-ref="userTableShardingStrategy"
+                                     database-strategy-ref="userDatabaseShardingStrategy"/>
+                <!--<sharding:table-rule logic-table="ORDER_BASE"-->
+                <!--actual-data-nodes="ds.ORDER_BASE_$->{0..1}"-->
+                <!--table-strategy-ref="orderBaseTableShardingStrategy"/>-->
+                <!--<sharding:table-rule logic-table="ORDER_ITEM"-->
+                <!--actual-data-nodes="ds.ORDER_ITEM_$->{0..1}"-->
+                <!--table-strategy-ref="orderItemTableShardingStrategy"/>-->
             </sharding:table-rules>
             <!-- 绑定表规则 -->
-            <sharding:binding-table-rules>
-                <sharding:binding-table-rule logic-tables="ORDER_BASE, ORDER_ITEM"/>
-            </sharding:binding-table-rules>
+            <!--<sharding:binding-table-rules>-->
+            <!--<sharding:binding-table-rule logic-tables="ORDER_BASE, ORDER_ITEM"/>-->
+            <!--</sharding:binding-table-rules>-->
         </sharding:sharding-rule>
         <!-- 分片属性 -->
         <sharding:props>
