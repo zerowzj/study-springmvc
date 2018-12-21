@@ -31,6 +31,9 @@
     <sharding:standard-strategy id="userDatabaseShardingStrategy"
                                 sharding-column="UB_USER_ID"
                                 precise-algorithm-ref="userDatabaseShardingAlgorithm"/>
+    <sharding:inline-strategy id="userDatabaseShardingStrategy_X"
+                              sharding-column="UB_USER_ID"
+                              algorithm-expression="ds${UB_USER_ID % 2}"/>
     <!-- =============== -->
     <!--   分表算法及策略  -->
     <!-- =============== -->
@@ -40,9 +43,9 @@
     <sharding:standard-strategy id="userTableShardingStrategy"
                                 sharding-column="UB_USER_ID"
                                 precise-algorithm-ref="userTableShardingAlgorithm"/>
-    <!--<sharding:inline-strategy id="userTableShardingStrategy"-->
-    <!--sharding-column="UB_USER_ID"-->
-    <!--algorithm-expression="USER_BASE_${UB_USER_ID % 2}"/>-->
+    <sharding:inline-strategy id="userTableShardingStrategy_X"
+                              sharding-column="UB_USER_ID"
+                              algorithm-expression="USER_BASE_${UB_USER_ID % 2}"/>
     <!-- 订单 -->
     <bean id="orderBaseTableShardingAlgorithm"
           class="com.company.project.common.shardingalgorithm.PreciseModuloTableShardingAlgorithm"/>
@@ -54,6 +57,12 @@
     <sharding:standard-strategy id="orderItemTableShardingStrategy"
                                 sharding-column="RI_ORDER_ID"
                                 precise-algorithm-ref="orderItemTableShardingAlgorithm"/>
+    <sharding:inline-strategy id="orderBaseTableShardingStrategy_X"
+                              sharding-column="RB_ORDER_ID"
+                              algorithm-expression="ORDER_BASE_${RB_ORDER_ID % 2}"/>
+    <sharding:inline-strategy id="orderItemTableShardingStrategy_X"
+                              sharding-column="RI_ORDER_ID"
+                              algorithm-expression="ORDER_BASE_${RI_ORDER_ID % 2}"/>
     <!-- =============== -->
     <!--       数据源     -->
     <!-- =============== -->
