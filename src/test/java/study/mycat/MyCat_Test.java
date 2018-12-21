@@ -22,7 +22,7 @@ public class MyCat_Test {
     private UserBaseDao userBaseDao;
 
     @Test
-    public void insert_test() {
+    public void insertUser_test() {
         UserBaseEO ubEO = new UserBaseEO();
         ubEO.setUbUserId(System.currentTimeMillis());
         ubEO.setUbLoginName("mycat");
@@ -32,12 +32,18 @@ public class MyCat_Test {
 
     @Test
     public void getByUserId_test() {
-        UserBaseEO ubEO = userBaseDao.getByUserId(1545275728356L);
+        Long userId = 1545357190670L;
+        UserBaseEO ubEO = userBaseDao.getByUserId(userId);
         LOGGER.info("{}", ubEO);
     }
 
     @Test
-    public void get_test() {
+    public void getUser_test() {
         userBaseDao.get(13L);
+    }
+
+    @Test
+    public void insertOrder_test() {
+
     }
 }
