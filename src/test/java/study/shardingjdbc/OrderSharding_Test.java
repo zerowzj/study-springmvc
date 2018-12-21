@@ -16,9 +16,9 @@ import java.util.List;
 @ContextConfiguration({"classpath:spring/spring-context.xml",
         "classpath:spring/spring-dao.xml",
         "classpath:spring/spring-ds-sharding.xml"})
-public class OrderService_Test {
+public class OrderSharding_Test {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(OrderService_Test.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(OrderSharding_Test.class);
 
     @Autowired
     private OrderService orderService;
