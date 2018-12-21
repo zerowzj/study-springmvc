@@ -25,8 +25,8 @@ public class MasterSlave_Test {
     public void insert_test() {
         UserBaseEO ubEO = new UserBaseEO();
         ubEO.setUbUserId(System.currentTimeMillis());
-        ubEO.setUbLoginName("test1");
-        ubEO.setUbLoginPwd("test1");
+        ubEO.setUbLoginName("sharding-jdbc");
+        ubEO.setUbLoginPwd("sharding-jdbc");
         userBaseDao.insert(ubEO);
     }
 

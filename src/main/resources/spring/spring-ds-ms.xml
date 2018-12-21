@@ -31,7 +31,7 @@
                               slave-data-source-names="ds_slave0"
                               strategy-ref="randomStrategy"
                               strategy-type="">
-        <!-- 主从属性 -->
+        <!-- 属性 -->
         <master-slave:props>
             <prop key="sql.show">true</prop>
             <prop key="executor.size">10</prop>
