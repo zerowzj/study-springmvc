@@ -2,6 +2,7 @@ package study.shardingjdbc;
 
 import com.company.project.dao.userbase.UserBaseDao;
 import com.company.project.dao.userbase.UserBaseEO;
+import io.shardingsphere.api.HintManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -32,6 +33,7 @@ public class MasterSlave_Test {
 
     @Test
     public void getByUserId_test() {
+        // HintManager.getInstance().setMasterRouteOnly();
         userBaseDao.getByUserId(1545295957433L);
     }
 
