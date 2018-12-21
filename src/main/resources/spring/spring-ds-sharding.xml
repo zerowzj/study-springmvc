@@ -27,7 +27,7 @@
     <!-- =============== -->
     <!-- 用户 -->
     <bean id="userDatabaseShardingAlgorithm"
-          class="com.company.project.common.db.PreciseModuloDatabaseShardingAlgorithm"/>
+          class="com.company.project.common.shardingalgorithm.PreciseModuloDatabaseShardingAlgorithm"/>
     <sharding:standard-strategy id="userDatabaseShardingStrategy"
                                 sharding-column="UB_USER_ID"
                                 precise-algorithm-ref="userDatabaseShardingAlgorithm"/>
@@ -36,7 +36,7 @@
     <!-- =============== -->
     <!-- 用户 -->
     <bean id="userTableShardingAlgorithm"
-          class="com.company.project.common.db.PreciseModuloTableShardingAlgorithm"/>
+          class="com.company.project.common.shardingalgorithm.PreciseModuloTableShardingAlgorithm"/>
     <sharding:standard-strategy id="userTableShardingStrategy"
                                 sharding-column="UB_USER_ID"
                                 precise-algorithm-ref="userTableShardingAlgorithm"/>
@@ -45,9 +45,9 @@
     <!--algorithm-expression="USER_BASE_${UB_USER_ID % 2}"/>-->
     <!-- 订单 -->
     <bean id="orderBaseTableShardingAlgorithm"
-          class="com.company.project.common.db.PreciseModuloTableShardingAlgorithm"/>
+          class="com.company.project.common.shardingalgorithm.PreciseModuloTableShardingAlgorithm"/>
     <bean id="orderItemTableShardingAlgorithm"
-          class="com.company.project.common.db.PreciseModuloTableShardingAlgorithm"/>
+          class="com.company.project.common.shardingalgorithm.PreciseModuloTableShardingAlgorithm"/>
     <sharding:standard-strategy id="orderBaseTableShardingStrategy"
                                 sharding-column="RB_ORDER_ID"
                                 precise-algorithm-ref="orderBaseTableShardingAlgorithm"/>
@@ -70,17 +70,17 @@
                                      actual-data-nodes="ds$->{0..1}.USER_BASE_$->{0..1}"
                                      table-strategy-ref="userTableShardingStrategy"
                                      database-strategy-ref="userDatabaseShardingStrategy"/>
-                <!--<sharding:table-rule logic-table="ORDER_BASE"-->
-                <!--actual-data-nodes="ds.ORDER_BASE_$->{0..1}"-->
-                <!--table-strategy-ref="orderBaseTableShardingStrategy"/>-->
-                <!--<sharding:table-rule logic-table="ORDER_ITEM"-->
-                <!--actual-data-nodes="ds.ORDER_ITEM_$->{0..1}"-->
-                <!--table-strategy-ref="orderItemTableShardingStrategy"/>-->
+                <sharding:table-rule logic-table="ORDER_BASE"
+                                     actual-data-nodes="ds0.ORDER_BASE_$->{0..1}"
+                                     table-strategy-ref="orderBaseTableShardingStrategy"/>
+                <sharding:table-rule logic-table="ORDER_ITEM"
+                                     actual-data-nodes="ds0.ORDER_ITEM_$->{0..1}"
+                                     table-strategy-ref="orderItemTableShardingStrategy"/>
             </sharding:table-rules>
             <!-- 绑定表规则 -->
-            <!--<sharding:binding-table-rules>-->
-            <!--<sharding:binding-table-rule logic-tables="ORDER_BASE, ORDER_ITEM"/>-->
-            <!--</sharding:binding-table-rules>-->
+            <sharding:binding-table-rules>
+                <sharding:binding-table-rule logic-tables="ORDER_BASE, ORDER_ITEM"/>
+            </sharding:binding-table-rules>
         </sharding:sharding-rule>
         <!-- 分片属性 -->
         <sharding:props>
