@@ -44,6 +44,7 @@ public class MyCat_Test {
 
     @Test
     public void insertOrder_test() {
-
+        LOGGER.info("1545483365506 % 3={}", 1545483365506L % 3);
+        LOGGER.info("1545483439211 % 3={}", 1545483439211L % 3);
     }
 }
