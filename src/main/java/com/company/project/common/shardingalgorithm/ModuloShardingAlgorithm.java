@@ -8,11 +8,19 @@ import org.slf4j.LoggerFactory;
 import java.util.Collection;
 
 /**
+ * 取模分片算法
  *
+ * @author wangzhj
  */
-public class PreciseModuloTableShardingAlgorithm implements PreciseShardingAlgorithm<Long> {
+public class ModuloShardingAlgorithm implements PreciseShardingAlgorithm<Long> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(PreciseModuloTableShardingAlgorithm.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ModuloShardingAlgorithm.class);
+
+    private int count;
+
+    public ModuloShardingAlgorithm(int count) {
+        this.count = count;
+    }
 
     @Override
     public String doSharding(Collection<String> availableTargetNames,
@@ -20,8 +28,9 @@ public class PreciseModuloTableShardingAlgorithm implements PreciseShardingAlgor
         LOGGER.info("LogicTableName={}, ColumnName={}, Value={}", shardingValue.getLogicTableName(), shardingValue.getColumnName(), shardingValue.getValue());
         LOGGER.info("AvailableTargetNames={}", availableTargetNames);
         for (String targetName : availableTargetNames) {
-            if (targetName.endsWith(shardingValue.getValue() % 2 + "")) {
-                LOGGER.info("实际表：{}", targetName);
+            long mod = shardingValue.getValue() % count;
+            if (targetName.endsWith(String.valueOf(mod))) {
+                LOGGER.info("ActualTargetName：{}", targetName);
                 return targetName;
             }
         }
