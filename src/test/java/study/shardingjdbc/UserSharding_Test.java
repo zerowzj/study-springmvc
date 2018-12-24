@@ -48,7 +48,7 @@ public class UserSharding_Test {
     @Test
     public void getLt_test() {
         List<Long> ubIdLt = Arrays.asList(7L, 20L);
-        List<Long> userIdLt = Arrays.asList();
+        List<Long> userIdLt = Arrays.asList(1545637813608L, 1545635736265L);
         userBaseDao.getLt(ubIdLt, userIdLt);
     }
 }
