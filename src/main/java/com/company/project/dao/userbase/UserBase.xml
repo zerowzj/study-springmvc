@@ -33,4 +33,11 @@
         FROM USER_BASE UB
         WHERE UB.UB_USER_ID = #{userId}
     </select>
+
+    <select id="getLt" parameterType="java.lang.Long" resultMap="userBaseEO">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM USER_BASE UB
+        WHERE UB.UB_USER_ID = #{userId}
+    </select>
 </mapper>
