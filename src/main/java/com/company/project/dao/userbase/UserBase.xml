@@ -38,6 +38,18 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM USER_BASE UB
-        WHERE UB.UB_USER_ID = #{userId}
+        WHERE 1=1
+        <if test="ubIdLt != null and ubIdLt.size() > 0">
+            AND UB_ID IN
+            <foreach collection="ubIdLt" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="userIdLt != null and userIdLt.size() > 0">
+            AND UB_USER_ID IN
+            <foreach collection="userIdLt" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
     </select>
 </mapper>

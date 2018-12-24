@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.Arrays;
+import java.util.List;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/spring-context.xml",
         "classpath:spring/spring-dao.xml",
@@ -40,5 +43,12 @@ public class UserSharding_Test {
     @Test
     public void get_test() {
         userBaseDao.get(11L);
+    }
+
+    @Test
+    public void getLt_test() {
+        List<Long> ubIdLt = Arrays.asList(7L, 20L);
+        List<Long> userIdLt = Arrays.asList();
+        userBaseDao.getLt(ubIdLt, userIdLt);
     }
 }
