@@ -59,14 +59,14 @@
             <!-- 表规则 -->
             <sharding:table-rules>
                 <sharding:table-rule logic-table="USER_BASE"
-                                     actual-data-nodes="ds0.USER_BASE_$->{0..2}"
+                                     actual-data-nodes="ds0.USER_BASE_${0..2}"
                                      table-strategy-ref="userTableShardingStrategy"/>
                 <sharding:table-rule logic-table="ORDER_BASE"
-                                     actual-data-nodes="ds$->{0..1}.ORDER_BASE_$->{0..1}"
+                                     actual-data-nodes="ds${0..1}.ORDER_BASE_${0..1}"
                                      table-strategy-ref="orderBaseTableShardingStrategy"
                                      database-strategy-ref="orderBaseDatabaseShardingStrategy"/>
                 <sharding:table-rule logic-table="ORDER_ITEM"
-                                     actual-data-nodes="ds$->{0..1}.ORDER_ITEM_$->{0..1}"
+                                     actual-data-nodes="ds${0..1}.ORDER_ITEM_${0..1}"
                                      table-strategy-ref="orderItemTableShardingStrategy"
                                      database-strategy-ref="orderItemDatabaseShardingStrategy"/>
             </sharding:table-rules>
