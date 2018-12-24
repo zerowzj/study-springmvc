@@ -19,11 +19,11 @@
 	<dataNode name="d_node0" dataHost="d_host0" database="ds_sharding" />
 	<dataNode name="d_node1" dataHost="d_host1" database="ds_sharding" />
 	<!-- ==================== -->
-	<!--      数据主机        -->
-	<!--   banlance：读写分离 -->
-	<!--  writeType：         -->
-	<!-- switchType：主从切换 -->
+	<!--      数据主机         -->
 	<!-- ==================== -->
+	<!--   banlance：读写分离  -->
+	<!--  writeType：         -->
+	<!-- switchType：主从切换  -->
 	<!-- 物理数据库配置 -->
 	<dataHost name="d_host0" maxCon="1000" minCon="10" balance="0" switchType="1" writeType="0" 
 			  dbType="mysql" dbDriver="native" slaveThreshold="100">
