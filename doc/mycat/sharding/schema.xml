@@ -33,7 +33,7 @@
 		</writeHost>
 	</dataHost>
 		<dataHost name="d_host1" maxCon="1000" minCon="10" balance="0" switchType="1" writeType="0" 
-			  dbType="mysql" dbDriver="native" slaveThreshold="100">
+			      dbType="mysql" dbDriver="native" slaveThreshold="100">
 		<heartbeat>select user();</heartbeat>		
 		<writeHost host="host_master" url="127.0.0.1:3307" user="root" password="123123">
 			<!--<readHost host="host_slave0" url="127.0.0.1:3307" user="root" password="123123" />-->

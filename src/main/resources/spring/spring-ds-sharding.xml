@@ -5,7 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://shardingsphere.io/schema/shardingsphere/sharding http://shardingsphere.io/schema/shardingsphere/sharding/sharding.xsd">
     <!-- #################### -->
-    <!--       水平分表        -->
+    <!--       分库分表        -->
     <!-- #################### -->
     <!-- =============== -->
     <!--    物理数据源    -->
