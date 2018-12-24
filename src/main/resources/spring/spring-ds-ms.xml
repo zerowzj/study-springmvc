@@ -4,10 +4,12 @@
        xmlns:master-slave="http://shardingsphere.io/schema/shardingsphere/masterslave"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://shardingsphere.io/schema/shardingsphere/masterslave http://shardingsphere.io/schema/shardingsphere/masterslave/master-slave.xsd">
-    <!-- ==================== -->
+    <!-- #################### -->
     <!--       读写分离        -->
-    <!-- ==================== -->
-    <!-- 数据源 -->
+    <!-- #################### -->
+    <!-- =============== -->
+    <!--    物理数据源    -->
+    <!-- =============== -->
     <bean id="ds_master" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/ds_ms"/>
@@ -20,12 +22,17 @@
         <property name="username" value="root"/>
         <property name="password" value="123123"/>
     </bean>
-    <!-- 负载均衡策略（随机和轮询） -->
+    <!-- =============== -->
+    <!--   负载均衡策略    -->
+    <!-- =============== -->
+    <!-- 随机和轮询 -->
     <bean id="randomStrategy"
           class="io.shardingsphere.api.algorithm.masterslave.RandomMasterSlaveLoadBalanceAlgorithm"/>
     <bean id="roundRobinStrategy"
           class="io.shardingsphere.api.algorithm.masterslave.RoundRobinMasterSlaveLoadBalanceAlgorithm"/>
-    <!-- 数据源 -->
+    <!-- =============== -->
+    <!--    逻辑数据源    -->
+    <!-- =============== -->
     <master-slave:data-source id="dataSource"
                               master-data-source-name="ds_master"
                               slave-data-source-names="ds_slave0"
