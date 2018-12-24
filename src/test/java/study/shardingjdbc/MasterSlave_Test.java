@@ -33,8 +33,9 @@ public class MasterSlave_Test {
 
     @Test
     public void getByUserId_test() {
-        // HintManager.getInstance().setMasterRouteOnly();
-        userBaseDao.getByUserId(1545295957433L);
+        HintManager.getInstance().setMasterRouteOnly();
+        UserBaseEO ubEO = userBaseDao.getByUserId(1545634412870L);
+        LOGGER.info("{}", ubEO.getUbLoginName());
     }
 
     @Test
