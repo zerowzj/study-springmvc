@@ -13,7 +13,7 @@
 	   <rule>
             <columns>UB_USER_ID</columns>
             <algorithm>mod-long</algorithm>
-        </rule>
+        </rule>PartitionByMod
 	</tableRule>
 	<function name="mod-long" class="io.mycat.route.function.PartitionByMod">
         <!-- how many data nodes -->

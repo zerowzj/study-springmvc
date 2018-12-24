@@ -27,7 +27,9 @@
     <!-- ==================== -->
     <!-- 用户（水平分表） -->
     <bean id="userTableShardingAlgorithm"
-          class="com.company.project.common.shardingalgorithm.PreciseModuloTableShardingAlgorithm"/>
+          class="com.company.project.common.shardingalgorithm.ModuloShardingAlgorithm">
+        <constructor-arg value="3"/>
+    </bean>
     <sharding:standard-strategy id="userTableShardingStrategy"
                                 sharding-column="UB_USER_ID"
                                 precise-algorithm-ref="userTableShardingAlgorithm"/>
@@ -36,16 +38,25 @@
                               algorithm-expression="USER_BASE_${UB_USER_ID % 3}"/>
     <!-- 订单（水平分库分表） -->
     <bean id="orderBaseTableShardingAlgorithm"
-          class="com.company.project.common.shardingalgorithm.PreciseModuloTableShardingAlgorithm"/>
+          class="com.company.project.common.shardingalgorithm.ModuloShardingAlgorithm">
+        <constructor-arg value="2"/>
+    </bean>
     <bean id="orderItemTableShardingAlgorithm"
-          class="com.company.project.common.shardingalgorithm.PreciseModuloTableShardingAlgorithm"/>
-    <sharding:standard-strategy id="orderBaseTableShardingStrategy" sharding-column="RB_ORDER_ID"
+          class="com.company.project.common.shardingalgorithm.ModuloShardingAlgorithm">
+        <constructor-arg value="2"/>
+    </bean>
+    <sharding:standard-strategy id="orderBaseTableShardingStrategy"
+                                sharding-column="RB_ORDER_ID"
                                 precise-algorithm-ref="orderBaseTableShardingAlgorithm"/>
-    <sharding:standard-strategy id="orderItemTableShardingStrategy" sharding-column="RI_ORDER_ID"
+    <sharding:standard-strategy id="orderItemTableShardingStrategy"
+                                sharding-column="RI_ORDER_ID"
                                 precise-algorithm-ref="orderItemTableShardingAlgorithm"/>
-    <sharding:inline-strategy id="orderBaseTableShardingStrategy_X" sharding-column="RB_ORDER_ID"
+
+    <sharding:inline-strategy id="orderBaseTableShardingStrategy_X"
+                              sharding-column="RB_ORDER_ID"
                               algorithm-expression="ORDER_BASE_${RB_ORDER_ID % 2}"/>
-    <sharding:inline-strategy id="orderItemTableShardingStrategy_X" sharding-column="RI_ORDER_ID"
+    <sharding:inline-strategy id="orderItemTableShardingStrategy_X"
+                              sharding-column="RI_ORDER_ID"
                               algorithm-expression="ORDER_BASE_${RI_ORDER_ID % 2}"/>
     <!-- ==================== -->
     <!--       逻辑数据源      -->

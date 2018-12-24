@@ -32,7 +32,9 @@ public class UserSharding_Test {
 
     @Test
     public void getByUserId_test() {
-        userBaseDao.getByUserId(1545095447416L);
+        Long userId = 1545635736265L;
+        UserBaseEO ubEO = userBaseDao.getByUserId(userId);
+        LOGGER.info("{}", ubEO.getUbLoginName());
     }
 
     @Test
