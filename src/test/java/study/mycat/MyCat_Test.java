@@ -32,9 +32,9 @@ public class MyCat_Test {
 
     @Test
     public void getByUserId_test() {
-        Long userId = 1545357190670L;
+        Long userId = 1545622150623L;
         UserBaseEO ubEO = userBaseDao.getByUserId(userId);
-        LOGGER.info("{}", ubEO);
+        LOGGER.info("{}", ubEO.getUbLoginName());
     }
 
     @Test

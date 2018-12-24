@@ -2,23 +2,23 @@
 <!DOCTYPE mycat:schema SYSTEM "schema.dtd">
 <mycat:schema xmlns:mycat="http://io.mycat/">
     <!-- ==================== -->
-    <!--     MyCat的逻辑库    -->
+    <!--     MyCat的逻辑库     -->
     <!-- ==================== -->
     <!-- 数据库配置，与server.xml中的数据库对应 -->
-    <schema name="mycat_ds" checkSQLschema="false" sqlMaxLimit="100">
+    <schema name="mycat_ds" checkSQLschema="false" sqlMaxLimit="100" dataNode="d_node">
         <!--<table name="USER_BASE" dataNode="d_node"/>-->
     </schema>
     <!-- ==================== -->
-    <!--        数据节点      -->
+    <!--        数据节点       -->
     <!-- ==================== -->
     <!-- 分片配置 -->
     <dataNode name="d_node" dataHost="d_host" database="ds_ms"/>
     <!-- ==================== -->
     <!--      数据主机         -->
+    <!-- ==================== -->
     <!--   banlance：读写分离  -->
     <!--  writeType：         -->
     <!-- switchType：主从切换  -->
-    <!-- ==================== -->
     <!-- 物理数据库配置 -->
     <dataHost name="d_host" maxCon="1000" minCon="10" balance="1" switchType="1" writeType="0"
               dbType="mysql" dbDriver="native" slaveThreshold="100">
