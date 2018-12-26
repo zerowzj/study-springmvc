@@ -3,16 +3,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.project.dao.orderitem.OrderItemDao">
     <resultMap id="orderItemEO" type="com.company.project.dao.orderitem.OrderItemEO">
-        <id property="riId" column="RI_ID"/>
-        <result property="riOrderId" column="RI_ORDER_ID"/>
+        <id property="riId" column="ri_id"/>
+        <result property="riOrderId" column="ri_order_id"/>
     </resultMap>
     <sql id="Base_Column_List">
-        RI.RI_ID,
-        RI.RI_ORDER_ID
+        ri.ri_id,
+        ri.ri_order_id
     </sql>
 
     <insert id="insert" parameterType="com.company.project.dao.orderitem.OrderItemEO">
-        INSERT INTO ORDER_ITEM (RI_ORDER_ID)
+        INSERT INTO order_item (ri_order_id)
         VALUES (#{riOrderId})
     </insert>
 </mapper>
