@@ -1,4 +1,4 @@
-package com.company.project.common.shardingalgorithm;
+package com.company.project.common.sharding.algorithm;
 
 import io.shardingsphere.api.algorithm.sharding.PreciseShardingValue;
 import io.shardingsphere.api.algorithm.sharding.standard.PreciseShardingAlgorithm;
