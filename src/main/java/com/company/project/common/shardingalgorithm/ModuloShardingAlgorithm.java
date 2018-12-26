@@ -16,12 +16,10 @@ public class ModuloShardingAlgorithm implements PreciseShardingAlgorithm<Long> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ModuloShardingAlgorithm.class);
 
-    private int count;
-
     private int shardingCount;
 
-    public ModuloShardingAlgorithm(int count) {
-        this.count = count;
+    public ModuloShardingAlgorithm(int shardingCount) {
+        this.shardingCount = shardingCount;
     }
 
     @Override
@@ -30,7 +28,7 @@ public class ModuloShardingAlgorithm implements PreciseShardingAlgorithm<Long> {
         LOGGER.info("LogicTableName={}, ColumnName={}, Value={}", shardingValue.getLogicTableName(), shardingValue.getColumnName(), shardingValue.getValue());
         LOGGER.info("AvailableTargetNames={}", availableTargetNames);
         for (String targetName : availableTargetNames) {
-            long mod = shardingValue.getValue() % count;
+            long mod = shardingValue.getValue() % shardingCount;
             if (targetName.endsWith(String.valueOf(mod))) {
                 LOGGER.info("ActualTargetName：{}", targetName);
                 return targetName;
