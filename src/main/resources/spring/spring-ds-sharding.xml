@@ -27,8 +27,8 @@
     <!-- ==================== -->
     <!-- 用户（水平分表） -->
     <bean id="userTableShardingAlgorithm"
-          class="com.company.project.common.shardingalgorithm.ModuloShardingAlgorithm">
-        <constructor-arg value="3"/>
+          class="com.company.project.common.sharding.algorithm.ModuloShardingAlgorithm">
+        <constructor-arg name="shardingCount" value="3"/>
     </bean>
     <sharding:standard-strategy id="userTableShardingStrategy"
                                 sharding-column="UB_USER_ID"
@@ -46,6 +46,12 @@
     <sharding:inline-strategy id="orderItemTableShardingStrategy"
                               sharding-column="RI_ORDER_ID"
                               algorithm-expression="ORDER_ITEM_${RI_ORDER_ID % 2}"/>
+    <!--  -->
+    <bean id="" class="com.company.project.common.sharding.algorithm.ComplexShardingAlgorithm">
+    </bean>
+    <sharding:complex-strategy id=""
+                               sharding-columns=""
+                               algorithm-ref=""/>
     <!-- ==================== -->
     <!--       逻辑数据源      -->
     <!-- ==================== -->
@@ -69,6 +75,9 @@
                                      actual-data-nodes="ds${0..1}.ORDER_ITEM_${0..1}"
                                      table-strategy-ref="orderItemTableShardingStrategy"
                                      database-strategy-ref="orderItemDatabaseShardingStrategy"/>
+                <sharding:table-rule logic-table="ss"
+                                     actual-data-nodes=""
+                                     table-strategy-ref=""/>
             </sharding:table-rules>
             <!-- 绑定表规则 -->
             <sharding:binding-table-rules>
