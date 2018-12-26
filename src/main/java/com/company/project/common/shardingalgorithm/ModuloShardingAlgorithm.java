@@ -18,6 +18,8 @@ public class ModuloShardingAlgorithm implements PreciseShardingAlgorithm<Long> {
 
     private int count;
 
+    private int shardingCount;
+
     public ModuloShardingAlgorithm(int count) {
         this.count = count;
     }
