@@ -47,11 +47,11 @@
                               sharding-column="RI_ORDER_ID"
                               algorithm-expression="ORDER_ITEM_${RI_ORDER_ID % 2}"/>
     <!--  -->
-    <bean id="" class="com.company.project.common.sharding.algorithm.ComplexShardingAlgorithm">
+    <bean id="multipleKeysShardingAlgorithm" class="com.company.project.common.sharding.algorithm.MultipleKeysShardingAlgorithm">
     </bean>
-    <sharding:complex-strategy id=""
+    <sharding:complex-strategy id="multipleKeysShardingStrategy"
                                sharding-columns=""
-                               algorithm-ref=""/>
+                               algorithm-ref="multipleKeysShardingAlgorithm"/>
     <!-- ==================== -->
     <!--       逻辑数据源      -->
     <!-- ==================== -->
