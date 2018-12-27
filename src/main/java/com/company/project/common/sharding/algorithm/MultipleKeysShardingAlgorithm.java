@@ -6,11 +6,11 @@ import io.shardingsphere.api.algorithm.sharding.complex.ComplexKeysShardingAlgor
 import java.util.Collection;
 
 /**
- * 取模分片算法
+ * 分片算法
  *
  * @author wangzhj
  */
-public class ComplexShardingAlgorithm implements ComplexKeysShardingAlgorithm {
+public class MultipleKeysShardingAlgorithm implements ComplexKeysShardingAlgorithm {
 
     @Override
     public Collection<String> doSharding(Collection<String> availableTargetNames,
