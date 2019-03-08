@@ -10,7 +10,7 @@
     <!--      集成Mybatis     -->
     <!-- ==================== -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
+        <property name=" " ref="dataSource"/>
         <property name="configLocation" value="classpath:mybatis-cfg.xml"/>
         <property name="mapperLocations" value="classpath*:com/company/project/dao/**/**.xml"/>
     </bean>
