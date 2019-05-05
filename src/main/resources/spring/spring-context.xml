@@ -2,13 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!-- ==================== -->
     <!--      扫描加载Bean     -->
     <!-- ==================== -->
-    <context:component-scan base-package="com.company.project.dao, com.company.project.service"
+    <context:component-scan base-package="study.spring.dao, study.spring.service"
                             use-default-filters="true">
     </context:component-scan>
     <!-- ==================== -->
@@ -24,17 +23,17 @@
     <!--&lt;!&ndash; 【一】 &ndash;&gt;-->
     <!--<bean id="myBeforeAdvice" class="com.company.project.support.aop.MyBeforeAdvice"/>-->
     <!--<bean class="org.springframework.aop.framework.ProxyFactoryBean">-->
-        <!--<property name="proxyInterfaces">-->
-            <!--<value>com.company.project.service.UserService</value>-->
-        <!--</property>-->
-        <!--<property name="target">-->
-            <!--<bean class="com.company.project.service.UserServiceImpl"/>-->
-        <!--</property>-->
-        <!--<property name="interceptorNames">-->
-            <!--<list>-->
-                <!--<value>myBeforeAdvice</value>-->
-            <!--</list>-->
-        <!--</property>-->
+    <!--<property name="proxyInterfaces">-->
+    <!--<value>com.company.project.service.UserService</value>-->
+    <!--</property>-->
+    <!--<property name="target">-->
+    <!--<bean class="com.company.project.service.UserServiceImpl"/>-->
+    <!--</property>-->
+    <!--<property name="interceptorNames">-->
+    <!--<list>-->
+    <!--<value>myBeforeAdvice</value>-->
+    <!--</list>-->
+    <!--</property>-->
     <!--</bean>-->
     <!-- 【二】 -->
     <!-- 【三】 -->
@@ -44,17 +43,17 @@
     <!--<bean id="monitor" class="com.company.project.support.aop.Monitor"/>-->
     <!--<bean id="logger" class="com.company.project.support.aop.Logger"/>-->
     <!--<aop:config>-->
-        <!--<aop:pointcut id="myPointCut" expression="execution(public * com.company.project.service..*.*(..))"/>-->
-        <!--<aop:aspect ref="monitor" order="6">-->
-            <!--<aop:before method="doBefore" pointcut-ref="myPointCut"/>-->
-            <!--<aop:after method="doAfter" pointcut-ref="myPointCut"/>-->
-            <!--<aop:after-throwing method="doAfterThrowing" pointcut-ref="myPointCut"/>-->
-            <!--<aop:after-returning method="doAfterReturning" pointcut-ref="myPointCut"/>-->
-            <!--<aop:around method="doAround" pointcut-ref="myPointCut"/>-->
-        <!--</aop:aspect>-->
-        <!--<aop:aspect ref="logger" order="3">-->
-            <!--<aop:before method="doBefore" pointcut-ref="myPointCut"/>-->
-        <!--</aop:aspect>-->
+    <!--<aop:pointcut id="myPointCut" expression="execution(public * com.company.project.service..*.*(..))"/>-->
+    <!--<aop:aspect ref="monitor" order="6">-->
+    <!--<aop:before method="doBefore" pointcut-ref="myPointCut"/>-->
+    <!--<aop:after method="doAfter" pointcut-ref="myPointCut"/>-->
+    <!--<aop:after-throwing method="doAfterThrowing" pointcut-ref="myPointCut"/>-->
+    <!--<aop:after-returning method="doAfterReturning" pointcut-ref="myPointCut"/>-->
+    <!--<aop:around method="doAround" pointcut-ref="myPointCut"/>-->
+    <!--</aop:aspect>-->
+    <!--<aop:aspect ref="logger" order="3">-->
+    <!--<aop:before method="doBefore" pointcut-ref="myPointCut"/>-->
+    <!--</aop:aspect>-->
     <!--</aop:config>-->
     <!-- 【五】 -->
     <!--<bean class="com.company.project.support.aop.MyAspect"/>-->
