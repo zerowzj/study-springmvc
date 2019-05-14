@@ -1,6 +1,6 @@
 package study.spring.dao.userbase;
 
-import com.company.project.common.db.BaseDao;
+import study.spring.common.db.BaseDao;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import study.spring.common.db.BaseDao;

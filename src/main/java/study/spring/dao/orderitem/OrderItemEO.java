@@ -1,6 +1,6 @@
 package study.spring.dao.orderitem;
 
-import com.company.project.common.db.BaseEO;
+import study.spring.common.db.BaseEO;
 import study.spring.common.db.BaseEO;
 
 public class OrderItemEO extends BaseEO {

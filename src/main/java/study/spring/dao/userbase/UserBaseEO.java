@@ -1,6 +1,6 @@
 package study.spring.dao.userbase;
 
-import com.company.project.common.db.BaseEO;
+import study.spring.common.db.BaseEO;
 import study.spring.common.db.BaseEO;
 
 public class UserBaseEO extends BaseEO {
