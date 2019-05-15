@@ -19,8 +19,9 @@
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
     <!-- ==================== -->
-    <!-- 事务                 -->
+    <!-- 配置事务              -->
     <!-- ==================== -->
+    <!-- 声明 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
@@ -34,4 +35,6 @@
         <aop:pointcut id="txPointCut" expression="execution(public * study.spring.service..*.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"/>
     </aop:config>
+    <!-- 注解 -->
+    <tx:annotation-driven />
 </beans>

@@ -16,30 +16,30 @@
     <!-- 加载配置文件          -->
     <!-- ==================== -->
     <!--<util:properties id="config" location="classpath*:*.properties"/>-->
-     <!--<context:property-placeholder location="classpath*:*.properties" ignore-unresolvable="true"/>-->
+    <!--<context:property-placeholder location="classpath*:*.properties" ignore-unresolvable="true"/>-->
     <!-- ==================== -->
-    <!-- AOP                  -->
+    <!-- 配置AOP              -->
     <!-- ==================== -->
-    <!--&lt;!&ndash; 【一】 &ndash;&gt;-->
-    <!--<bean id="myBeforeAdvice" class="com.company.project.support.aop.MyBeforeAdvice"/>-->
-    <!--<bean class="org.springframework.aop.framework.ProxyFactoryBean">-->
-    <!--<property name="proxyInterfaces">-->
-    <!--<value>com.company.project.service.UserService</value>-->
-    <!--</property>-->
-    <!--<property name="target">-->
-    <!--<bean class="com.company.project.service.UserServiceImpl"/>-->
-    <!--</property>-->
-    <!--<property name="interceptorNames">-->
-    <!--<list>-->
-    <!--<value>myBeforeAdvice</value>-->
-    <!--</list>-->
-    <!--</property>-->
-    <!--</bean>-->
-    <!-- 【二】 -->
-    <!-- 【三】 -->
-    <!--<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">-->
-    <!--</bean>-->
-    <!-- 【四】 -->
+    <!-- 代理 -->
+    <bean id="myBeforeAdvice" class="study.spring.support.aop.MyBeforeAdvice"/>
+    <bean class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>study.spring.service.UserService</value>
+        </property>
+        <property name="target">
+            <bean class="study.spring.service.UserServiceImpl"/>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>myBeforeAdvice</value>
+            </list>
+        </property>
+    </bean>
+    <!--  -->
+    <!-- 自动代理 -->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
+    </bean>
+    <!-- 声明 -->
     <bean id="monitor" class="study.spring.support.aop.Monitor"/>
     <bean id="logger" class="study.spring.support.aop.Logger"/>
     <aop:config>
@@ -55,10 +55,8 @@
             <aop:before method="doBefore" pointcut-ref="myPointCut"/>
         </aop:aspect>
     </aop:config>
-    <!-- 【五】 -->
-    <bean class="study.spring.support.aop.MyAspect"/>
+    <!-- 注解 -->
     <aop:aspectj-autoproxy/>
-    <!-- ==================== -->
-    <!--        扩展点        -->
-    <!-- ==================== -->
+    <bean class="study.spring.support.aop.MyAspect">
+    </bean>
 </beans>

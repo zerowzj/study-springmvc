@@ -1,6 +1,6 @@
 package study.spring.service;
 
-import com.company.project.dao.userbase.UserBaseEO;
+import study.spring.dao.userbase.UserBaseEO;
 
 public interface UserService {
 
