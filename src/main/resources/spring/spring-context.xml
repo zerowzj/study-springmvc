@@ -5,20 +5,18 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!-- ==================== -->
-    <!--      扫描加载Bean     -->
+    <!-- 加载Bean             -->
     <!-- ==================== -->
     <context:component-scan base-package="study.spring.dao, study.spring.service"
                             use-default-filters="true">
     </context:component-scan>
     <!-- ==================== -->
-    <!--      加载配置文件     -->
+    <!-- 加载配置文件          -->
     <!-- ==================== -->
-    <!-- 【一】 -->
     <!--<util:properties id="config" location="classpath*:*.properties"/>-->
-    <!-- 【二】 -->
-    <!--<context:property-placeholder location="classpath*:*.properties" ignore-unresolvable="true"/>-->
+     <!--<context:property-placeholder location="classpath*:*.properties" ignore-unresolvable="true"/>-->
     <!-- ==================== -->
-    <!--        AOP           -->
+    <!-- AOP                  -->
     <!-- ==================== -->
     <!--&lt;!&ndash; 【一】 &ndash;&gt;-->
     <!--<bean id="myBeforeAdvice" class="com.company.project.support.aop.MyBeforeAdvice"/>-->

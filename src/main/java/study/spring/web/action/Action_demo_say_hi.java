@@ -1,15 +1,12 @@
 package study.spring.web.action;
 
-import com.company.project.support.action.BaseAction;
-import com.company.project.support.context.RequestContext;
-import com.company.project.support.web.Param;
-import com.company.project.support.web.Results;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 import study.spring.support.action.BaseAction;
 import study.spring.support.context.RequestContext;
 import study.spring.support.web.Param;
+import study.spring.support.web.Results;
 
 import java.util.Map;
 
@@ -21,7 +18,6 @@ public class Action_demo_say_hi extends BaseAction implements BeanNameAware, Ini
         System.out.println("===>Action_get_token");
     }
 
-    @Override
     protected Map<String, Object> processBusiness(RequestContext cxt, Param param) {
 
 //        RedisClient.set("mykey", "valuesdfsdflljsafdl");

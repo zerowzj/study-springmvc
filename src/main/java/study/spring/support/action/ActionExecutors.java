@@ -1,6 +1,6 @@
 package study.spring.support.action;
 
-import com.company.project.support.context.SpringContext;
+import study.spring.support.context.SpringContext;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

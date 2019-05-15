@@ -1,7 +1,5 @@
 package study.spring.web;
 
-import com.company.project.support.action.Action;
-import com.company.project.support.web.Api;
 import com.google.common.base.Joiner;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

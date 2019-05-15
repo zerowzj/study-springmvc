@@ -1,12 +1,11 @@
 package study.spring.support.action;
 
-import com.company.project.support.web.Param;
-import com.company.project.common.util.JsonUtil;
-import com.company.project.support.context.RequestContext;
-import com.company.project.support.web.Results;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import study.spring.common.util.JsonUtil;
+import study.spring.support.context.RequestContext;
 import study.spring.support.web.Param;
+import study.spring.support.web.Results;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

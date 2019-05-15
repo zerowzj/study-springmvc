@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!-- ==================== -->
-    <!--      DataSource      -->
+    <!-- DataSource           -->
     <!-- ==================== -->
     <bean id="dataSource0" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
@@ -12,7 +12,7 @@
         <property name="password" value="${ds.password}"/>
     </bean>
     <!-- ==================== -->
-    <!--        MyCat         -->
+    <!--  MyCat               -->
     <!-- ==================== -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>

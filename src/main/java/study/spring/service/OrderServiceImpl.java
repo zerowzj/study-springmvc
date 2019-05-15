@@ -1,11 +1,12 @@
 package study.spring.service;
 
-import com.company.project.dao.orderbase.OrderBaseDao;
-import com.company.project.dao.orderbase.OrderBaseEO;
-import com.company.project.dao.orderitem.OrderItemDao;
-import com.company.project.dao.orderitem.OrderItemEO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import study.spring.dao.orderbase.OrderBaseDao;
+import study.spring.dao.orderbase.OrderBaseEO;
+import study.spring.dao.orderitem.OrderItemDao;
+import study.spring.dao.orderitem.OrderItemEO;
 
 import java.util.List;
 
