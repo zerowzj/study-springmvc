@@ -3,6 +3,7 @@ package study.spring.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import study.spring.dao.orderbase.OrderBaseDao;
 import study.spring.dao.orderbase.OrderBaseEO;
 import study.spring.dao.orderitem.OrderItemDao;
@@ -18,6 +19,7 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderItemDao orderItemDao;
 
+    @Transactional
     @Override
     public void checkIn() {
         Long orderId = System.currentTimeMillis();
