@@ -5,10 +5,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://shardingsphere.io/schema/shardingsphere/sharding http://shardingsphere.io/schema/shardingsphere/sharding/sharding.xsd">
     <!-- #################### -->
-    <!--       分库分表        -->
+    <!-- 分库分表              -->
     <!-- #################### -->
     <!-- ==================== -->
-    <!--      物理数据源       -->
+    <!-- 物理数据源            -->
     <!-- ==================== -->
     <bean id="ds0" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
@@ -23,11 +23,11 @@
         <property name="password" value="123123"/>
     </bean>
     <!-- ==================== -->
-    <!--   分库分表算法及策略   -->
+    <!-- 分库分表算法及策略     -->
     <!-- ==================== -->
     <!-- 用户（水平分表） -->
     <bean id="userTableShardingAlgorithm"
-          class="com.company.project.common.sharding.algorithm.ModuloShardingAlgorithm">
+          class="study.spring.common.sharding.algorithm.ModuloShardingAlgorithm">
         <constructor-arg name="shardingCount" value="3"/>
     </bean>
     <sharding:standard-strategy id="userTableShardingStrategy"
@@ -47,13 +47,14 @@
                               sharding-column="RI_ORDER_ID"
                               algorithm-expression="ORDER_ITEM_${RI_ORDER_ID % 2}"/>
     <!--  -->
-    <bean id="multipleKeysShardingAlgorithm" class="com.company.project.common.sharding.algorithm.MultipleKeysShardingAlgorithm">
+    <bean id="multipleKeysShardingAlgorithm"
+          class="study.spring.common.sharding.algorithm.MultipleKeysShardingAlgorithm">
     </bean>
     <sharding:complex-strategy id="multipleKeysShardingStrategy"
                                sharding-columns=""
                                algorithm-ref="multipleKeysShardingAlgorithm"/>
     <!-- ==================== -->
-    <!--       逻辑数据源      -->
+    <!-- 逻辑数据源            -->
     <!-- ==================== -->
     <sharding:data-source id="dataSource">
         <!-- 分片规则 -->
