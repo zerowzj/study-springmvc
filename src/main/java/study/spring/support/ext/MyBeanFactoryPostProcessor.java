@@ -10,7 +10,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor, Ordered {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MyBeanFactoryPostProcessor.class);
