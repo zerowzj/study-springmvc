@@ -21,8 +21,10 @@
     <!-- ==================== -->
     <!-- 扩展点                -->
     <!-- ==================== -->
-    <bean class="study.spring.support.ext.ExtBean" >
+    <bean  class="study.spring.support.ext.ExtBean" >
         <property name="name" value="abc"/>
     </bean>
     <bean class="study.spring.support.ext.MyBeanPostProcessor" />
+    <bean class="study.spring.support.ext.MyBeanFactoryPostProcessor" />
+    <bean class="study.spring.support.ext.MyBeanDefinitionRegistryPostProcessor" />
 </beans>

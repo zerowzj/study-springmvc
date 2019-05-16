@@ -28,4 +28,8 @@ public class ExtBean {
         LOGGER.info("依赖注入");
         this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
 }
