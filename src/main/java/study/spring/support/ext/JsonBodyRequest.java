@@ -1,8 +1,8 @@
 package study.spring.support.ext;
 
-import com.company.project.common.util.HttpServlets;
-import com.company.project.common.util.JsonUtil;
 import com.google.common.base.Strings;
+import study.spring.common.util.HttpServlets;
+import study.spring.common.util.JsonUtil;
 
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;

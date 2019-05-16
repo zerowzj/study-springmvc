@@ -8,7 +8,7 @@
     <!-- 加载Bean             -->
     <!-- ==================== -->
     <!-- 注册并激活 -->
-    <context:component-scan base-package="study.spring.dao, study.spring.service"
+    <context:component-scan base-package="study.spring.support"
                             use-default-filters="true">
     </context:component-scan>
     <!-- 激活 -->
@@ -18,4 +18,11 @@
     <!-- ==================== -->
     <!--<util:properties id="config" location="classpath*:*.properties"/>-->
     <!--<context:property-placeholder location="classpath*:*.properties" ignore-unresolvable="true"/>-->
+    <!-- ==================== -->
+    <!-- 扩展点                -->
+    <!-- ==================== -->
+    <bean class="study.spring.support.ext.ExtBean" >
+        <property name="name" value="abc"/>
+    </bean>
+    <bean class="study.spring.support.ext.MyBeanPostProcessor" />
 </beans>

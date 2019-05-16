@@ -1,15 +1,13 @@
 package study.spring.auth.filter;
 
-import com.company.project.auth.Uris;
-import com.company.project.support.ThreadLocals;
-import com.company.project.support.ext.JsonBodyRequest;
-import com.company.project.common.util.HttpServlets;
+
 import com.google.common.base.Stopwatch;
 import com.google.common.base.Strings;
 import org.apache.shiro.web.servlet.OncePerRequestFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
+import study.spring.common.util.HttpServlets;
 import study.spring.support.ThreadLocals;
 import study.spring.support.ext.JsonBodyRequest;
 

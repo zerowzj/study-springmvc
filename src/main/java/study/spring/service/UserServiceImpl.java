@@ -1,10 +1,10 @@
 package study.spring.service;
 
-import com.company.project.dao.userbase.UserBaseDao;
-import com.company.project.dao.userbase.UserBaseEO;
 import io.shardingsphere.api.HintManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import study.spring.dao.userbase.UserBaseDao;
+import study.spring.dao.userbase.UserBaseEO;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {

@@ -1,9 +1,9 @@
 package study.spring.auth.filter;
 
-import com.company.project.common.util.HttpServlets;
 import org.apache.shiro.web.servlet.AdviceFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import study.spring.common.util.HttpServlets;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;

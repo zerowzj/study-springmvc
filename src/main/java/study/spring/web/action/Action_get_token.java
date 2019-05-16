@@ -1,15 +1,12 @@
 package study.spring.web.action;
 
-import com.company.project.support.action.BaseAction;
-import com.company.project.support.context.RequestContext;
-import com.company.project.support.web.Param;
-import com.company.project.support.web.Results;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 import study.spring.support.action.BaseAction;
 import study.spring.support.context.RequestContext;
 import study.spring.support.web.Param;
+import study.spring.support.web.Results;
 
 import java.util.Map;
 
@@ -17,7 +14,7 @@ import java.util.Map;
 public class Action_get_token extends BaseAction implements BeanNameAware, InitializingBean {
 
 
-    public Action_get_token(){
+    public Action_get_token() {
         System.out.println("===>Action_get_token");
     }
 
