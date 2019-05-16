@@ -7,10 +7,11 @@ import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
+public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor, Ordered {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MyBeanFactoryPostProcessor.class);
 
@@ -23,5 +24,10 @@ public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 //        ExtBean extBean = beanFactory.getBean(ExtBean.class);
 
         LOGGER.info("postProcessBeanFactory.......");
+    }
+
+    @Override
+    public int getOrder() {
+        return 2;
     }
 }
