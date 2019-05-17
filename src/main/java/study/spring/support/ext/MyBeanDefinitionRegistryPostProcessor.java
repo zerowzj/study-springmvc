@@ -6,24 +6,24 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
-import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 
-public class MyBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor, Ordered {
+@Order(2)
+public class MyBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MyBeanDefinitionRegistryPostProcessor.class);
 
+    public MyBeanDefinitionRegistryPostProcessor(){
+        LOGGER.info("======>实例化 BeanDefinitionRegistryPostProcessor");
+    }
+
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
-        LOGGER.info("12321312");
+        LOGGER.info("======>执行 BeanDefinitionRegistryPostProcessor.postProcessBeanDefinitionRegistry()");
     }
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        LOGGER.info("abababa");
-    }
 
-    @Override
-    public int getOrder() {
-        return 3;
     }
 }
