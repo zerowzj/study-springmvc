@@ -24,6 +24,6 @@ public class MyBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegi
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-
+LOGGER.info("SSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
     }
 }
