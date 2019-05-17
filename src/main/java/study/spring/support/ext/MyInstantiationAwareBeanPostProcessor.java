@@ -37,7 +37,7 @@ public class MyInstantiationAwareBeanPostProcessor implements InstantiationAware
     public PropertyValues postProcessPropertyValues(PropertyValues pvs, PropertyDescriptor[] pds,
                                                     Object bean, String beanName) throws BeansException {
         if (bean instanceof ExtBean) {
-            LOGGER.info("======>执行InstantiationAwareBeanPostProcessor postProcessPropertyValues()");
+            LOGGER.info("======>执行InstantiationAwareBeanPostProcessor.postProcessPropertyValues()");
         }
         return pvs;
     }
