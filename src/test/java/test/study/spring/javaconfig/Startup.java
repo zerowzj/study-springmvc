@@ -1,6 +1,8 @@
 package test.study.spring.javaconfig;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import test.study.spring.javaconfig.MyBean;
+import test.study.spring.javaconfig.SpringConfig;
 
 public class Startup {
 

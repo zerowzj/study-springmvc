@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 
 public class MyBean {
 
-    @Value("wangzhj")
+    @Value("wangzhj11111")
     private String name;
 
     public String getName() {
