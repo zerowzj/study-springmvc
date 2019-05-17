@@ -2,6 +2,10 @@ package study.spring.support.ext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
@@ -9,7 +13,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 //@Component
-public class ExtBean implements InitializingBean, DisposableBean {
+public class ExtBean implements InitializingBean, DisposableBean, BeanNameAware, BeanFactoryAware {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ExtBean.class);
 
@@ -26,11 +30,11 @@ public class ExtBean implements InitializingBean, DisposableBean {
         LOGGER.info("======>执行 preDestroy");
     }
 
-    public void initMethod(){
+    public void initMethod() {
         LOGGER.info("======>执行 initMethod");
     }
 
-    public void destroyMethod(){
+    public void destroyMethod() {
         LOGGER.info("======>执行 destroyMethod");
     }
 
@@ -55,5 +59,15 @@ public class ExtBean implements InitializingBean, DisposableBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         LOGGER.info("======>执行 InitializingBean.afterPropertiesSet()");
+    }
+
+    @Override
+    public void setBeanName(String name) {
+        LOGGER.info("======>执行BeanNameAware.setBeanName()");
+    }
+
+    @Override
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+        LOGGER.info("======>执行BeanFactoryAware.setBeanFactory()");
     }
 }

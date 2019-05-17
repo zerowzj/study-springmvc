@@ -5,9 +5,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
+import org.springframework.core.annotation.Order;
 
 import java.beans.PropertyDescriptor;
 
+@Order(2)
 public class MyInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPostProcessor {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MyInstantiationAwareBeanPostProcessor.class);
@@ -44,11 +46,17 @@ public class MyInstantiationAwareBeanPostProcessor implements InstantiationAware
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        if(bean instanceof ExtBean){
+            LOGGER.info("AAAAAAAAAAAAAAA");
+        }
         return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        if(bean instanceof ExtBean){
+            LOGGER.info("BBBBBBBBBBBBBBBB");
+        }
         return bean;
     }
 }
