@@ -7,13 +7,15 @@ import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.core.Ordered;
-import org.springframework.stereotype.Component;
 
 //@Component
-public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor, Ordered {
+public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MyBeanFactoryPostProcessor.class);
+
+    public MyBeanFactoryPostProcessor() {
+        LOGGER.info("======>实例化 BeanFactoryPostProcessor");
+    }
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
@@ -23,11 +25,6 @@ public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor, Ord
         //如果
 //        ExtBean extBean = beanFactory.getBean(ExtBean.class);
 
-        LOGGER.info("postProcessBeanFactory.......");
-    }
-
-    @Override
-    public int getOrder() {
-        return 2;
+        LOGGER.info("======>执行 BeanFactoryPostProcessor.postProcessBeanFactory()");
     }
 }

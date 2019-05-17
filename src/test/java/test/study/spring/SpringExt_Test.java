@@ -20,6 +20,6 @@ public class SpringExt_Test {
 
     @Test
     public void test() {
-        LOGGER.info("==>{}", extBean.getName());
+//        LOGGER.info("==>{}", extBean.getName());
     }
 }
