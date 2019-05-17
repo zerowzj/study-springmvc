@@ -13,10 +13,13 @@ public class MyBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegi
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MyBeanDefinitionRegistryPostProcessor.class);
 
-    public MyBeanDefinitionRegistryPostProcessor(){
+    public MyBeanDefinitionRegistryPostProcessor() {
         LOGGER.info("======>实例化 BeanDefinitionRegistryPostProcessor");
     }
 
+    /**
+     * 所有Bean定义将要被加载，Bean实例还未创建的时候运行，它优先于postProcessBeanFactory方法执行
+     */
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
         LOGGER.info("======>执行 BeanDefinitionRegistryPostProcessor.postProcessBeanDefinitionRegistry()");
@@ -24,6 +27,6 @@ public class MyBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegi
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-LOGGER.info("SSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+        LOGGER.info("SSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
     }
 }
