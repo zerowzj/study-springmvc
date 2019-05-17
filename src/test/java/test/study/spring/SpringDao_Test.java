@@ -21,7 +21,6 @@ public class SpringDao_Test {
     @Autowired
     private UserBaseDao userBaseDao;
 
-
     @Test
     public void insert_test() {
         UserBaseEO ubEO = new UserBaseEO();
