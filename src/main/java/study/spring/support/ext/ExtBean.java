@@ -8,12 +8,15 @@ import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 //@Component
-public class ExtBean implements InitializingBean, DisposableBean, BeanNameAware, BeanFactoryAware {
+public class ExtBean implements InitializingBean, DisposableBean,
+        BeanNameAware, BeanFactoryAware, ApplicationContextAware {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ExtBean.class);
 
@@ -69,5 +72,10 @@ public class ExtBean implements InitializingBean, DisposableBean, BeanNameAware,
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
         LOGGER.info("======>执行BeanFactoryAware.setBeanFactory()");
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        LOGGER.info("======>执行ApplicationContextAware.setApplicationContext()");
     }
 }
