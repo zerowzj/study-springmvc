@@ -13,13 +13,12 @@ public class MyAspect {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MyAspect.class);
 
-    @Before("execution(* com.company.project.service..*.*(..))")
-
+    @Before("execution(* study.spring.service..*.*(..))")
     public void before() {
         LOGGER.info("12313123123123123123123");
     }
 
-    @After("execution(* com.company.project.service..*.*(..))")
+    @After("execution(* study.spring.service..*.*(..))")
     public void after() {
         LOGGER.info("abasfsadfasdfsafsfas");
     }
