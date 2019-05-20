@@ -2,8 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     <!-- ==================== -->
     <!-- 加载Bean             -->
     <!-- ==================== -->
@@ -18,6 +20,51 @@
     <!-- ==================== -->
     <!--<util:properties id="config" location="classpath*:*.properties"/>-->
     <!--<context:property-placeholder location="classpath*:*.properties" ignore-unresolvable="true"/>-->
+    <!-- ==================== -->
+    <!-- 配置AOP              -->
+    <!-- ==================== -->
+    <!-- 代理 -->
+    <bean id="myBeforeAdvice" class="study.spring.core.aop.MyBeforeAdvice"/>
+    <bean class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>study.spring.service.UserService</value>
+        </property>
+        <property name="target">
+            <bean class="study.spring.service.UserServiceImpl"/>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>myBeforeAdvice</value>
+            </list>
+        </property>
+    </bean>
+    <!-- 自动代理 -->
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+
+    </bean>
+    <!-- 自动代理 -->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
+    </bean>
+    <!-- 声明 -->
+    <bean id="monitor" class="study.spring.core.aop.Monitor"/>
+    <bean id="logger" class="study.spring.core.aop.Logger"/>
+    <aop:config>
+        <aop:pointcut id="myPointCut" expression="execution(public * study.spring.service..*.*(..))"/>
+        <aop:aspect ref="monitor" order="6">
+            <aop:before method="doBefore" pointcut-ref="myPointCut"/>
+            <aop:after method="doAfter" pointcut-ref="myPointCut"/>
+            <aop:after-throwing method="doAfterThrowing" pointcut-ref="myPointCut"/>
+            <aop:after-returning method="doAfterReturning" pointcut-ref="myPointCut"/>
+            <aop:around method="doAround" pointcut-ref="myPointCut"/>
+        </aop:aspect>
+        <aop:aspect ref="logger" order="3">
+            <aop:before method="doBefore" pointcut-ref="myPointCut"/>
+        </aop:aspect>
+    </aop:config>
+    <!-- 注解 -->
+    <aop:aspectj-autoproxy/>
+    <bean class="study.spring.core.aop.MyAspect">
+    </bean>
     <!-- ==================== -->
     <!-- 扩展点                -->
     <!-- ==================== -->
