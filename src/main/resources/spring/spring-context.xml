@@ -71,8 +71,8 @@
     <bean class="study.spring.core.ext.MyBean" init-method="initMethod" destroy-method="destroyMethod">
         <property name="name" value="abc"/>
     </bean>
-    <bean class="study.spring.core.ext.MyBeanPostProcessor" />
-    <bean class="study.spring.core.ext.MyInstantiationAwareBeanPostProcessor" />
-    <bean class="study.spring.core.ext.MyBeanFactoryPostProcessor" />
-    <bean class="study.spring.core.ext.MyBeanDefinitionRegistryPostProcessor" />
+    <bean class="study.spring.core.ext.MyBeanPostProcessor"/>
+    <bean class="study.spring.core.ext.MyInstantiationAwareBeanPostProcessor"/>
+    <bean class="study.spring.core.ext.MyBeanFactoryPostProcessor"/>
+    <bean class="study.spring.core.ext.MyBeanDefinitionRegistryPostProcessor"/>
 </beans>
