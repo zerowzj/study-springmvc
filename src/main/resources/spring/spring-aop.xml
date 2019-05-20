@@ -3,13 +3,12 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-
             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     <!-- ==================== -->
     <!-- 配置AOP              -->
     <!-- ==================== -->
     <!-- 代理 -->
-    <bean id="myBeforeAdvice" class="study.spring.support.aop.MyBeforeAdvice"/>
+    <bean id="myBeforeAdvice" class="study.spring.core.aop.MyBeforeAdvice"/>
     <bean class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="proxyInterfaces">
             <value>study.spring.service.UserService</value>
@@ -23,13 +22,16 @@
             </list>
         </property>
     </bean>
-    <!--  -->
+    <!-- 自动代理 -->
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+
+    </bean>
     <!-- 自动代理 -->
     <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
     </bean>
     <!-- 声明 -->
-    <bean id="monitor" class="study.spring.support.aop.Monitor"/>
-    <bean id="logger" class="study.spring.support.aop.Logger"/>
+    <bean id="monitor" class="study.spring.core.aop.Monitor"/>
+    <bean id="logger" class="study.spring.core.aop.Logger"/>
     <aop:config>
         <aop:pointcut id="myPointCut" expression="execution(public * study.spring.service..*.*(..))"/>
         <aop:aspect ref="monitor" order="6">
@@ -45,6 +47,6 @@
     </aop:config>
     <!-- 注解 -->
     <aop:aspectj-autoproxy/>
-    <bean class="study.spring.support.aop.MyAspect">
+    <bean class="study.spring.core.aop.MyAspect">
     </bean>
 </beans>

@@ -1,4 +1,4 @@
-package study.spring.support.ext;
+package study.spring.core.ext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +21,7 @@ public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        BeanDefinition definition = beanFactory.getBeanDefinition("study.spring.support.ext.MyBean#0");
+        BeanDefinition definition = beanFactory.getBeanDefinition("MyBean#0");
         MutablePropertyValues pv = definition.getPropertyValues();
         pv.add("name", "这是新增加的测试值");
         //如果

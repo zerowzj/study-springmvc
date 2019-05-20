@@ -1,4 +1,4 @@
-package study.spring.support.aop;
+package study.spring.core.aop;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.core.Ordered;

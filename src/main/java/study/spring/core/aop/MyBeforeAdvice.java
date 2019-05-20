@@ -1,4 +1,4 @@
-package study.spring.support.aop;
+package study.spring.core.aop;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +12,6 @@ public class MyBeforeAdvice implements MethodBeforeAdvice {
 
     @Override
     public void before(Method method, Object[] args, Object target) throws Throwable {
-        LOGGER.info("ffffffffffasasdfsadfasdfsadf");
+        LOGGER.info("MethodBeforeAdvice...");
     }
 }

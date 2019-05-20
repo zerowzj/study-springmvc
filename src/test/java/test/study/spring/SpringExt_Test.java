@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import study.spring.support.ext.MyBean;
+import study.spring.core.ext.MyBean;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/spring/spring-context.xml")

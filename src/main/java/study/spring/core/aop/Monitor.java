@@ -1,13 +1,9 @@
-package study.spring.support.aop;
+package study.spring.core.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
-
-import java.lang.annotation.Annotation;
 
 public class Monitor implements Ordered {
 
