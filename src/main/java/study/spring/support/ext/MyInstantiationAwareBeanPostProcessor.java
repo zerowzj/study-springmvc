@@ -21,7 +21,7 @@ public class MyInstantiationAwareBeanPostProcessor implements InstantiationAware
 
     @Override
     public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
-        if(beanClass == ExtBean.class){
+        if(beanClass == MyBean.class){
             LOGGER.info("======>执行InstantiationAwareBeanPostProcessor.postProcessBeforeInstantiation()");
         }
         return null;
@@ -29,7 +29,7 @@ public class MyInstantiationAwareBeanPostProcessor implements InstantiationAware
 
     @Override
     public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
-        if (bean instanceof ExtBean) {
+        if (bean instanceof MyBean) {
             LOGGER.info("======>执行InstantiationAwareBeanPostProcessor.postProcessAfterInstantiation()");
         }
         return true;
@@ -38,7 +38,7 @@ public class MyInstantiationAwareBeanPostProcessor implements InstantiationAware
     @Override
     public PropertyValues postProcessPropertyValues(PropertyValues pvs, PropertyDescriptor[] pds,
                                                     Object bean, String beanName) throws BeansException {
-        if (bean instanceof ExtBean) {
+        if (bean instanceof MyBean) {
             LOGGER.info("======>执行InstantiationAwareBeanPostProcessor.postProcessPropertyValues()");
         }
         return pvs;
@@ -46,7 +46,7 @@ public class MyInstantiationAwareBeanPostProcessor implements InstantiationAware
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        if(bean instanceof ExtBean){
+        if(bean instanceof MyBean){
             LOGGER.info("AAAAAAAAAAAAAAA");
         }
         return bean;
@@ -54,7 +54,7 @@ public class MyInstantiationAwareBeanPostProcessor implements InstantiationAware
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        if(bean instanceof ExtBean){
+        if(bean instanceof MyBean){
             LOGGER.info("BBBBBBBBBBBBBBBB");
         }
         return bean;

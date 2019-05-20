@@ -21,7 +21,7 @@
     <!-- ==================== -->
     <!-- 扩展点                -->
     <!-- ==================== -->
-    <bean  class="study.spring.support.ext.ExtBean" init-method="initMethod" destroy-method="destroyMethod">
+    <bean class="study.spring.support.ext.MyBean" init-method="initMethod" destroy-method="destroyMethod">
         <property name="name" value="abc"/>
     </bean>
     <bean class="study.spring.support.ext.MyBeanPostProcessor" />

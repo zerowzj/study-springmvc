@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import study.spring.support.ext.ExtBean;
+import study.spring.support.ext.MyBean;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/spring/spring-context.xml")
@@ -16,7 +16,7 @@ public class SpringExt_Test {
     private static final Logger LOGGER = LoggerFactory.getLogger(SpringExt_Test.class);
 
     @Autowired
-    private ExtBean extBean;
+    private MyBean extBean;
 
     @Test
     public void test() {

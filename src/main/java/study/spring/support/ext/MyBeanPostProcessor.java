@@ -19,7 +19,7 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean,
                                                   String beanName) throws BeansException {
-        if (bean instanceof ExtBean) {
+        if (bean instanceof MyBean) {
             LOGGER.info("======>执行 BeanPostProcessor.postProcessBeforeInitialization()");
         }
         return bean;
@@ -28,7 +28,7 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessAfterInitialization(Object bean,
                                                  String beanName) throws BeansException {
-        if (bean instanceof ExtBean) {
+        if (bean instanceof MyBean) {
             LOGGER.info("======>执行 BeanPostProcessor.postProcessAfterInitialization()");
         }
         return bean;

@@ -15,10 +15,10 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 //@Component
-public class ExtBean implements InitializingBean, DisposableBean,
+public class MyBean implements InitializingBean, DisposableBean,
         BeanNameAware, BeanFactoryAware, ApplicationContextAware {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ExtBean.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MyBean.class);
 
     //@Value("123123123")
     private String name;
@@ -41,7 +41,7 @@ public class ExtBean implements InitializingBean, DisposableBean,
         LOGGER.info("======>执行 destroyMethod");
     }
 
-    public ExtBean() {
+    public MyBean() {
         LOGGER.info("======>实例化");
     }
 

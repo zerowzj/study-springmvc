@@ -21,11 +21,11 @@ public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        BeanDefinition definition = beanFactory.getBeanDefinition("study.spring.support.ext.ExtBean#0");
+        BeanDefinition definition = beanFactory.getBeanDefinition("study.spring.support.ext.MyBean#0");
         MutablePropertyValues pv = definition.getPropertyValues();
         pv.add("name", "这是新增加的测试值");
         //如果
-//        ExtBean extBean = beanFactory.getBean(ExtBean.class);
+//        MyBean extBean = beanFactory.getBean(MyBean.class);
 
         LOGGER.info("======>执行 BeanFactoryPostProcessor.postProcessBeanFactory()");
     }
