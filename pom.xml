@@ -62,7 +62,7 @@
             <version>${spring.version}</version>
         </dependency>
         <!-- ==================== -->
-        <!-- Spring切面编程        -->
+        <!-- AOP                  -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -80,7 +80,7 @@
             <version>1.7.4</version>
         </dependency>
         <!-- ==================== -->
-        <!-- 对象实体映射           -->
+        <!-- ORM                  -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -88,7 +88,7 @@
             <version>${spring.version}</version>
         </dependency>
         <!-- ==================== -->
-        <!-- Web模块              -->
+        <!-- Web                  -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -96,7 +96,7 @@
             <version>${spring.version}</version>
         </dependency>
         <!-- ==================== -->
-        <!-- MVC模块               -->
+        <!-- MVC                  -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -104,7 +104,7 @@
             <version>${spring.version}</version>
         </dependency>
         <!-- ==================== -->
-        <!--     Spring Test      -->
+        <!-- Test                 -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
