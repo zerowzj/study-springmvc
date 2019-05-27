@@ -16,9 +16,7 @@
         <sharding-jdbc.version>3.0.0</sharding-jdbc.version>
         <war>${project.build.finalName}.war</war>
     </properties>
-    <!-- ==================== -->
-    <!--       依赖           -->
-    <!-- ==================== -->
+
     <dependencies>
         <!-- Junit -->
         <dependency>
@@ -197,7 +195,6 @@
             <version>2.2</version>
         </dependency>
 
-
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
@@ -275,9 +272,7 @@
         </dependency>
 
     </dependencies>
-    <!-- ==================== -->
-    <!--       构建           -->
-    <!-- ==================== -->
+
     <build>
         <finalName>study-spring</finalName>
         <filters>
@@ -326,9 +321,7 @@
             </plugin>
         </plugins>
     </build>
-    <!-- ==================== -->
-    <!--       Profile        -->
-    <!-- ==================== -->
+
     <profiles>
         <profile>
             <id>dev</id>
