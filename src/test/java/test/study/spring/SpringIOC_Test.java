@@ -15,7 +15,7 @@ public class SpringIOC_Test {
     private static final Logger LOGGER = LoggerFactory.getLogger(SpringIOC_Test.class);
 
     @Autowired
-    private IOCBean bean;
+    private BeanObject bean;
 
     @Test
     public void test_() {
