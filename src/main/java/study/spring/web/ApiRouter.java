@@ -1,12 +1,10 @@
 package study.spring.web;
 
 import com.google.common.base.Joiner;
-import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import study.spring.support.action.Action;
+import study.spring.support.context.SpringContext;
 import study.spring.support.web.Api;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,17 +17,9 @@ import java.util.Map;
  * @author wangzhj
  */
 @Api
-public class ApiRouter implements ApplicationContextAware {
+public class ApiRouter {
 
     private static final String ACTION_PREFIX = "action";
-
-    /* Spring容器上下文 */
-    private static ApplicationContext CXT;
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        CXT = applicationContext;
-    }
 
     /**
      * 路由
@@ -59,13 +49,12 @@ public class ApiRouter implements ApplicationContextAware {
 //                                             HttpServletRequest request, HttpServletResponse response) {
 //        return doProcess(request, response, module, action);
 //    }
-
     private Map<String, Object> doProcess(HttpServletRequest request, HttpServletResponse response, String array) {
         String actionName = Joiner.on("_").join(ACTION_PREFIX, array);
-        if (!CXT.containsBean(actionName)) {
+        if (!SpringContext.containsBean(actionName)) {
             throw new IllegalStateException("");
         }
-        Action actionBean = CXT.getBean(actionName, Action.class);
+        Action actionBean = SpringContext.getBean(actionName, Action.class);
         return actionBean.doProcess(request, response);
     }
 }

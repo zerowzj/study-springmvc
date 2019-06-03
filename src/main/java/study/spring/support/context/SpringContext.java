@@ -9,32 +9,31 @@ import org.springframework.context.ApplicationContextAware;
  *
  * @author wangzhj
  */
-@Deprecated
 public class SpringContext implements ApplicationContextAware {
 
     /* 应用上下文 */
-    private static ApplicationContext CXT;
+    private static ApplicationContext CTX;
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        CXT = applicationContext;
+        CTX = applicationContext;
     }
 
     /**
      * 获取Bean
      */
     public static <T> T getBean(String name) {
-        T bean = (T) CXT.getBean(name);
+        T bean = (T) CTX.getBean(name);
         return bean;
     }
 
     public static <T> T getBean(Class<T> clazz) {
-        T bean = (T) CXT.getBean(clazz);
+        T bean = (T) CTX.getBean(clazz);
         return bean;
     }
 
     public static <T> T getBean(String name, Class<T> clazz) {
-        T bean = (T) CXT.getBean(name, clazz);
+        T bean = (T) CTX.getBean(name, clazz);
         return bean;
     }
 
@@ -42,12 +41,12 @@ public class SpringContext implements ApplicationContextAware {
      * 是否存在Bean
      */
     public static boolean containsBean(String name) {
-        return CXT.containsBean(name);
+        return CTX.containsBean(name);
     }
 
     public static boolean containsBean(Class<?> clazz) {
         boolean isExist = false;
-        if (CXT.getBean(clazz) != null) {
+        if (CTX.getBean(clazz) != null) {
             isExist = true;
         }
         return isExist;

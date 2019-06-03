@@ -50,7 +50,7 @@
         </property>
     </bean>
     <!-- =================== -->
-    <!-- 其他                -->
+    <!-- 其他，子容器可见父容器 -->
     <!-- =================== -->
     <bean class="study.spring.support.context.SpringContext"/>
 </beans>
