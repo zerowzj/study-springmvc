@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.company.project.dao.orderbase.OrderBaseDao">
-    <resultMap id="orderBaseEO" type="com.company.project.dao.orderbase.OrderBaseEO">
+<mapper namespace="study.spring.dao.orderbase.OrderBaseDao">
+    <resultMap id="orderBaseEO" type="study.spring.dao.orderbase.OrderBaseEO">
         <id property="rbId" column="rb_id"/>
         <result property="rbOrderId" column="rb_order_id"/>
     </resultMap>
@@ -11,14 +11,14 @@
         rb.rb_order_id
     </sql>
 
-    <insert id="insert" parameterType="com.company.project.dao.orderbase.OrderBaseEO">
+    <insert id="insert" parameterType="study.spring.dao.orderbase.OrderBaseEO">
         INSERT INTO order_base (rb_order_id)
         VALUES (#{rbOrderId})
     </insert>
     <select id="getByOrderId" parameterType="java.lang.Long" resultType="java.util.Map">
         SELECT
         <include refid="Base_Column_List"/>,
-        <include refid="com.company.project.dao.orderitem.OrderItemDao.Base_Column_List"/>
+        <include refid="study.spring.dao.orderitem.OrderItemDao.Base_Column_List"/>
         FROM order_base rb JOIN order_item ri ON rb.rb_order_id = ri.ri_order_id
         WHERE ri.ri_order_id = #{orderId}
     </select>

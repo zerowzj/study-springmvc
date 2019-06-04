@@ -21,9 +21,9 @@ public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        BeanDefinition definition = beanFactory.getBeanDefinition("MyBean#0");
-        MutablePropertyValues pv = definition.getPropertyValues();
-        pv.add("name", "这是新增加的测试值");
+//        BeanDefinition definition = beanFactory.getBeanDefinition("MyBean#0");
+//        MutablePropertyValues pv = definition.getPropertyValues();
+//        pv.add("name", "这是新增加的测试值");
         //如果
 //        MyBean extBean = beanFactory.getBean(MyBean.class);
 

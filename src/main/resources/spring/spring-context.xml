@@ -10,11 +10,11 @@
     <!-- 加载Bean             -->
     <!-- ==================== -->
     <!-- 注册并激活 -->
-    <context:component-scan base-package="study.spring.support"
+    <context:component-scan base-package="study.spring"
                             use-default-filters="true">
     </context:component-scan>
     <!-- 激活 -->
-    <context:annotation-config/>
+    <!--<context:annotation-config/>-->
     <!-- ==================== -->
     <!-- 加载配置文件          -->
     <!-- ==================== -->

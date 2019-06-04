@@ -15,7 +15,7 @@
         <property name="mapperLocations" value="classpath*:study/spring/dao/**/**.xml"/>
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.company.project.dao"/>
+        <property name="basePackage" value="study.spring.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
     <!-- ==================== -->

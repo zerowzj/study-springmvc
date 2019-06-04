@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.company.project.dao.orderitem.OrderItemDao">
-    <resultMap id="orderItemEO" type="com.company.project.dao.orderitem.OrderItemEO">
+<mapper namespace="study.spring.dao.orderitem.OrderItemDao">
+    <resultMap id="orderItemEO" type="study.spring.dao.orderitem.OrderItemEO">
         <id property="riId" column="ri_id"/>
         <result property="riOrderId" column="ri_order_id"/>
     </resultMap>
@@ -11,7 +11,7 @@
         ri.ri_order_id
     </sql>
 
-    <insert id="insert" parameterType="com.company.project.dao.orderitem.OrderItemEO">
+    <insert id="insert" parameterType="study.spring.dao.orderitem.OrderItemEO">
         INSERT INTO order_item (ri_order_id)
         VALUES (#{riOrderId})
     </insert>
