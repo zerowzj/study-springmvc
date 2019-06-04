@@ -14,7 +14,7 @@
                             use-default-filters="true">
     </context:component-scan>
     <!-- 激活 -->
-    <!--<context:annotation-config/>-->
+    <context:annotation-config/>
     <!-- ==================== -->
     <!-- 加载配置文件          -->
     <!-- ==================== -->
@@ -68,11 +68,11 @@
     <!-- ==================== -->
     <!-- 扩展点                -->
     <!-- ==================== -->
-    <bean class="study.spring.core.ext.MyBean" init-method="initMethod" destroy-method="destroyMethod">
-        <property name="name" value="abc"/>
-    </bean>
-    <bean class="study.spring.core.ext.MyBeanPostProcessor"/>
-    <bean class="study.spring.core.ext.MyInstantiationAwareBeanPostProcessor"/>
-    <bean class="study.spring.core.ext.MyBeanFactoryPostProcessor"/>
-    <bean class="study.spring.core.ext.MyBeanDefinitionRegistryPostProcessor"/>
+    <!--<bean class="study.spring.core.ext.MyBean" init-method="initMethod" destroy-method="destroyMethod">-->
+        <!--<property name="name" value="abc"/>-->
+    <!--</bean>-->
+    <!--<bean class="study.spring.core.ext.MyBeanPostProcessor"/>-->
+    <!--<bean class="study.spring.core.ext.MyInstantiationAwareBeanPostProcessor"/>-->
+    <!--<bean class="study.spring.core.ext.MyBeanFactoryPostProcessor"/>-->
+    <!--<bean class="study.spring.core.ext.MyBeanDefinitionRegistryPostProcessor"/>-->
 </beans>

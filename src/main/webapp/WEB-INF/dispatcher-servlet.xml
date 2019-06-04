@@ -14,9 +14,9 @@
     <!-- 处理器映射           -->
     <!-- =================== -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
-        <!--<property name="interceptors">-->
-        <!--<bean class="com.company" />-->
-        <!--</property>-->
+        <property name="interceptors">
+            <bean class="study.spring.support.interceptor.MyInterceptor"/>
+        </property>
     </bean>
     <!-- =================== -->
     <!-- 处理器适配器         -->
