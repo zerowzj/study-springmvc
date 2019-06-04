@@ -23,6 +23,11 @@
     <filter>
         <filter-name>shiroFilter</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <init-param>
+            <!-- 不配置时去filter name -->
+            <param-name>targetName</param-name>
+            <param-value>shiroFilter</param-value>
+        </init-param>
     </filter>
     <filter-mapping>
         <filter-name>shiroFilter</filter-name>
