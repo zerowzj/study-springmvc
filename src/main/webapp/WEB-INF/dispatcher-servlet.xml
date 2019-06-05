@@ -11,6 +11,7 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
         <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
+
     <!-- =================== -->
     <!-- 配置                -->
     <!-- =================== -->
@@ -41,24 +42,24 @@
     <!-- =================== -->
     <!-- 注解                -->
     <!-- =================== -->
-    <mvc:annotation-driven>
-        <mvc:message-converters>
-            <ref bean="jsonMsgConverter"/>
-        </mvc:message-converters>
-    </mvc:annotation-driven>
-    <!-- 拦截器 -->
-    <mvc:interceptors>
-        <bean class="study.spring.support.interceptor.WatchDogInterceptor" />
-        <mvc:interceptor>
-            <!-- 作用路径 -->
-            <mvc:mapping path="/**"/>
-            <ref bean="myInterceptor"/>
-        </mvc:interceptor>
-    </mvc:interceptors>
-    <!-- 视图解析 -->
-    <mvc:view-resolvers>
-        <bean class=""/>
-    </mvc:view-resolvers>
+    <!--<mvc:annotation-driven>-->
+        <!--<mvc:message-converters>-->
+            <!--<ref bean="jsonMsgConverter"/>-->
+        <!--</mvc:message-converters>-->
+    <!--</mvc:annotation-driven>-->
+    <!--&lt;!&ndash; 拦截器 &ndash;&gt;-->
+    <!--<mvc:interceptors>-->
+        <!--<bean class="study.spring.support.interceptor.WatchDogInterceptor" />-->
+        <!--<mvc:interceptor>-->
+            <!--&lt;!&ndash; 作用路径 &ndash;&gt;-->
+            <!--<mvc:mapping path="/**"/>-->
+            <!--<ref bean="myInterceptor"/>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
+    <!--&lt;!&ndash; 视图解析 &ndash;&gt;-->
+    <!--<mvc:view-resolvers>-->
+        <!--<bean class=""/>-->
+    <!--</mvc:view-resolvers>-->
 
     <!-- 报文转换器 -->
     <bean id="stringMsgConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
@@ -82,4 +83,6 @@
     <bean id="myInterceptor" class="study.spring.support.interceptor.MyInterceptor"/>
     <!-- 容器上下文 -->
     <bean class="study.spring.support.context.SpringContext"/>
+
+    <import resource="spring-shiro.xml" />
 </beans>
