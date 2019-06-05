@@ -62,7 +62,7 @@ URL_Ant_Path_Expression = Path_Specific_Filter_Chain
     <!-- ==================== -->
     <!--      Subject工厂     -->
     <!-- ==================== -->
-    <bean id="customSubjectFactory" class="study.spring.auth.ext.CustomSubjectFactory"/>
+    <bean id="customSubjectFactory" class="study.spring.auth.shiro.ext.CustomSubjectFactory"/>
     <!-- ==================== -->
     <!--       会话管理器      -->
     <!-- ==================== -->
@@ -84,6 +84,6 @@ URL_Ant_Path_Expression = Path_Specific_Filter_Chain
     <!-- ==================== -->
     <!--      过滤器定义       -->
     <!-- ==================== -->
-    <bean id="watchDogFilter" class="study.spring.auth.filter.WatchDogFilter"/>
-    <bean id="authFilter" class="study.spring.auth.filter.AuthFilter"/>
+    <bean id="watchDogFilter" class="study.spring.auth.shiro.filter.WatchDogFilter"/>
+    <bean id="authFilter" class="study.spring.auth.shiro.filter.AuthFilter"/>
 </beans>

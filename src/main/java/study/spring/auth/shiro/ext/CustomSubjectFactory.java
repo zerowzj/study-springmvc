@@ -1,4 +1,4 @@
-package study.spring.auth.ext;
+package study.spring.auth.shiro.ext;
 
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.subject.SubjectContext;

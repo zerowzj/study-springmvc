@@ -1,4 +1,4 @@
-package study.spring.auth.filter;
+package study.spring.auth.shiro.filter;
 
 
 import com.google.common.base.Stopwatch;

@@ -1,4 +1,4 @@
-package study.spring.auth;
+package study.spring.auth.shiro;
 
 import com.google.common.collect.Sets;
 import com.google.common.io.Resources;

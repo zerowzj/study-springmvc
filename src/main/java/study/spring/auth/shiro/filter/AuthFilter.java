@@ -1,4 +1,4 @@
-package study.spring.auth.filter;
+package study.spring.auth.shiro.filter;
 
 import org.apache.shiro.web.servlet.AdviceFilter;
 import org.slf4j.Logger;
