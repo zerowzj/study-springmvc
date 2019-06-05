@@ -1,21 +1,21 @@
 package study.spring.web.action;
 
 import com.google.common.collect.Maps;
-import org.springframework.beans.factory.BeanNameAware;
-import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 import study.spring.support.action.BaseAction;
 import study.spring.support.context.RequestContext;
 import study.spring.support.web.Param;
-import study.spring.support.web.Results;
 
 import java.util.Map;
 
 @Component
-public class Action_demo_say_hi extends BaseAction{
+public class Action_demo_say_hi extends BaseAction implements ApplicationContextAware {
 
-    public Action_demo_say_hi(){
-        LOGGER.info("===>111111111111111Action_demo_say_hi");
+    public Action_demo_say_hi() {
+        LOGGER.info("===>Action_demo_say_hi");
     }
 
     protected Map<String, Object> processBusiness(RequestContext cxt, Param param) {
@@ -31,5 +31,10 @@ public class Action_demo_say_hi extends BaseAction{
 
         cxt.getRequest().getCookies();
         return data;
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        LOGGER.info("===>{}", applicationContext.getParent());
     }
 }
