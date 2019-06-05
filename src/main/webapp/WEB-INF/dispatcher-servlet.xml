@@ -4,9 +4,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-    <!-- =================== -->
-    <!-- 加载Bean            -->
-    <!-- =================== -->
+    <!-- 加载Bean -->
     <context:component-scan base-package="study.spring"
                             use-default-filters="true">
     </context:component-scan>
@@ -29,9 +27,7 @@
             </list>
         </property>
     </bean>
-    <!-- =================== -->
-    <!-- 报文转换器           -->
-    <!-- =================== -->
+    <!-- 报文转换器 -->
     <bean id="stringMsgConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
         <constructor-arg value="UTF-8" index="0"/>
         <property name="supportedMediaTypes">
@@ -49,6 +45,12 @@
             </list>
         </property>
     </bean>
+    <!-- =================== -->
+    <!-- 视图解析器           -->
+    <!-- =================== -->
+    <!-- =================== -->
+    <!-- 视图                -->
+    <!-- =================== -->
     <!-- =================== -->
     <!-- 其他，子容器可见父容器 -->
     <!-- =================== -->
