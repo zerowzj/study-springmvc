@@ -2,6 +2,7 @@ package study.spring.support.ext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import study.spring.support.web.Results;
@@ -15,8 +16,7 @@ import java.util.Map;
  *
  * @author wangzhj
  */
-//@EnableWebMvc
-//@ControllerAdvice
+@ControllerAdvice
 public class CustomExceptionHandler {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomExceptionHandler.class);
@@ -28,6 +28,6 @@ public class CustomExceptionHandler {
         LOGGER.info("erorrrrrrrrrrrrrrrrrrrrr");
         ex.printStackTrace();
         LOGGER.error("发生异常", ex);
-        return Results.error("9999", "系统异常");
+        return Results.error();
     }
 }

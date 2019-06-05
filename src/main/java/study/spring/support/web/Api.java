@@ -25,6 +25,4 @@ import java.lang.annotation.Target;
 @ResponseBody
 public @interface Api {
 
-    @AliasFor
-    String value() default "";
 }

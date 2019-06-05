@@ -1,5 +1,6 @@
 package study.spring.web.action;
 
+import com.google.common.collect.Maps;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
@@ -11,11 +12,10 @@ import study.spring.support.web.Results;
 import java.util.Map;
 
 @Component
-public class Action_demo_say_hi extends BaseAction implements BeanNameAware, InitializingBean {
-
+public class Action_demo_say_hi extends BaseAction{
 
     public Action_demo_say_hi(){
-        System.out.println("===>Action_get_token");
+        LOGGER.info("===>111111111111111Action_demo_say_hi");
     }
 
     protected Map<String, Object> processBusiness(RequestContext cxt, Param param) {
@@ -24,22 +24,12 @@ public class Action_demo_say_hi extends BaseAction implements BeanNameAware, Ini
 //        if("".equals("")){
 //            throw new IllegalArgumentException("ssssssssss");
 //        }
-        Map<String, Object> data = Results.data();
+        Map<String, Object> data = Maps.newHashMap();
         data.put("ub_id", 666666);
         data.put("access_token", "0123456789");
         data.put("times", "2018");
 
         cxt.getRequest().getCookies();
         return data;
-    }
-
-    @Override
-    public void setBeanName(String name) {
-        System.out.println("===>setBeanName");
-    }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("===>afterPropertiesSet");
     }
 }

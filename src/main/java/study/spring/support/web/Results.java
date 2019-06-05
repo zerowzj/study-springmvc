@@ -51,4 +51,8 @@ public abstract class Results {
         //result.put(KEY_REQUEST_ID, TrackKeys.get());
         return result;
     }
+
+    public static Map<String, Object> data(){
+        return Maps.newHashMap();
+    }
 }

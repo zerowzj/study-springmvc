@@ -11,12 +11,7 @@ import study.spring.support.web.Results;
 import java.util.Map;
 
 @Component
-public class Action_get_token extends BaseAction implements BeanNameAware, InitializingBean {
-
-
-    public Action_get_token() {
-        System.out.println("===>Action_get_token");
-    }
+public class Action_get_token extends BaseAction{
 
     @Override
     protected Map<String, Object> processBusiness(RequestContext cxt, Param param) {
@@ -32,15 +27,5 @@ public class Action_get_token extends BaseAction implements BeanNameAware, Initi
 
         cxt.getRequest().getCookies();
         return data;
-    }
-
-    @Override
-    public void setBeanName(String name) {
-        System.out.println("===>setBeanName");
-    }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("===>afterPropertiesSet");
     }
 }

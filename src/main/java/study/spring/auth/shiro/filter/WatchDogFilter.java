@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import study.spring.common.util.HttpServlets;
-import study.spring.support.ThreadLocals;
 import study.spring.support.ext.JsonBodyRequest;
 
 import javax.servlet.FilterChain;
@@ -47,8 +46,7 @@ public class WatchDogFilter extends OncePerRequestFilter {
             System.out.println("+++++++++++++=" + MDC.get(REQUEST_ID));
             //Request Id
             String requestId = request.getHeader(NAME_REQUEST_ID);
-            ThreadLocals.setTrackKey(requestId);
-            if (Strings.isNullOrEmpty(requestId)) {
+             if (Strings.isNullOrEmpty(requestId)) {
                 response.sendError(412, "request id为空");
                 return;
             }
@@ -69,8 +67,6 @@ public class WatchDogFilter extends OncePerRequestFilter {
         } finally {
             LOGGER.info("===> URI[{}] cost [{} ms]", uri, stopwatch.elapsed(TimeUnit.MILLISECONDS));
             MDC.clear();
-//            MDC.remove(REQUEST_ID);
-            ThreadLocals.removeTrackKey();
         }
     }
 }
