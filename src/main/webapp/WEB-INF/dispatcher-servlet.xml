@@ -81,8 +81,7 @@
             </list>
         </property>
     </bean>
-    <!-- 拦截器 -->
-    <bean id="myInterceptor" class="study.spring.support.interceptor.MyInterceptor"/>
+
     <!-- 容器上下文 -->
     <bean class="study.spring.support.context.SpringContext"/>
 

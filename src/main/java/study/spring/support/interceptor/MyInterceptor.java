@@ -12,6 +12,10 @@ public class MyInterceptor implements HandlerInterceptor {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MyInterceptor.class);
 
+    public MyInterceptor(){
+        System.out.println("i am a test");
+    }
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
                              Object handler) throws Exception {
