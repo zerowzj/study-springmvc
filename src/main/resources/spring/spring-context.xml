@@ -78,4 +78,5 @@
     <!--<bean class="study.spring.core.ext.MyBeanFactoryPostProcessor"/>-->
     <!--<bean class="study.spring.core.ext.MyBeanDefinitionRegistryPostProcessor"/>-->
 
+    <bean id="myFilter" class="study.spring.web.MyFilter" />
 </beans>

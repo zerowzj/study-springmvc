@@ -87,5 +87,4 @@
     <bean class="study.spring.support.context.SpringContext"/>
 
     <import resource="spring-servlet.xml" />
-
 </beans>
