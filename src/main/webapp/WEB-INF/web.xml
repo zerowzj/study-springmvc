@@ -20,8 +20,8 @@
     <!-- ==================== -->
     <!-- 过滤器Filter          -->
     <!-- ==================== -->
-    <!-- Shiro -->
     <filter>
+        <description>安全框架Shiro</description>
         <filter-name>shiroFilter</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
         <!-- 设置true由servlet容器控制filter的生命周期 -->
@@ -61,6 +61,7 @@
     <!-- Servlet             -->
     <!-- =================== -->
     <servlet>
+        <description>Spring MVC前端控制器</description>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
