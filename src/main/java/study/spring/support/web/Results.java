@@ -20,24 +20,24 @@ public abstract class Results {
     private static final String KEY_REQUEST_ID = "request_id";
 
     /**
-     * 成功结果
-     *
-     * @param data
-     * @return Map
+     * 成功
      */
     public static Map<String, Object> ok(Map<String, Object> data) {
         return build("0000", "成功", data);
     }
 
     /**
-     * 错误结果
-     *
-     * @param code
-     * @param desc
-     * @return Map
+     * 失败
      */
-    public static Map<String, Object> error(String code, String desc) {
+    public static Map<String, Object> fail(String code, String desc) {
         return build(code, desc, null);
+    }
+
+    /**
+     * 错误
+     */
+    public static Map<String, Object> error() {
+        return build("9999", "系统异常", null);
     }
 
     private static Map<String, Object> build(String code, String desc, Map<String, Object> data) {
@@ -45,19 +45,10 @@ public abstract class Results {
         result.put(KEY_CODE, code);
         result.put(KEY_DESC, desc);
         if (data == null) {
-            data = data();
+            data = Maps.newHashMap();
         }
         result.put(KEY_DATA, data);
         //result.put(KEY_REQUEST_ID, TrackKeys.get());
         return result;
-    }
-
-    /**
-     * Data Map
-     *
-     * @return Map
-     */
-    public static Map<String, Object> data() {
-        return Maps.newHashMap();
     }
 }
