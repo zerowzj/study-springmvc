@@ -12,7 +12,7 @@ import study.spring.dao.userbase.UserBaseDao;
 import study.spring.dao.userbase.UserBaseEO;
 
 @Service("userService")
-public class UserServiceImpl implements UserService, ApplicationContextAware {
+public class UserServiceImpl implements UserService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 
@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService, ApplicationContextAware {
 
     @Override
     public void checkIn(UserBaseEO ubEO) {
-        ubDao.insert(ubEO);
+       // ubDao.insert(ubEO);
         System.out.println("name=" + name);
     }
 
@@ -39,10 +39,5 @@ public class UserServiceImpl implements UserService, ApplicationContextAware {
         HintManager manager = HintManager.getInstance();
         manager.setMasterRouteOnly();
         return ubDao.get(ubId);
-    }
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        LOGGER.info("===>{}", applicationContext.getApplicationName());
     }
 }

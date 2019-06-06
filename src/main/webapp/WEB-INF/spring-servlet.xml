@@ -3,6 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!-- 拦截器 -->
-    <bean id="myInterceptor" class="study.spring.support.interceptor.MyInterceptor"/>
+    <bean id="demoInterceptor" class="study.spring.support.interceptor.DemoInterceptor"/>
 
 </beans>

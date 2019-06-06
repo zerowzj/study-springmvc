@@ -1,4 +1,4 @@
-package study.spring.web;
+package study.spring.support.filter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,9 +11,9 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import java.io.IOException;
 
-public class MyFilter implements Filter {
+public class DemoFilter implements Filter {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MyFilter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DemoFilter.class);
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -24,6 +24,7 @@ public class MyFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
                          FilterChain chain) throws IOException, ServletException {
+        chain.doFilter(request, response);
 
     }
 

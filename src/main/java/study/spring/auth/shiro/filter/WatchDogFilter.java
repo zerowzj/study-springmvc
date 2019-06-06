@@ -43,10 +43,9 @@ public class WatchDogFilter extends OncePerRequestFilter {
         HttpServletResponse response = HttpServlets.toHttp(servletResponse);
         String uri = request.getRequestURI();
         try {
-            System.out.println("+++++++++++++=" + MDC.get(REQUEST_ID));
             //Request Id
             String requestId = request.getHeader(NAME_REQUEST_ID);
-             if (Strings.isNullOrEmpty(requestId)) {
+            if (Strings.isNullOrEmpty(requestId)) {
                 response.sendError(412, "request id为空");
                 return;
             }

@@ -7,9 +7,9 @@
     <!-- =================== -->
     <!-- 【加载Bean】         -->
     <!-- =================== -->
-    <context:component-scan base-package="study.spring" use-default-filters="false">
-        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    <context:component-scan base-package="study.spring" use-default-filters="true">
+        <!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+        <!--<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>-->
     </context:component-scan>
     <!-- =================== -->
     <!-- 【配置】             -->
@@ -17,7 +17,7 @@
     <!-- 映射 -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
         <property name="interceptors">
-            <ref bean="myInterceptor"/>
+            <ref bean="demoInterceptor"/>
         </property>
     </bean>
     <!-- 适配器 -->

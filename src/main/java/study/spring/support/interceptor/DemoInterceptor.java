@@ -8,11 +8,11 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class MyInterceptor implements HandlerInterceptor {
+public class DemoInterceptor implements HandlerInterceptor {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MyInterceptor.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DemoInterceptor.class);
 
-    public MyInterceptor(){
+    public DemoInterceptor(){
         System.out.println("i am a test");
     }
 

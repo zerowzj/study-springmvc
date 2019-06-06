@@ -13,11 +13,11 @@
     <!-- ==================== -->
     <!-- 注册并激活 -->
     <context:component-scan base-package="study.spring" use-default-filters="true">
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-        <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+        <!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+        <!--<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>-->
     </context:component-scan>
     <!-- 激活 -->
-    <context:annotation-config/>
+    <!--<context:annotation-config/>-->
     <!-- ==================== -->
     <!-- 【加载配置文件】       -->
     <!-- ==================== -->
@@ -42,11 +42,11 @@
         <!--</property>-->
     <!--</bean>-->
     <!-- 自动代理 -->
-    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
-    </bean>
+    <!--<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">-->
+    <!--</bean>-->
     <!-- 自动代理 -->
-    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
-    </bean>
+    <!--<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">-->
+    <!--</bean>-->
     <!-- 声明 -->
     <bean id="monitor" class="study.spring.core.aop.Monitor"/>
     <bean id="logger" class="study.spring.core.aop.Logger"/>
@@ -64,9 +64,9 @@
         </aop:aspect>
     </aop:config>
     <!-- 注解 -->
-    <aop:aspectj-autoproxy/>
-    <bean class="study.spring.core.aop.MyAspect">
-    </bean>
+    <!--<aop:aspectj-autoproxy/>-->
+    <!--<bean class="study.spring.core.aop.MyAspect">-->
+    <!--</bean>-->
     <!-- ==================== -->
     <!-- 【扩展点】            -->
     <!-- ==================== -->
@@ -79,5 +79,5 @@
     <bean class="study.spring.core.ext.MyBeanDefinitionRegistryPostProcessor"/>
 
 
-    <bean id="myFilter" class="study.spring.web.MyFilter" />
+    <bean id="myFilter" class="study.spring.support.filter.DemoFilter" />
 </beans>
