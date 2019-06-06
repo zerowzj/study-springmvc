@@ -13,8 +13,8 @@
     <!-- ==================== -->
     <!-- 注册并激活 -->
     <context:component-scan base-package="study.spring" use-default-filters="true">
-        <!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
-        <!--<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>-->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
     <!-- 激活 -->
     <!--<context:annotation-config/>-->
