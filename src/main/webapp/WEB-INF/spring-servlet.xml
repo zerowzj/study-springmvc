@@ -5,5 +5,4 @@
     <!-- 拦截器 -->
     <bean id="myInterceptor" class="study.spring.support.interceptor.MyInterceptor"/>
 
-    <bean id="myFilter" class="study.spring.web.MyFilter" />
 </beans>
