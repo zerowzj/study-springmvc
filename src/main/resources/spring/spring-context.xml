@@ -11,12 +11,12 @@
     <!-- ==================== -->
     <!-- 【加载Bean】          -->
     <!-- ==================== -->
-    <!-- 注册并激活 -->
+    <!-- （★）注册并激活 -->
     <context:component-scan base-package="study.spring" use-default-filters="true">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
         <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
-    <!-- 激活 -->
+    <!-- （★）激活 -->
     <!--<context:annotation-config/>-->
     <!-- ==================== -->
     <!-- 【加载配置文件】       -->
@@ -26,7 +26,7 @@
     <!-- ==================== -->
     <!-- 【配置AOP】           -->
     <!-- ==================== -->
-    <!-- 代理 -->
+    <!-- （★）代理 -->
     <!--<bean id="myBeforeAdvice" class="study.spring.core.aop.MyBeforeAdvice"/>-->
     <!--<bean class="org.springframework.aop.framework.ProxyFactoryBean">-->
         <!--<property name="proxyInterfaces">-->
@@ -41,13 +41,13 @@
             <!--</list>-->
         <!--</property>-->
     <!--</bean>-->
-    <!-- 自动代理 -->
+    <!-- （★）自动代理 -->
     <!--<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">-->
     <!--</bean>-->
-    <!-- 自动代理 -->
+    <!-- （★）自动代理 -->
     <!--<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">-->
     <!--</bean>-->
-    <!-- 声明 -->
+    <!-- （★）声明 -->
     <bean id="monitor" class="study.spring.core.aop.Monitor"/>
     <bean id="logger" class="study.spring.core.aop.Logger"/>
     <aop:config>
@@ -63,7 +63,7 @@
             <aop:before method="doBefore" pointcut-ref="myPointCut"/>
         </aop:aspect>
     </aop:config>
-    <!-- 注解 -->
+    <!-- （★）注解 -->
     <!--<aop:aspectj-autoproxy/>-->
     <!--<bean class="study.spring.core.aop.MyAspect">-->
     <!--</bean>-->
