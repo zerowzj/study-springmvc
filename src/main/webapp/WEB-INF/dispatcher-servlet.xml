@@ -14,13 +14,13 @@
     <!-- =================== -->
     <!-- 【（★）配置】             -->
     <!-- =================== -->
-    <!-- 映射 -->
+    <!-- 处理器映射 -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
         <property name="interceptors">
             <ref bean="demoInterceptor"/>
         </property>
     </bean>
-    <!-- 适配器 -->
+    <!-- 处理器适配器 -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
             <list>
