@@ -42,22 +42,22 @@
     <!-- 【（★）注解】                -->
     <!-- =================== -->
     <!--<mvc:annotation-driven>-->
-        <!--<mvc:message-converters>-->
-            <!--<ref bean="jsonMsgConverter"/>-->
-        <!--</mvc:message-converters>-->
+    <!--<mvc:message-converters>-->
+    <!--<ref bean="jsonMsgConverter"/>-->
+    <!--</mvc:message-converters>-->
     <!--</mvc:annotation-driven>-->
     <!--&lt;!&ndash; 拦截器 &ndash;&gt;-->
     <!--<mvc:interceptors>-->
-        <!--<bean class="study.spring.support.interceptor.WatchDogInterceptor" />-->
-        <!--<mvc:interceptor>-->
-            <!--&lt;!&ndash; 作用路径 &ndash;&gt;-->
-            <!--<mvc:mapping path="/**"/>-->
-            <!--<ref bean="myInterceptor"/>-->
-        <!--</mvc:interceptor>-->
+    <!--<bean class="study.spring.support.interceptor.WatchDogInterceptor" />-->
+    <!--<mvc:interceptor>-->
+    <!--&lt;!&ndash; 作用路径 &ndash;&gt;-->
+    <!--<mvc:mapping path="/**"/>-->
+    <!--<ref bean="myInterceptor"/>-->
+    <!--</mvc:interceptor>-->
     <!--</mvc:interceptors>-->
     <!--&lt;!&ndash; 视图解析 &ndash;&gt;-->
     <!--<mvc:view-resolvers>-->
-        <!--<bean class=""/>-->
+    <!--<bean class=""/>-->
     <!--</mvc:view-resolvers>-->
 
     <!-- 报文转换器 -->
@@ -80,6 +80,6 @@
     </bean>
     <!-- 容器上下文 -->
     <bean class="study.spring.support.context.SpringContext"/>
-    <!-- 容器上下文 -->
-    <import resource="dispatcherX-servlet.xml" />
+    <!-- 文件引入 -->
+    <import resource="dispatcherX-servlet.xml"/>
 </beans>

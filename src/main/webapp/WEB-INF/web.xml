@@ -49,17 +49,17 @@
     <!--<url-pattern>/*</url-pattern>-->
     <!--</filter-mapping>-->
     <!--<filter>-->
-        <!--<description>自定义Filter</description>-->
-        <!--<filter-name>myFilter</filter-name>-->
-        <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
-        <!--<init-param>-->
-            <!--<param-name>targetFilterLifecycle</param-name>-->
-            <!--<param-value>false</param-value>-->
-        <!--</init-param>-->
+    <!--<description>自定义Filter</description>-->
+    <!--<filter-name>myFilter</filter-name>-->
+    <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
+    <!--<init-param>-->
+    <!--<param-name>targetFilterLifecycle</param-name>-->
+    <!--<param-value>false</param-value>-->
+    <!--</init-param>-->
     <!--</filter>-->
     <!--<filter-mapping>-->
-        <!--<filter-name>myFilter</filter-name>-->
-        <!--<url-pattern>/*</url-pattern>-->
+    <!--<filter-name>myFilter</filter-name>-->
+    <!--<url-pattern>/*</url-pattern>-->
     <!--</filter-mapping>-->
     <!-- CAS -->
     <filter>
@@ -73,11 +73,11 @@
     </filter-mapping>
     <filter>
         <description>负责用户的认证工作</description>
-        <filter-name>authFilterx</filter-name>
+        <filter-name>authFilter</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>authFilterx</filter-name>
+        <filter-name>authFilter</filter-name>
         <url-pattern>/</url-pattern>
     </filter-mapping>
     <!-- =================== -->
@@ -89,7 +89,7 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>WEB-INF/*-servlet.xml</param-value>
+            <param-value>WEB-INF/dispatcher-servlet.xml</param-value>
         </init-param>
         <init-param>
             <param-name>publishEvents</param-name>

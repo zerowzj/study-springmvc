@@ -5,7 +5,7 @@
     <!-- ==================== -->
     <!-- 入口                 -->
     <!-- ==================== -->
-    <bean id="authFilterx" class="org.jasig.cas.client.authentication.AuthenticationFilter">
+    <bean id="authFilter" class="org.jasig.cas.client.authentication.AuthenticationFilter">
         <property name="casServerLoginUrl" value="http://www.sohu.com"/>
         <property name="serverName" value="http://localhost:8080/"/>
     </bean>
