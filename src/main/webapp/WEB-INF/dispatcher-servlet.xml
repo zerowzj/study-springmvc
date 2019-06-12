@@ -80,6 +80,5 @@
     </bean>
     <!-- 容器上下文 -->
     <bean class="study.spring.support.context.SpringContext"/>
-    <!-- 文件引入 -->
-    <import resource="dispatcherX-servlet.xml"/>
+
 </beans>

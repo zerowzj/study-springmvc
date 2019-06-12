@@ -22,6 +22,8 @@
     <!-- 【加载配置文件】       -->
     <!-- ==================== -->
     <util:properties id="config" location="classpath*:*.properties"/>
+    <util:list></util:list>
+    <util:map></util:map>
     <context:property-placeholder location="classpath*:*.properties" ignore-unresolvable="true"/>
     <!-- ==================== -->
     <!-- 【配置AOP】           -->
@@ -29,17 +31,17 @@
     <!-- （★）代理 -->
     <!--<bean id="myBeforeAdvice" class="study.spring.core.aop.MyBeforeAdvice"/>-->
     <!--<bean class="org.springframework.aop.framework.ProxyFactoryBean">-->
-        <!--<property name="proxyInterfaces">-->
-            <!--<value>study.spring.service.UserService</value>-->
-        <!--</property>-->
-        <!--<property name="target">-->
-            <!--<bean class="study.spring.service.UserServiceImpl"/>-->
-        <!--</property>-->
-        <!--<property name="interceptorNames">-->
-            <!--<list>-->
-                <!--<value>myBeforeAdvice</value>-->
-            <!--</list>-->
-        <!--</property>-->
+    <!--<property name="proxyInterfaces">-->
+    <!--<value>study.spring.service.UserService</value>-->
+    <!--</property>-->
+    <!--<property name="target">-->
+    <!--<bean class="study.spring.service.UserServiceImpl"/>-->
+    <!--</property>-->
+    <!--<property name="interceptorNames">-->
+    <!--<list>-->
+    <!--<value>myBeforeAdvice</value>-->
+    <!--</list>-->
+    <!--</property>-->
     <!--</bean>-->
     <!-- （★）自动代理 -->
     <!--<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">-->
@@ -78,6 +80,6 @@
     <bean class="study.spring.core.ext.MyBeanFactoryPostProcessor"/>
     <bean class="study.spring.core.ext.MyBeanDefinitionRegistryPostProcessor"/>
 
-
-    <bean id="myFilter" class="study.spring.support.filter.DemoFilter" />
+    <!-- 委托代理过滤器 -->
+    <bean id="myFilter" class="study.spring.support.filter.DemoFilter"/>
 </beans>
