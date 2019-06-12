@@ -79,7 +79,8 @@
     <bean class="study.spring.core.ext.MyInstantiationAwareBeanPostProcessor"/>
     <bean class="study.spring.core.ext.MyBeanFactoryPostProcessor"/>
     <bean class="study.spring.core.ext.MyBeanDefinitionRegistryPostProcessor"/>
-
-    <!-- 委托代理过滤器 -->
+    <!-- ==================== -->
+    <!-- 【委托代理过滤器】     -->
+    <!-- ==================== -->
     <bean id="myFilter" class="study.spring.support.filter.DemoFilter"/>
 </beans>
