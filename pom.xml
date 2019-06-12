@@ -35,7 +35,7 @@
         </dependency>
 
         <!-- ==================== -->
-        <!-- 核心容器              -->
+        <!-- 核心容器（Core）      -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -48,7 +48,7 @@
             <version>${spring.version}</version>
         </dependency>
         <!-- ==================== -->
-        <!-- 应用上下文            -->
+        <!-- 应用上下文（Context）  -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -61,7 +61,7 @@
             <version>${spring.version}</version>
         </dependency>
         <!-- ==================== -->
-        <!-- AOP                  -->
+        <!-- 面向切面（AOP）       -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -79,7 +79,7 @@
             <version>1.7.4</version>
         </dependency>
         <!-- ==================== -->
-        <!-- ORM                  -->
+        <!-- 数据持久化（ORM）      -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -87,7 +87,7 @@
             <version>${spring.version}</version>
         </dependency>
         <!-- ==================== -->
-        <!-- Web                  -->
+        <!-- （Web）              -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -100,7 +100,7 @@
             <version>${spring.version}</version>
         </dependency>
         <!-- ==================== -->
-        <!-- Test                 -->
+        <!-- 测试（Test）          -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -282,7 +282,7 @@
             <version>5.1.28</version>
         </dependency>
         <!-- ==================== -->
-        <!--    Sharding Jdbc     -->
+        <!-- Sharding Jdbc        -->
         <!-- ==================== -->
         <dependency>
             <groupId>io.shardingsphere</groupId>
