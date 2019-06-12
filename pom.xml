@@ -160,7 +160,9 @@
             <artifactId>spring-security-config</artifactId>
             <version>${spring.security.version}</version>
         </dependency>
-
+        <!-- ==================== -->
+        <!-- 单点登录              -->
+        <!-- ==================== -->
         <dependency>
             <groupId>org.jasig.cas.client</groupId>
             <artifactId>cas-client-core</artifactId>
