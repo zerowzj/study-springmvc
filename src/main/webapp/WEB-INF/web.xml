@@ -63,22 +63,22 @@
     </filter-mapping>
     <!-- CAS -->
     <!--<filter>-->
-        <!--<description>负责对ticket的校验工作，这个过滤器要放在第一个位置</description>-->
-        <!--<filter-name>ticketValidationFilter</filter-name>-->
-        <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
+    <!--<description>负责对ticket的校验工作，这个过滤器要放在第一个位置</description>-->
+    <!--<filter-name>ticketValidationFilter</filter-name>-->
+    <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
     <!--</filter>-->
     <!--<filter-mapping>-->
-        <!--<filter-name>ticketValidationFilter</filter-name>-->
-        <!--<url-pattern>/</url-pattern>-->
+    <!--<filter-name>ticketValidationFilter</filter-name>-->
+    <!--<url-pattern>/</url-pattern>-->
     <!--</filter-mapping>-->
     <!--<filter>-->
-        <!--<description>负责用户的认证工作</description>-->
-        <!--<filter-name>authFilter</filter-name>-->
-        <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
+    <!--<description>负责用户的认证工作</description>-->
+    <!--<filter-name>authFilter</filter-name>-->
+    <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
     <!--</filter>-->
     <!--<filter-mapping>-->
-        <!--<filter-name>authFilter</filter-name>-->
-        <!--<url-pattern>/</url-pattern>-->
+    <!--<filter-name>authFilter</filter-name>-->
+    <!--<url-pattern>/</url-pattern>-->
     <!--</filter-mapping>-->
     <!-- =================== -->
     <!-- Servlet             -->
@@ -89,7 +89,8 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>WEB-INF/*-servlet.xml</param-value>
+            <param-value>/WEB-INF/dispatcher-servlet.xml, /WEB-INF/spring-servlet.xml</param-value>
+            <!--<param-value>/WEB-INF/*-servlet.xml</param-value>-->
         </init-param>
         <init-param>
             <param-name>publishEvents</param-name>
