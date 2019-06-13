@@ -13,7 +13,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-
 @RequestMapping(method = RequestMethod.POST)
 public @interface PostAction {
 
