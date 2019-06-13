@@ -12,7 +12,7 @@
         <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
     <!-- =================== -->
-    <!-- 【（★）配置】             -->
+    <!-- 【（★）配置方式】     -->
     <!-- =================== -->
     <!-- 处理器映射 -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
@@ -24,8 +24,8 @@
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
             <list>
-                <!--<ref bean="stringMsgConverter"/>-->
-                <ref bean="jsonMsgConverter"/>
+                <ref bean="stringMessageConverter"/>
+                <ref bean="jsonMessageConverter"/>
             </list>
         </property>
     </bean>
@@ -39,7 +39,7 @@
         <property name="suffix" value=".jsp"/>
     </bean>
     <!-- =================== -->
-    <!-- 【（★）注解】                -->
+    <!-- 【（★）注解方式】    -->
     <!-- =================== -->
     <!--<mvc:annotation-driven>-->
     <!--<mvc:message-converters>-->
