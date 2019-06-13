@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import study.spring.support.action.Action;
 import study.spring.support.context.SpringContext;
-import study.spring.support.web.Api;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +15,6 @@ import java.util.Map;
  *
  * @author wangzhj
  */
-@Api
 public class ApiRouter {
 
     private static final String ACTION_PREFIX = "action";

@@ -39,7 +39,7 @@
         <property name="suffix" value=".jsp"/>
     </bean>
     <!-- 异常解析器 -->
-    <bean class="study.spring.support.exception.CustomHandlerExceptionResolver"/>
+    <!--<bean class="study.spring.support.exception.CustomHandlerExceptionResolver"/>-->
     <!-- =================== -->
     <!-- 【（★）注解方式】    -->
     <!-- =================== -->

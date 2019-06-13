@@ -1,9 +1,8 @@
 package study.spring.support.annotation;
 
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
+import org.springframework.core.annotation.AliasFor;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -11,12 +10,12 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target(ElementType.TYPE)
+@Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Controller
-@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE,
-        value = "/api")
-@ResponseBody
-public @interface Api {
+@RequestMapping(method = RequestMethod.GET)
+public @interface GetAction {
+
+    @AliasFor(annotation = RequestMapping.class)
+    String value();
 }

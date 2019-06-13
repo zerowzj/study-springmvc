@@ -25,9 +25,8 @@ public class CustomExceptionHandler {
     @ResponseBody
     public Map<String, Object> resolveException(HttpServletRequest request, HttpServletResponse response,
                                                 Exception ex) {
-        LOGGER.info("erorrrrrrrrrrrrrrrrrrrrr");
-        ex.printStackTrace();
-        LOGGER.error("发生异常", ex);
+//        LOGGER.error("发生异常", ex);
+        LOGGER.info("2222222222222222222");
         return Results.error();
     }
 }
