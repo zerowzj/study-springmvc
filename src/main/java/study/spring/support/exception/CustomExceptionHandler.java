@@ -1,4 +1,4 @@
-package study.spring.support.ext;
+package study.spring.support.exception;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
