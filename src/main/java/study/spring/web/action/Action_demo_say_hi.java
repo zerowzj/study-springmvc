@@ -15,7 +15,7 @@ import java.util.Map;
 public class Action_demo_say_hi extends BaseAction implements ApplicationContextAware {
 
     public Action_demo_say_hi() {
-        LOGGER.info("===>Action_demo_say_hi");
+        LOGGER.info("===>实例化处理器Action_demo_say_hi");
     }
 
     protected Map<String, Object> processBusiness(RequestContext cxt, Param param) {

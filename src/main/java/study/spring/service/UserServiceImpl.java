@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
     private UserBaseDao ubDao;
 
     public UserServiceImpl(){
-        LOGGER.info("===>UserServiceImpl");
+        LOGGER.info("===>实例化服务UserServiceImpl");
     }
 
     //    @Value("#{config['name']}")
