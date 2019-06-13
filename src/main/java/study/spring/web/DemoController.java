@@ -17,16 +17,16 @@ public class DemoController {
     @Autowired
     private UserService userService;
 
-    @GetMapping
     @GetAction("/test1")
-    public void test1() {
+    public String test1() {
         userService.checkIn(null);
         LOGGER.info("test1 test1");
+        return "this is test1";
     }
 
     @PostAction("/test2")
     public String test2() {
         LOGGER.info("test2 test2");
-        return "this is a test";
+        return "this is test2";
     }
 }
