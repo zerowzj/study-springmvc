@@ -16,7 +16,7 @@ import java.util.Map;
  *
  * @author wangzhj
  */
-@ControllerAdvice
+//@ControllerAdvice
 public class CustomExceptionHandler {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomExceptionHandler.class);

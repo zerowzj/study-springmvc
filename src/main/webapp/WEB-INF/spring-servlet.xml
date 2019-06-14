@@ -3,24 +3,15 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!-- 报文转换器 -->
-    <bean id="stringMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
-        <constructor-arg value="UTF-8" index="0"/>
-        <property name="supportedMediaTypes">
-            <list>
-                <value>text/plain;charset=UTF-8</value>
-            </list>
-        </property>
-    </bean>
-    <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-        <property name="supportedMediaTypes">
-            <list>
-                <value>text/html; charset=UTF-8</value>
-                <value>text/plain;charset=UTF-8</value>
-                <value>application/json;charset=UTF-8</value>
-            </list>
-        </property>
-    </bean>
-    <bean id="formHttpMessageConverter" class="org.springframework.http.converter.FormHttpMessageConverter">
+    <!--<bean id="stringMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter">-->
+        <!--<constructor-arg value="UTF-8" index="0"/>-->
+        <!--<property name="supportedMediaTypes">-->
+            <!--<list>-->
+                <!--<value>text/plain;charset=UTF-8</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <!--<bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
         <!--<property name="supportedMediaTypes">-->
             <!--<list>-->
                 <!--<value>text/html; charset=UTF-8</value>-->
@@ -28,7 +19,17 @@
                 <!--<value>application/json;charset=UTF-8</value>-->
             <!--</list>-->
         <!--</property>-->
-    </bean>
+    <!--</bean>-->
+    <!--<bean id="formMessageConverter" class="org.springframework.http.converter.FormHttpMessageConverter">-->
+        <!--<property name="supportedMediaTypes">-->
+            <!--<list>-->
+                <!--<value>text/html; charset=UTF-8</value>-->
+                <!--<value>text/plain;charset=UTF-8</value>-->
+                <!--<value>application/json;charset=UTF-8</value>-->
+                <!--<value>application/x-www-form-urlencoded</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
     <!-- 拦截器 -->
     <bean id="demoInterceptor" class="study.spring.support.interceptor.DemoInterceptor"/>
     <!-- 容器上下文 -->

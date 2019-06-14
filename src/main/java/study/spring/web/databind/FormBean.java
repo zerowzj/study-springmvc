@@ -1,4 +1,4 @@
-package study.spring.web;
+package study.spring.web.databind;
 
 public class FormBean {
 
