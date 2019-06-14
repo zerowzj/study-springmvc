@@ -100,7 +100,7 @@
             <param-value>
                 /WEB-INF/dispatcher-common-servlet.xml
                 ,/WEB-INF/dispatcher-cfg-servlet.xml
-                ,/WEB-INF/dispatcher-mvc-servlet.xml
+                <!--,/WEB-INF/dispatcher-mvc-servlet.xml-->
             </param-value>
         </init-param>
         <init-param>
