@@ -8,9 +8,9 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class CustomHandlerExceptionResolver implements HandlerExceptionResolver {
+public class CustomExceptionResolver implements HandlerExceptionResolver {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CustomHandlerExceptionResolver.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CustomExceptionResolver.class);
 
     @Override
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response,

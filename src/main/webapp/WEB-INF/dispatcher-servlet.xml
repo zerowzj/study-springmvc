@@ -24,8 +24,9 @@
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
             <list>
-                <ref bean="stringMessageConverter"/>
-                <ref bean="jsonMessageConverter"/>
+                <!--<ref bean="stringMessageConverter"/>-->
+                <!--<ref bean="jsonMessageConverter"/>-->
+                <ref bean="formHttpMessageConverter"/>
             </list>
         </property>
     </bean>
@@ -39,8 +40,7 @@
         <property name="suffix" value=".jsp"/>
     </bean>
     <!-- 异常解析器 -->
-    <!--<bean class="study.spring.support.exception.CustomHandlerExceptionResolver"/>-->
-    <!-- =================== -->
+    <!--<bean class="study.spring.support.exception.CustomExceptionResolver />-->
     <!-- 【（★）注解方式】    -->
     <!-- =================== -->
     <!--<mvc:annotation-driven>-->

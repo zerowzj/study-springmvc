@@ -20,6 +20,15 @@
             </list>
         </property>
     </bean>
+    <bean id="formHttpMessageConverter" class="org.springframework.http.converter.FormHttpMessageConverter">
+        <!--<property name="supportedMediaTypes">-->
+            <!--<list>-->
+                <!--<value>text/html; charset=UTF-8</value>-->
+                <!--<value>text/plain;charset=UTF-8</value>-->
+                <!--<value>application/json;charset=UTF-8</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    </bean>
     <!-- 拦截器 -->
     <bean id="demoInterceptor" class="study.spring.support.interceptor.DemoInterceptor"/>
     <!-- 容器上下文 -->
