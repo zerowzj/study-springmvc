@@ -21,11 +21,11 @@ public class StrategyController {
     @RequestMapping
     public void bind1() {
         LOGGER.info("{}", SpringContext.getBeansOfType(HandlerMapping.class));
-//        String[] handlerMapping = SpringContext.getBeanNamesForType(HandlerMapping.class);
-//        String[] handlerAdapter = SpringContext.getBeanNamesForType(HandlerAdapter.class);
-//        LOGGER.info("handlerMapping={}", handlerMapping);
-//        LOGGER.info("handlerAdapter={}", handlerAdapter);
-//        String[] httpMessageConverter = SpringContext.getBeanNamesForType(HttpMessageConverter.class);
-//        LOGGER.info("httpMessageConverter={}", httpMessageConverter);
+        String[] handlerMapping = SpringContext.getBeanNamesForType(HandlerMapping.class);
+        String[] handlerAdapter = SpringContext.getBeanNamesForType(HandlerAdapter.class);
+        LOGGER.info("handlerMapping={}", handlerMapping);
+        LOGGER.info("handlerAdaptWebMvcConfigurationSupporter={}", handlerAdapter);
+        String[] httpMessageConverter = SpringContext.getBeanNamesForType(HttpMessageConverter.class);
+        LOGGER.info("httpMessageConverter={}", httpMessageConverter);
     }
 }
