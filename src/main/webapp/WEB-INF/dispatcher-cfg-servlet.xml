@@ -20,15 +20,15 @@
     <!-- =================== -->
     <!-- 【处理器适配器】      -->
     <!-- =================== -->
-    <bean id="requestMappingHandlerAdapter" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-        <property name="messageConverters">
-            <list>
-                <!--<ref bean="stringMessageConverter"/>-->
-                <!--<ref bean="jsonMessageConverter"/>-->
-                <ref bean="formMessageConverter"/>
-            </list>
-        </property>
-    </bean>
+    <!--<bean id="requestMappingHandlerAdapter" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
+        <!--<property name="messageConverters">-->
+            <!--<list>-->
+                <!--&lt;!&ndash;<ref bean="stringMessageConverter"/>&ndash;&gt;-->
+                <!--&lt;!&ndash;<ref bean="jsonMessageConverter"/>&ndash;&gt;-->
+                <!--<ref bean="formMessageConverter"/>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
     <!-- =================== -->
     <!-- 【文件上传解析器】    -->
     <!-- =================== -->
