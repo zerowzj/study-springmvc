@@ -7,8 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import study.spring.dao.userbase.UserBaseDao;
-import study.spring.dao.userbase.UserBaseEO;
+import study.spring.mvc.dao.userbase.UserBaseDao;
+import study.spring.mvc.dao.userbase.UserBaseEO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/spring-context.xml",

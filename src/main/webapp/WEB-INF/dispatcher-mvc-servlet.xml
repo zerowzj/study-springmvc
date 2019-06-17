@@ -23,7 +23,7 @@
     <!-- 【拦截器】           -->
     <!-- =================== -->
     <mvc:interceptors>
-        <bean class="study.spring.support.interceptor.WatchDogInterceptor"/>
+        <bean class="study.spring.mvc.support.interceptor.WatchDogInterceptor"/>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <ref bean="demoInterceptor"/>

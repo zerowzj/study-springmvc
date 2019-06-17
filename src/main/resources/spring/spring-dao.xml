@@ -12,10 +12,10 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:mybatis-cfg.xml"/>
-        <property name="mapperLocations" value="classpath*:study/spring/dao/**/**.xml"/>
+        <property name="mapperLocations" value="classpath*:study/spring/mvc/dao/**/**.xml"/>
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="study.spring.dao"/>
+        <property name="basePackage" value="study.spring.mvc.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
     <!-- ==================== -->
@@ -32,7 +32,7 @@
         </tx:attributes>
     </tx:advice>
     <aop:config>
-        <aop:pointcut id="txPointCut" expression="execution(public * study.spring.service..*.*(..))"/>
+        <aop:pointcut id="txPointCut" expression="execution(public * study.spring.mvc.service..*.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut" />
     </aop:config>
     <!-- 注解事务 -->

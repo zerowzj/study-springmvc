@@ -45,5 +45,5 @@
     <!-- =================== -->
     <!-- 【异常解析器】        -->
     <!-- =================== -->
-    <bean class="study.spring.support.exception.CustomExceptionResolver"/>
+    <bean class="study.spring.mvc.support.exception.CustomExceptionResolver"/>
 </beans>

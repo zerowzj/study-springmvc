@@ -37,12 +37,12 @@
         <property name="userDetailsService" ref="userDetailsService"/>
         <!--<property name="passwordEncoder" ref="md5PasswordEncoder"/>-->
     </bean>
-    <bean id="userDetailsService" class="study.spring.auth.security.user.CustomUserDetailsService"/>
+    <bean id="userDetailsService" class="study.spring.mvc.auth.security.user.CustomUserDetailsService"/>
     <bean id="md5PasswordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder">
         <property name="encodeHashAsBase64" value="true"/>
     </bean>
     <!-- 认证过滤器 -->
-    <bean id="customLoginFilter" class="study.spring.auth.security.filter.CustomLoginFilter">
+    <bean id="customLoginFilter" class="study.spring.mvc.auth.security.filter.CustomLoginFilter">
         <property name="authenticationManager" ref="authenticationManager"/>
         <property name="filterProcessesUrl" value="/login.html"/>
         <property name="usernameParameter" value="loginName"/>
@@ -51,24 +51,24 @@
         <property name="authenticationFailureHandler" ref="failureHandler"/>
     </bean>
     <!-- 登录成功 -->
-    <bean id="successHandler" class="study.spring.auth.security.handler.LoginSuccessHandler">
+    <bean id="successHandler" class="study.spring.mvc.auth.security.handler.LoginSuccessHandler">
         <property name="defaultTargetUrl" value="/index.jsp"/>
         <property name="alwaysUseDefaultTargetUrl" value="true"/>
     </bean>
     <!-- 登录失败 -->
-    <bean id="failureHandler" class="study.spring.auth.security.handler.LoginFailureHandler">
+    <bean id="failureHandler" class="study.spring.mvc.auth.security.handler.LoginFailureHandler">
         <property name="defaultFailureUrl" value="/login.jsp?msg=login_failure"/>
     </bean>
     <!-- ==================== -->
     <!-- 注销过滤器            -->
     <!-- ==================== -->
-    <bean id="customLogoutFilter" class="study.spring.auth.security.filter.CustomLogoutFilter">
+    <bean id="customLogoutFilter" class="study.spring.mvc.auth.security.filter.CustomLogoutFilter">
         <property name="filterProcessesUrl" value="/logout.html"/>
         <constructor-arg index="0" value="/login.jsp?msg=logout_success"/>
         <constructor-arg index="1">
             <array>
                 <bean class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler"/>
-                <bean class="study.spring.auth.security.handler.CustomLogoutHandler"/>
+                <bean class="study.spring.mvc.auth.security.handler.CustomLogoutHandler"/>
             </array>
         </constructor-arg>
     </bean>
@@ -100,15 +100,15 @@
             <ref bean="functionMap"/>
         </constructor-arg>
     </bean>
-    <bean id="functionMap" class="study.spring.auth.security.FunctionMapFactoryBean">
+    <bean id="functionMap" class="study.spring.mvc.auth.security.FunctionMapFactoryBean">
     </bean>
     <!-- 访问拒绝处理器 -->
-    <bean id="accessDeniedHandler" class="study.spring.auth.security.handler.CustomAccessDeniedHandler">
+    <bean id="accessDeniedHandler" class="study.spring.mvc.auth.security.handler.CustomAccessDeniedHandler">
         <property name="errorPage" value="/accessDenied.jsp"/>
     </bean>
     <!-- ==================== -->
     <!-- 自定义过滤器          -->
     <!-- ==================== -->
-    <bean id="watchDogFilter" class="study.spring.auth.security.filter.WatchDogFilter">
+    <bean id="watchDogFilter" class="study.spring.mvc.auth.security.filter.WatchDogFilter">
     </bean>
 </beans>

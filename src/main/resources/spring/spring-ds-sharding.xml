@@ -27,7 +27,7 @@
     <!-- ==================== -->
     <!-- 用户（水平分表） -->
     <bean id="userTableShardingAlgorithm"
-          class="study.spring.common.sharding.algorithm.ModuloShardingAlgorithm">
+          class="study.spring.mvc.common.sharding.algorithm.ModuloShardingAlgorithm">
         <constructor-arg name="shardingCount" value="3"/>
     </bean>
     <sharding:standard-strategy id="userTableShardingStrategy"
@@ -48,7 +48,7 @@
                               algorithm-expression="ORDER_ITEM_${RI_ORDER_ID % 2}"/>
     <!--  -->
     <bean id="multipleKeysShardingAlgorithm"
-          class="study.spring.common.sharding.algorithm.MultipleKeysShardingAlgorithm">
+          class="study.spring.mvc.common.sharding.algorithm.MultipleKeysShardingAlgorithm">
     </bean>
     <sharding:complex-strategy id="multipleKeysShardingStrategy"
                                sharding-columns=""

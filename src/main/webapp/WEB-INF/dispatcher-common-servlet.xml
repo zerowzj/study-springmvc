@@ -24,7 +24,7 @@
     </bean>
 
     <!-- 拦截器 -->
-    <bean id="demoInterceptor" class="study.spring.support.interceptor.DemoInterceptor"/>
+    <bean id="demoInterceptor" class="study.spring.mvc.support.interceptor.DemoInterceptor"/>
     <!-- 容器上下文 -->
-    <bean class="study.spring.support.context.SpringContext"/>
+    <bean class="study.spring.mvc.support.context.SpringContext"/>
 </beans>

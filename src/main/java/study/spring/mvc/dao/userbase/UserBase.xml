@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="study.spring.mvc.dao.userbase.UserBaseDao">
+    <resultMap id="userBaseEO" type="study.spring.mvc.dao.userbase.UserBaseEO">
+        <id property="ubId" column="ub_id"/>
+        <result property="ubUserId" column="ub_user_id"/>
+        <result property="ubLoginName" column="ub_login_name"/>
+        <result property="ubLoginPwd" column="ub_login_pwd"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        ub.ub_id,
+        ub.ub_user_id,
+        ub.ub_login_name,
+        ub.ub_login_pwd
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="ubId"
+            parameterType="study.spring.mvc.dao.userbase.UserBaseEO">
+        INSERT INTO user_base (ub_user_id, ub_login_name, ub_login_pwd)
+        VALUES (#{ubUserId}, #{ubLoginName}, #{ubLoginPwd})
+    </insert>
+
+    <select id="get" parameterType="java.lang.Long" resultMap="userBaseEO">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM user_base ub
+        WHERE ub.ub_id = #{ubId}
+    </select>
+    <select id="getByUserId" parameterType="java.lang.Long" resultMap="userBaseEO">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM user_base ub
+        WHERE ub.ub_user_id = #{userId}
+    </select>
+
+    <select id="getLt" parameterType="java.lang.Long" resultMap="userBaseEO">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM user_base ub
+        WHERE 1=1
+        <if test="ubIdLt != null and ubIdLt.size() > 0">
+            AND ub.ub_id IN
+            <foreach collection="ubIdLt" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="userIdLt != null and userIdLt.size() > 0">
+            AND ub.ub_user_id IN
+            <foreach collection="userIdLt" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+</mapper>
