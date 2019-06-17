@@ -8,6 +8,11 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 异常解析器
+ *
+ * @author wangzhj
+ */
 public class CustomExceptionResolver implements HandlerExceptionResolver {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomExceptionResolver.class);
