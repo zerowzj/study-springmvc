@@ -4,13 +4,8 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-    <!-- 加载Bean -->
-    <context:component-scan base-package="study.spring" use-default-filters="false">
-        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
-    </context:component-scan>
     <!-- =================== -->
-    <!-- 【处理器映射】       -->
+    <!-- 【（★）处理器映射】   -->
     <!-- =================== -->
     <bean id="requestMappingHandlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
         <property name="interceptors">
@@ -18,32 +13,33 @@
         </property>
     </bean>
     <!-- =================== -->
-    <!-- 【处理器适配器】      -->
+    <!-- 【（★）处理器适配器】 -->
     <!-- =================== -->
-    <!--<bean id="requestMappingHandlerAdapter" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
-        <!--<property name="messageConverters">-->
-            <!--<list>-->
-                <!--&lt;!&ndash;<ref bean="stringMessageConverter"/>&ndash;&gt;-->
-                <!--&lt;!&ndash;<ref bean="jsonMessageConverter"/>&ndash;&gt;-->
-                <!--<ref bean="formMessageConverter"/>-->
-            <!--</list>-->
-        <!--</property>-->
-    <!--</bean>-->
+    <bean id="requestMappingHandlerAdapter" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <!--<ref bean="stringMessageConverter"/>-->
+                <!--<ref bean="jsonMessageConverter"/>-->
+                <ref bean="formMessageConverter"/>
+            </list>
+        </property>
+    </bean>
     <!-- =================== -->
-    <!-- 【文件上传解析器】    -->
+    <!-- 【（★）文件上传解析器】-->
     <!-- =================== -->
     <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="UTF-8"/>
     </bean>
     <!-- =================== -->
-    <!-- 【视图解析器】       -->
+    <!-- 【（★）视图解析器】   -->
     <!-- =================== -->
+    <!--  -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
     <!-- =================== -->
-    <!-- 【异常解析器】        -->
+    <!-- 【（★）异常解析器】   -->
     <!-- =================== -->
     <bean class="study.spring.mvc.support.exception.CustomExceptionResolver"/>
 </beans>
