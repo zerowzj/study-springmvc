@@ -9,7 +9,7 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
         <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
-    <!-- 报文转换器 -->
+    <!-- Json报文转换器 -->
     <!--<bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
     <!--<property name="supportedMediaTypes">-->
     <!--<list>-->
@@ -19,6 +19,7 @@
     <!--</list>-->
     <!--</property>-->
     <!--</bean>-->
+    <!-- 报文转换器 -->
     <bean id="formMessageConverter" class="org.springframework.http.converter.FormHttpMessageConverter">
         <property name="supportedMediaTypes">
             <list>
@@ -29,7 +30,6 @@
             </list>
         </property>
     </bean>
-
     <!-- 拦截器 -->
     <bean id="demoInterceptor" class="study.spring.mvc.support.interceptor.DemoInterceptor"/>
     <!-- 容器上下文 -->

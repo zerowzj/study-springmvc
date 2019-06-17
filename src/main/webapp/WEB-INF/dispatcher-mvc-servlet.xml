@@ -11,7 +11,7 @@
     <!-- =================== -->
     <mvc:annotation-driven>
         <mvc:message-converters>
-            <ref bean="jsonMessageConverter"/>
+            <ref bean="formMessageConverter"/>
         </mvc:message-converters>
     </mvc:annotation-driven>
     <!-- =================== -->
@@ -28,6 +28,6 @@
     <!-- 【（★）视图解析器】   -->
     <!-- =================== -->
     <mvc:view-resolvers>
-        <bean class=""/>
+        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
     </mvc:view-resolvers>
 </beans>
