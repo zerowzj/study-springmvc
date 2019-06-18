@@ -104,6 +104,10 @@
             </param-value>
         </init-param>
         <init-param>
+            <param-name>detectAllHandlerMappings</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <init-param>
             <param-name>publishEvents</param-name>
             <param-value>false</param-value>
         </init-param>

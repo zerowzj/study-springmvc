@@ -24,21 +24,21 @@ public class StrategyController {
     private static final Logger LOGGER = LoggerFactory.getLogger(StrategyController.class);
 
     @RequestMapping
-    public void bind1() {
+    public void strategy() {
         LOGGER.info("{}", SpringContext.getBeansOfType(HandlerMapping.class));
         WebApplicationContext wac;
         String[] handlerMapping = SpringContext.getBeanNamesForType(HandlerMapping.class);
-        LOGGER.info("handler_mapping===> {}", handlerMapping);
+        LOGGER.info("handler_mapping ===> {}", handlerMapping);
         String[] handlerAdapter = SpringContext.getBeanNamesForType(HandlerAdapter.class);
-        LOGGER.info("handler_adapter===> {}", handlerAdapter);
+        LOGGER.info("handler_adapter ===> {}", handlerAdapter);
 
         String[] multipartResolver = SpringContext.getBeanNamesForType(MultipartResolver.class);
-        LOGGER.info("multipart_resolver={}", multipartResolver);
+        LOGGER.info("multipart_resolver ===> {}", multipartResolver);
         String[] viewResolver = SpringContext.getBeanNamesForType(ViewResolver.class);
-        LOGGER.info("view_resolver={}", viewResolver);
+        LOGGER.info("view_resolver ===> {}", viewResolver);
 
         String[] exceptionResolver = SpringContext.getBeanNamesForType(HandlerExceptionResolver.class);
-        LOGGER.info("exception_resolver={}", exceptionResolver);
+        LOGGER.info("exception_resolver ===> {}", exceptionResolver);
 //
 //        String[] httpMessageConverter = SpringContext.getBeanNamesForType(HttpMessageConverter.class);
 //        LOGGER.info("Http Message Converter={}", httpMessageConverter);
