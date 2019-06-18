@@ -8,8 +8,12 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.servlet.HandlerAdapter;
+import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.HandlerMapping;
+import org.springframework.web.servlet.ViewResolver;
 import study.spring.mvc.support.context.SpringContext;
 
 @Controller
@@ -22,14 +26,21 @@ public class StrategyController {
     @RequestMapping
     public void bind1() {
         LOGGER.info("{}", SpringContext.getBeansOfType(HandlerMapping.class));
-
+        WebApplicationContext wac;
         String[] handlerMapping = SpringContext.getBeanNamesForType(HandlerMapping.class);
-        LOGGER.info("handlerMapping={}", handlerMapping);
-
+        LOGGER.info("handler_mapping===> {}", handlerMapping);
         String[] handlerAdapter = SpringContext.getBeanNamesForType(HandlerAdapter.class);
-        LOGGER.info("handlerAdaptWebMvcConfigurationSupporter={}", handlerAdapter);
+        LOGGER.info("handler_adapter===> {}", handlerAdapter);
 
-        String[] httpMessageConverter = SpringContext.getBeanNamesForType(HttpMessageConverter.class);
-        LOGGER.info("httpMessageConverter={}", httpMessageConverter);
+        String[] multipartResolver = SpringContext.getBeanNamesForType(MultipartResolver.class);
+        LOGGER.info("multipart_resolver={}", multipartResolver);
+        String[] viewResolver = SpringContext.getBeanNamesForType(ViewResolver.class);
+        LOGGER.info("view_resolver={}", viewResolver);
+
+        String[] exceptionResolver = SpringContext.getBeanNamesForType(HandlerExceptionResolver.class);
+        LOGGER.info("exception_resolver={}", exceptionResolver);
+//
+//        String[] httpMessageConverter = SpringContext.getBeanNamesForType(HttpMessageConverter.class);
+//        LOGGER.info("Http Message Converter={}", httpMessageConverter);
     }
 }
