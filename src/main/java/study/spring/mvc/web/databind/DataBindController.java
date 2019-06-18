@@ -19,15 +19,15 @@ public class DataBindController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DataBindController.class);
 
-    @RequestMapping("/path/{id}/{name}")
+    @RequestMapping("/path_variable/{id}/{name}")
     public void pathVariable(String id1,
                              @PathVariable String name) {
         LOGGER.info("id={},name={}", id1, name);
     }
 
-    @RequestMapping("/request")
-    public void request(@RequestParam(required = false) String name,
-                        @RequestHeader(value = "Request-Id", required = false) String requestId) {
+    @RequestMapping("/request_param")
+    public void requestParam(@RequestParam(required = false) String name,
+                             @RequestHeader(value = "Request-Id", required = false) String requestId) {
         LOGGER.info("name={}, request_id={}", name, requestId);
     }
 
@@ -36,8 +36,8 @@ public class DataBindController {
         LOGGER.info("name={}, age={}", form.getName(), form.getAge());
     }
 
-    @RequestMapping("/bind4")
-    public void bind4(@RequestBody MultiValueMap<String, String> map) {
+    @RequestMapping("/request_body")
+    public void requestBody(@RequestBody MultiValueMap<String, String> map) {
         LOGGER.info("name={}, age={}", map);
     }
 }
