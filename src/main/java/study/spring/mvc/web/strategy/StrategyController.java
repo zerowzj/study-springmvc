@@ -3,6 +3,7 @@ package study.spring.mvc.web.strategy;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,10 +22,13 @@ public class StrategyController {
     @RequestMapping
     public void bind1() {
         LOGGER.info("{}", SpringContext.getBeansOfType(HandlerMapping.class));
+
         String[] handlerMapping = SpringContext.getBeanNamesForType(HandlerMapping.class);
-        String[] handlerAdapter = SpringContext.getBeanNamesForType(HandlerAdapter.class);
         LOGGER.info("handlerMapping={}", handlerMapping);
+
+        String[] handlerAdapter = SpringContext.getBeanNamesForType(HandlerAdapter.class);
         LOGGER.info("handlerAdaptWebMvcConfigurationSupporter={}", handlerAdapter);
+
         String[] httpMessageConverter = SpringContext.getBeanNamesForType(HttpMessageConverter.class);
         LOGGER.info("httpMessageConverter={}", httpMessageConverter);
     }
