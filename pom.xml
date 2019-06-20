@@ -108,6 +108,17 @@
             <version>${spring.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>9.4.2.v20170220</version>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>org.eclipse.jetty</groupId>-->
+            <!--<artifactId>jetty-jsp</artifactId>-->
+        <!--</dependency>-->
+
         <!-- Slf4j -->
         <dependency>
             <groupId>org.slf4j</groupId>
