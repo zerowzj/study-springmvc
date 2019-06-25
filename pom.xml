@@ -14,7 +14,7 @@
         <spring.security.version>4.2.2.RELEASE</spring.security.version>
         <jackson.version>2.9.9</jackson.version>
         <sharding-jdbc.version>3.0.0</sharding-jdbc.version>
-        <servlet.version>3.0.1</servlet.version>
+        <servlet.version>3.0</servlet.version>
         <war>${project.build.finalName}.war</war>
     </properties>
 
@@ -29,7 +29,7 @@
         <!-- Servlet -->
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
+            <artifactId>servlet-api</artifactId>
             <version>${servlet.version}</version>
             <!--<scope>provided</scope>-->
         </dependency>
@@ -314,7 +314,6 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.28</version>
         </dependency>
-
     </dependencies>
 
     <build>

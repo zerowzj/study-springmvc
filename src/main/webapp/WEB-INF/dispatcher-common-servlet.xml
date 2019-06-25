@@ -9,7 +9,8 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
         <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
-    <bean id="stringMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter" >
+    <!-- 文本报文转换器 -->
+    <bean id="stringMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
     </bean>
     <!-- Json报文转换器 -->
     <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
