@@ -104,17 +104,20 @@
             </param-value>
         </init-param>
         <init-param>
-            <description>是否所有Handler Mappings</description>
+            <description>探测所有Handler Mappings</description>
             <param-name>detectAllHandlerMappings</param-name>
             <param-value>true</param-value>
         </init-param>
         <init-param>
-            <description>11</description>
+            <description>探测所有Handler Adapters</description>
+            <param-name>detectAllHandlerAdapters</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
             <param-name>publishEvents</param-name>
             <param-value>false</param-value>
         </init-param>
         <init-param>
-            <description>22</description>
             <param-name>publishContext</param-name>
             <param-value>false</param-value>
         </init-param>
