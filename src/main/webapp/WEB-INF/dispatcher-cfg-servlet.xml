@@ -9,7 +9,10 @@
     <!-- =================== -->
     <bean id="requestMappingHandlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
         <property name="interceptors">
-            <ref bean="watchDogInterceptor"/>
+            <list>
+                <ref bean="demoInterceptor"/>
+                <ref bean="watchDogInterceptor"/>
+            </list>
         </property>
     </bean>
     <!-- =================== -->
