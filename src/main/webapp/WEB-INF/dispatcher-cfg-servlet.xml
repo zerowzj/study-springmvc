@@ -11,8 +11,8 @@
         <!-- 拦截器 -->
         <property name="interceptors">
             <list>
-                <bean id="demoInterceptor" class="study.spring.mvc.support.interceptor.DemoInterceptor"/>
-                <bean id="watchDogInterceptor" class="study.spring.mvc.support.interceptor.WatchDogInterceptor"/>
+                <ref bean="demoInterceptor"/>
+                <ref bean="watchDogInterceptor"/>
             </list>
         </property>
     </bean>
@@ -21,13 +21,13 @@
     <!-- =================== -->
     <bean id="requestMappingHandlerAdapter" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <!-- 报文转换 -->
-        <property name="messageConverters">
-            <list>
-                <ref bean="stringMessageConverter"/>
-                <!--<ref bean="jsonMessageConverter"/>-->
-                <ref bean="formMessageConverter"/>
-            </list>
-        </property>
+        <!--<property name="messageConverters">-->
+            <!--<list>-->
+                <!--<ref bean="stringMessageConverter"/>-->
+                <!--&lt;!&ndash;<ref bean="jsonMessageConverter"/>&ndash;&gt;-->
+                <!--<ref bean="formMessageConverter"/>-->
+            <!--</list>-->
+        <!--</property>-->
     </bean>
     <!-- =================== -->
     <!-- （★）文件上传解析器   -->
