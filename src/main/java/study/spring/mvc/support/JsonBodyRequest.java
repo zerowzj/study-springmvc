@@ -53,7 +53,7 @@ public class JsonBodyRequest extends HttpServletRequestWrapper {
     }
 
     @Override
-    public Map<String, ?> getParameterMap() {
+    public Map getParameterMap() {
         return this.paramMap;
     }
 }
