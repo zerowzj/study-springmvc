@@ -27,7 +27,7 @@ public class AuthFilter extends AdviceFilter {
 
         HttpServletRequest request = HttpServlets.toHttp(servletRequest);
         HttpServletResponse response = HttpServlets.toHttp(servletResponse);
-        Map<String, Object> paramMap = request.getParameterMap();
+//        Map<String, Object> paramMap = request.getParameterMap();
         try {
             //token过期或失效
 //            if ("".equals("")) {

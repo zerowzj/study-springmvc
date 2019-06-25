@@ -26,7 +26,7 @@ public abstract class BaseAction implements Action {
         Map<String, Object> result;
         try {
             //参数
-            Map<String, Object> paramMap = request.getParameterMap();
+            Map<String, ?> paramMap = request.getParameterMap();
             LOGGER.info("===> i: {}", JsonUtil.toJson(paramMap));
             Param param = new Param(paramMap);
             //上下文

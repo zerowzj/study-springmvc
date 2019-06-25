@@ -24,7 +24,7 @@ public class JsonBodyRequest extends HttpServletRequestWrapper {
     /* 请求体 */
     private byte[] body = new byte[]{};
     /* 参数Map */
-    private Map<String, Object> paramMap;
+    private Map<String, ?> paramMap;
 
     public JsonBodyRequest(HttpServletRequest request) {
         super(request);
@@ -53,7 +53,7 @@ public class JsonBodyRequest extends HttpServletRequestWrapper {
     }
 
     @Override
-    public Map<String, Object> getParameterMap() {
+    public Map<String, ?> getParameterMap() {
         return this.paramMap;
     }
 }

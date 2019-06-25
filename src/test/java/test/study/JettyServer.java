@@ -9,7 +9,7 @@ public class JettyServer {
 
     private static final String CONTEXT_PATH = "/";
 
-    private static final int PORT = 80;
+    private static final int PORT = 8080;
 
     public static void main(String[] args) {
         try {

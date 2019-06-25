@@ -7,18 +7,18 @@
     <!-- =================== -->
     <!-- 【（★）处理器映射】   -->
     <!-- =================== -->
-    <!--<bean id="requestMappingHandlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">-->
-        <!--<property name="interceptors">-->
-            <!--<ref bean="demoInterceptor"/>-->
-        <!--</property>-->
-    <!--</bean>-->
+    <bean id="requestMappingHandlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+        <property name="interceptors">
+            <ref bean="watchDogInterceptor"/>
+        </property>
+    </bean>
     <!-- =================== -->
     <!-- 【（★）处理器适配器】 -->
     <!-- =================== -->
     <bean id="requestMappingHandlerAdapter" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
             <list>
-                <!--<ref bean="stringMessageConverter"/>-->
+                <ref bean="stringMessageConverter"/>
                 <!--<ref bean="jsonMessageConverter"/>-->
                 <ref bean="formMessageConverter"/>
             </list>

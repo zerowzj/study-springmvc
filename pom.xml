@@ -29,13 +29,13 @@
         <!-- Servlet -->
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-            <scope>provided</scope>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <!--<scope>provided</scope>-->
         </dependency>
 
         <!-- ==================== -->
-        <!-- 核心容器（Core）      -->
+        <!-- （★）核心容器（Core）      -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -48,7 +48,7 @@
             <version>${spring.version}</version>
         </dependency>
         <!-- ==================== -->
-        <!-- 应用上下文（Context）  -->
+        <!-- （★）应用上下文（Context）  -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -61,7 +61,7 @@
             <version>${spring.version}</version>
         </dependency>
         <!-- ==================== -->
-        <!-- 面向切面（AOP）       -->
+        <!-- （★）面向切面（AOP）       -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -79,7 +79,7 @@
             <version>1.7.4</version>
         </dependency>
         <!-- ==================== -->
-        <!-- 数据持久化（ORM）      -->
+        <!-- （★）数据持久化（ORM）      -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -87,7 +87,7 @@
             <version>${spring.version}</version>
         </dependency>
         <!-- ==================== -->
-        <!-- （Web）              -->
+        <!-- （★）（Web）              -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -100,7 +100,7 @@
             <version>${spring.version}</version>
         </dependency>
         <!-- ==================== -->
-        <!-- 测试（Test）          -->
+        <!-- （★）测试（Test）          -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -112,11 +112,16 @@
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-webapp</artifactId>
             <version>9.4.2.v20170220</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-
         <!--<dependency>-->
-            <!--<groupId>org.eclipse.jetty</groupId>-->
-            <!--<artifactId>jetty-jsp</artifactId>-->
+        <!--<groupId>org.eclipse.jetty</groupId>-->
+        <!--<artifactId>jetty-jsp</artifactId>-->
         <!--</dependency>-->
 
         <!-- Slf4j -->
@@ -137,7 +142,7 @@
         </dependency>
 
         <!-- ==================== -->
-        <!-- 安全框架              -->
+        <!-- （★）安全框架         -->
         <!-- ==================== -->
         <!-- Shiro -->
         <dependency>
@@ -172,7 +177,7 @@
             <version>${spring.security.version}</version>
         </dependency>
         <!-- ==================== -->
-        <!-- 单点登录              -->
+        <!-- （★）单点登录         -->
         <!-- ==================== -->
         <dependency>
             <groupId>org.jasig.cas.client</groupId>
@@ -295,7 +300,7 @@
             <version>5.1.28</version>
         </dependency>
         <!-- ==================== -->
-        <!-- Sharding Jdbc        -->
+        <!-- （★）Sharding Jdbc   -->
         <!-- ==================== -->
         <dependency>
             <groupId>io.shardingsphere</groupId>
@@ -312,7 +317,6 @@
             <artifactId>sharding-jdbc-spring-namespace</artifactId>
             <version>${sharding-jdbc.version}</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -359,6 +363,19 @@
                 <version>2.19.1</version>
                 <configuration>
                     <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+            <!-- ==================== -->
+            <!-- （★）   -->
+            <!-- ==================== -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <port>8080</port>
+                    <path>/</path>
+                    <uriEncoding>UTF-8</uriEncoding>
                 </configuration>
             </plugin>
         </plugins>

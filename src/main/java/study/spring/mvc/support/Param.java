@@ -10,9 +10,9 @@ import java.util.Map;
 public class Param {
 
     /* 参数Map */
-    private Map<String, Object> paramMap;
+    private Map<String, ?> paramMap;
 
-    public Param(Map<String, Object> paramMap) {
+    public Param(Map<String, ?> paramMap) {
         this.paramMap = paramMap;
     }
 

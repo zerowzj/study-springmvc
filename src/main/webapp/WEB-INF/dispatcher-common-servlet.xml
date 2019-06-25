@@ -9,16 +9,18 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
         <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
+    <bean id="stringMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter" >
+    </bean>
     <!-- Json报文转换器 -->
-    <!--<bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
-    <!--<property name="supportedMediaTypes">-->
-    <!--<list>-->
-    <!--<value>text/html; charset=UTF-8</value>-->
-    <!--<value>text/plain;charset=UTF-8</value>-->
-    <!--<value>application/json;charset=UTF-8</value>-->
-    <!--</list>-->
-    <!--</property>-->
-    <!--</bean>-->
+    <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/html; charset=UTF-8</value>
+                <value>text/plain;charset=UTF-8</value>
+                <value>application/json;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
     <!-- 报文转换器 -->
     <bean id="formMessageConverter" class="org.springframework.http.converter.FormHttpMessageConverter">
         <property name="supportedMediaTypes">
@@ -32,6 +34,7 @@
     </bean>
     <!-- 拦截器 -->
     <bean id="demoInterceptor" class="study.spring.mvc.support.interceptor.DemoInterceptor"/>
+    <bean id="watchDogInterceptor" class="study.spring.mvc.support.interceptor.WatchDogInterceptor"/>
     <!-- 容器上下文 -->
     <bean class="study.spring.mvc.support.context.SpringContext"/>
 </beans>
