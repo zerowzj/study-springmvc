@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
     http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <!-- =================== -->
-    <!-- （★）上下文参数           -->
+    <!-- （★）上下文参数      -->
     <!-- =================== -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
@@ -20,13 +20,13 @@
         </param-value>
     </context-param>
     <!-- =================== -->
-    <!-- （★）监听器Listener       -->
+    <!-- （★）监听器Listener  -->
     <!-- =================== -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     <!-- ==================== -->
-    <!-- （★）过滤器Filter          -->
+    <!-- （★）过滤器Filter     -->
     <!-- ==================== -->
     <!--<filter>-->
     <!--<description>安全框架Shiro</description>-->
@@ -89,7 +89,7 @@
     <!--<url-pattern>/</url-pattern>-->
     <!--</filter-mapping>-->
     <!-- =================== -->
-    <!-- （★）Servlet             -->
+    <!-- （★）Servlet        -->
     <!-- =================== -->
     <servlet>
         <description>Spring MVC前端控制器</description>
