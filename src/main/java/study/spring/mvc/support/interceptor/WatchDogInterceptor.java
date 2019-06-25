@@ -13,7 +13,7 @@ public class WatchDogInterceptor extends HandlerInterceptorAdapter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WatchDogInterceptor.class);
 
-    public WatchDogInterceptor (){
+    public WatchDogInterceptor() {
         LOGGER.info("WatchDogInterceptorWatchDogInterceptor");
     }
 
@@ -21,12 +21,17 @@ public class WatchDogInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
                              Object handler) throws Exception {
         Enumeration<String> headerNames = request.getHeaderNames();
+        LOGGER.info("===============");
         while (headerNames.hasMoreElements()) {
-            LOGGER.info("==>{}", headerNames.nextElement());
+            String headerName = headerNames.nextElement();
+            LOGGER.info("{}= {}", headerName, request.getHeader(headerName));
         }
+        LOGGER.info("===============");
         Cookie[] cookies = request.getCookies();
-        for (Cookie cookie : cookies) {
-            LOGGER.info("{}= {}", cookie.getName(), cookie.getValue());
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                LOGGER.info("{}= {}", cookie.getName(), cookie.getValue());
+            }
         }
         return true;
     }
