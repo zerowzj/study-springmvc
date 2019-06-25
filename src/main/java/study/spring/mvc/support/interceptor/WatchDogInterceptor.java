@@ -13,6 +13,10 @@ public class WatchDogInterceptor extends HandlerInterceptorAdapter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WatchDogInterceptor.class);
 
+    public WatchDogInterceptor (){
+        LOGGER.info("WatchDogInterceptorWatchDogInterceptor");
+    }
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
                              Object handler) throws Exception {

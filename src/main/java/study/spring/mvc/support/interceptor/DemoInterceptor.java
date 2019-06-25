@@ -13,7 +13,7 @@ public class DemoInterceptor implements HandlerInterceptor {
     private static final Logger LOGGER = LoggerFactory.getLogger(DemoInterceptor.class);
 
     public DemoInterceptor(){
-        LOGGER.info("i am a test");
+        LOGGER.info("DemoInterceptorDemoInterceptorDemoInterceptor");
     }
 
     @Override

@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <!-- =================== -->
-    <!-- 【（★）开启注解】     -->
+    <!-- （★）开启注解        -->
     <!-- =================== -->
     <mvc:annotation-driven>
         <mvc:message-converters>
@@ -15,7 +15,7 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
     <!-- =================== -->
-    <!-- 【（★）配置拦截器】   -->
+    <!-- （★）配置拦截器      -->
     <!-- =================== -->
     <mvc:interceptors>
         <bean class="study.spring.mvc.support.interceptor.WatchDogInterceptor"/>
@@ -25,7 +25,7 @@
         </mvc:interceptor>
     </mvc:interceptors>
     <!-- =================== -->
-    <!-- 【（★）视图解析器】   -->
+    <!-- （★）视图解析器      -->
     <!-- =================== -->
     <mvc:view-resolvers>
         <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
