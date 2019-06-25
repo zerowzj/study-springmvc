@@ -11,8 +11,8 @@
         <!-- 拦截器 -->
         <property name="interceptors">
             <list>
-                <ref bean="demoInterceptor"/>
-                <ref bean="watchDogInterceptor"/>
+                <bean id="demoInterceptor" class="study.spring.mvc.support.interceptor.DemoInterceptor"/>
+                <bean id="watchDogInterceptor" class="study.spring.mvc.support.interceptor.WatchDogInterceptor"/>
             </list>
         </property>
     </bean>
