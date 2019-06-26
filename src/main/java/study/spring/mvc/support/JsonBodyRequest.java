@@ -4,7 +4,6 @@ import com.google.common.base.Strings;
 import study.spring.mvc.common.util.HttpServlets;
 import study.spring.mvc.common.util.JsonUtil;
 
-import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
@@ -49,21 +48,6 @@ public class JsonBodyRequest extends HttpServletRequestWrapper {
             @Override
             public int read() throws IOException {
                 return baIs.read();
-            }
-
-            @Override
-            public boolean isFinished() {
-                return false;
-            }
-
-            @Override
-            public boolean isReady() {
-                return false;
-            }
-
-            @Override
-            public void setReadListener(ReadListener readListener) {
-
             }
         };
     }

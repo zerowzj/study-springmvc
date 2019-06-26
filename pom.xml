@@ -7,6 +7,27 @@
     <version>1.0</version>
     <packaging>war</packaging>
 
+    <repositories>
+        <repository>
+            <id>maven-repo</id>
+            <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>mvnrepository</id>
+            <url>http://mvnrepository.com/artifact/</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven-repo</id>
+            <url>http://repo1.maven.org/maven2/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>mvnrepository</id>
+            <url>http://mvnrepository.com/artifact/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>5.1.7.RELEASE</spring.version>
@@ -14,8 +35,11 @@
         <spring.security.version>4.2.2.RELEASE</spring.security.version>
         <jackson.version>2.9.9</jackson.version>
         <sharding-jdbc.version>3.0.0</sharding-jdbc.version>
-        <servlet.version>3.0</servlet.version>
+        <servlet.version>3.0.1</servlet.version>
         <war>${project.build.finalName}.war</war>
+        <jetty.version>8.1.16.v20140903</jetty.version>
+        <tomcat.plugin.version>2.2</tomcat.plugin.version>
+        <jetty.plugin.version>9.4.19.v20190610</jetty.plugin.version>
     </properties>
 
     <dependencies>
@@ -29,9 +53,9 @@
         <!-- Servlet -->
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
+            <artifactId>javax.servlet-api</artifactId>
             <version>${servlet.version}</version>
-            <!--<scope>provided</scope>-->
+            <scope>provided</scope>
         </dependency>
         <!-- ==================== -->
         <!--  Spring              -->
@@ -58,7 +82,7 @@
             <artifactId>spring-context-support</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <!-- （★）面向切面（AOP）  -->
+        <!-- （★）面向切面（AOP） -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
@@ -91,16 +115,16 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <!-- （★）测试（Test）-->
+        <!-- （★）测试（Test） -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
         </dependency>
         <!-- ==================== -->
-        <!-- （★）安全框架         -->
+        <!-- 安全框架              -->
         <!-- ==================== -->
-        <!-- Shiro -->
+        <!-- （★）Shiro -->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-core</artifactId>
@@ -116,7 +140,7 @@
             <artifactId>shiro-spring</artifactId>
             <version>${shiro.version}</version>
         </dependency>
-        <!-- Spring Security -->
+        <!-- （★）Spring Security -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
@@ -141,28 +165,28 @@
             <version>3.5.1</version>
         </dependency>
         <!-- ==================== -->
-        <!-- （★）     -->
+        <!-- （★）Jetty Server    -->
         <!-- ==================== -->
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-server</artifactId>
-            <version>9.4.19.v20190610</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-servlet</artifactId>
-            <version>9.4.19.v20190610</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-webapp</artifactId>
-            <version>9.4.19.v20190610</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-servlets</artifactId>
-            <version>9.4.19.v20190610</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.eclipse.jetty</groupId>-->
+            <!--<artifactId>jetty-server</artifactId>-->
+            <!--<version>9.4.19.v20190610</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.eclipse.jetty</groupId>-->
+            <!--<artifactId>jetty-servlet</artifactId>-->
+            <!--<version>9.4.19.v20190610</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.eclipse.jetty</groupId>-->
+            <!--<artifactId>jetty-webapp</artifactId>-->
+            <!--<version>${jetty.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.eclipse.jetty</groupId>-->
+            <!--<artifactId>jetty-servlets</artifactId>-->
+            <!--<version>9.4.19.v20190610</version>-->
+        <!--</dependency>-->
         <!-- ==================== -->
         <!-- （★）Sharding Jdbc   -->
         <!-- ==================== -->
@@ -363,18 +387,33 @@
                 </configuration>
             </plugin>
             <!-- ==================== -->
-            <!-- （★）   -->
+            <!-- Servlet容器插件       -->
             <!-- ==================== -->
+            <!-- （★）Tomcat插件 -->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.2</version>
+                <version>${tomcat.plugin.version}</version>
                 <configuration>
                     <port>8080</port>
                     <path>/</path>
                     <uriEncoding>UTF-8</uriEncoding>
                 </configuration>
             </plugin>
+            <!-- （★）Jetty插件 -->
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>${jetty.plugin.version}</version>
+                <configuration>
+                    <httpConnector>
+                        <port>8080</port>
+                        <!--<host>localhost</host>-->
+                    </httpConnector>
+                    <scanIntervalSeconds>1</scanIntervalSeconds>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
