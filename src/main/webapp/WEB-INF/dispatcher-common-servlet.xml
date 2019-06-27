@@ -23,16 +23,16 @@
         <!--</property>-->
     <!--</bean>-->
     <!-- 报文转换器 -->
-    <bean id="formMessageConverter" class="org.springframework.http.converter.FormHttpMessageConverter">
-        <property name="supportedMediaTypes">
-            <list>
-                <value>text/html; charset=UTF-8</value>
-                <value>text/plain;charset=UTF-8</value>
-                <value>application/json;charset=UTF-8</value>
-                <value>application/x-www-form-urlencoded</value>
-            </list>
-        </property>
-    </bean>
+    <!--<bean id="formMessageConverter" class="org.springframework.http.converter.FormHttpMessageConverter">-->
+        <!--<property name="supportedMediaTypes">-->
+            <!--<list>-->
+                <!--<value>text/html; charset=UTF-8</value>-->
+                <!--<value>text/plain;charset=UTF-8</value>-->
+                <!--<value>application/json;charset=UTF-8</value>-->
+                <!--<value>application/x-www-form-urlencoded</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
     <!-- 拦截器 -->
     <bean id="demoInterceptor" class="study.spring.mvc.support.interceptor.DemoInterceptor"/>
     <bean id="watchDogInterceptor" class="study.spring.mvc.support.interceptor.WatchDogInterceptor"/>

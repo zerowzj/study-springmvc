@@ -35,9 +35,9 @@
         <spring.security.version>4.2.2.RELEASE</spring.security.version>
         <jackson.version>2.9.9</jackson.version>
         <sharding-jdbc.version>3.0.0</sharding-jdbc.version>
-        <servlet.version>3.0.1</servlet.version>
+        <servlet.version>3.1.0</servlet.version>
         <war>${project.build.finalName}.war</war>
-        <jetty.version>8.1.16.v20140903</jetty.version>
+        <jetty.version>9.4.19.v20190610</jetty.version>
         <tomcat.plugin.version>2.2</tomcat.plugin.version>
         <jetty.plugin.version>9.4.19.v20190610</jetty.plugin.version>
     </properties>
@@ -54,9 +54,10 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet.version}</version>
-            <scope>provided</scope>
+            <version>3.1.0</version>
+            <!--<scope>provided</scope>-->
         </dependency>
+
         <!-- ==================== -->
         <!--  Spring              -->
         <!-- ==================== -->
@@ -167,26 +168,11 @@
         <!-- ==================== -->
         <!-- （★）Jetty Server    -->
         <!-- ==================== -->
-        <!--<dependency>-->
-            <!--<groupId>org.eclipse.jetty</groupId>-->
-            <!--<artifactId>jetty-server</artifactId>-->
-            <!--<version>9.4.19.v20190610</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.eclipse.jetty</groupId>-->
-            <!--<artifactId>jetty-servlet</artifactId>-->
-            <!--<version>9.4.19.v20190610</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.eclipse.jetty</groupId>-->
-            <!--<artifactId>jetty-webapp</artifactId>-->
-            <!--<version>${jetty.version}</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.eclipse.jetty</groupId>-->
-            <!--<artifactId>jetty-servlets</artifactId>-->
-            <!--<version>9.4.19.v20190610</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
         <!-- ==================== -->
         <!-- （★）Sharding Jdbc   -->
         <!-- ==================== -->
@@ -410,7 +396,11 @@
                         <port>8080</port>
                         <!--<host>localhost</host>-->
                     </httpConnector>
-                    <scanIntervalSeconds>1</scanIntervalSeconds>
+                    <!-- 插件扫描项目变更的时间间隔，默认是0，表示不扫描 -->
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <webAppConfig>
+                        <contextPath>/</contextPath>
+                    </webAppConfig>
                 </configuration>
             </plugin>
 

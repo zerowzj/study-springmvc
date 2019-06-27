@@ -20,7 +20,7 @@ public class CustomExceptionResolver implements HandlerExceptionResolver {
     @Override
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response,
                                          Object handler, Exception ex) {
-        LOGGER.info("", ex);
+        LOGGER.info("===>", ex);
         ModelAndView modelAndView = new ModelAndView();
         return null;
     }
