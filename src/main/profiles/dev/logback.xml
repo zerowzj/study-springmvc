@@ -6,7 +6,7 @@
         </encoder>
     </appender>
 
-    <!--<logger name="org.springframework" level="OFF" />-->
+    <logger name="org.eclipse" level="OFF" />
     <!--<logger name="org.mybatis.spring" level="OFF" />-->
 
     <root level="DEBUG">

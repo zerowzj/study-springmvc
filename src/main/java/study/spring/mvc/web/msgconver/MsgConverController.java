@@ -1,4 +1,4 @@
-package study.spring.mvc.web;
+package study.spring.mvc.web.msgconver;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,14 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import study.spring.mvc.service.UserService;
-import study.spring.mvc.support.annotation.Api;
-import study.spring.mvc.support.annotation.GetAction;
-import study.spring.mvc.support.annotation.PostAction;
 
 @Controller
-public class DemoController {
+public class MsgConverController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(DemoController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MsgConverController.class);
 
     @Autowired
     private UserService userService;
