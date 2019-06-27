@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import study.spring.mvc.service.UserService;
 
 @Controller
+@RequestMapping("/msgconver")
 public class MsgConverController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MsgConverController.class);
