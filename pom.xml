@@ -33,12 +33,12 @@
         <spring.version>5.1.7.RELEASE</spring.version>
         <shiro.version>1.3.2</shiro.version>
         <spring.security.version>4.2.2.RELEASE</spring.security.version>
-        <jackson.version>2.9.9</jackson.version>
         <sharding-jdbc.version>3.0.0</sharding-jdbc.version>
-        <servlet.version>3.1.0</servlet.version>
-        <war>${project.build.finalName}.war</war>
         <jetty.version>9.4.19.v20190610</jetty.version>
         <jetty.plugin.version>9.4.19.v20190610</jetty.plugin.version>
+        <servlet.version>3.1.0</servlet.version>
+        <jackson.version>2.9.9</jackson.version>
+        <war>${project.build.finalName}.war</war>
     </properties>
 
     <dependencies>
