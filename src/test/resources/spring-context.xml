@@ -38,10 +38,12 @@
             </props>
         </property>
     </bean>
-    <util:list>
+    <util:list id="list">
+        <value>123</value>
+        <value>abc</value>
     </util:list>
 
     <util:map id="map">
-        <entry key="1212" value="12321" />
+        <entry key="abc" value="123"/>
     </util:map>
 </beans>
