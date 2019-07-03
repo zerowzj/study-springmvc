@@ -104,13 +104,23 @@
             </param-value>
         </init-param>
         <init-param>
-            <description>探测所有Handler Mappings</description>
+            <description>探测所有HandlerMapping</description>
             <param-name>detectAllHandlerMappings</param-name>
             <param-value>true</param-value>
         </init-param>
         <init-param>
-            <description>探测所有Handler Adapters</description>
+            <description>探测所有HandlerAdapter</description>
             <param-name>detectAllHandlerAdapters</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <description>探测所有HandlerExceptionResolver</description>
+            <param-name>detectAllHandlerExceptionResolvers</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <description>探测所有ViewResolver</description>
+            <param-name>detectAllViewResolvers</param-name>
             <param-value>true</param-value>
         </init-param>
         <init-param>
