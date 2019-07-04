@@ -16,7 +16,7 @@ import java.util.Map;
 public class MsgConverController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MsgConverController.class);
-    DispatcherServlet
+
     @Autowired
     private UserService userService;
 
