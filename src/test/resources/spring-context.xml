@@ -46,4 +46,6 @@
     <util:map id="map">
         <entry key="abc" value="123"/>
     </util:map>
+
+    <bean class="org.springframework.web.client.RestTemplate" />
 </beans>

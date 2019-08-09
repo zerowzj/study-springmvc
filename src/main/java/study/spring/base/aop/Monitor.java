@@ -1,4 +1,4 @@
-package study.spring.core.aop;
+package study.spring.base.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.slf4j.Logger;

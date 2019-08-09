@@ -1,4 +1,4 @@
-package study.spring.core.ext;
+package study.spring.base.ext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package study.spring.core.aop;
+package study.spring.base.aop;
 
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
