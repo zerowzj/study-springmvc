@@ -29,13 +29,13 @@
     <!-- 【配置AOP】           -->
     <!-- ==================== -->
     <!-- （★）代理 -->
-    <!--<bean id="myBeforeAdvice" class="study.spring.base.aop.MyBeforeAdvice"/>-->
+    <!--<bean id="myBeforeAdvice" class="study.springmvcmvc.base.aop.MyBeforeAdvice"/>-->
     <!--<bean class="org.springframework.aop.framework.ProxyFactoryBean">-->
     <!--<property name="proxyInterfaces">-->
-    <!--<value>study.spring.mvc.service.UserService</value>-->
+    <!--<value>study.springmvcmvc.mvc.service.UserService</value>-->
     <!--</property>-->
     <!--<property name="target">-->
-    <!--<bean class="study.spring.mvc.service.UserServiceImpl"/>-->
+    <!--<bean class="study.springmvcmvc.mvc.service.UserServiceImpl"/>-->
     <!--</property>-->
     <!--<property name="interceptorNames">-->
     <!--<list>-->
@@ -67,7 +67,7 @@
     </aop:config>
     <!-- （★）注解 -->
     <!--<aop:aspectj-autoproxy/>-->
-    <!--<bean class="study.spring.base.aop.MyAspect">-->
+    <!--<bean class="study.springmvcmvc.base.aop.MyAspect">-->
     <!--</bean>-->
     <!-- ==================== -->
     <!-- 【扩展点】            -->

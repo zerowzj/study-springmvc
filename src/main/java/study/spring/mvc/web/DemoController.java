@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import study.spring.mvc.service.UserService;
 import study.spring.mvc.support.annotation.Api;
-import study.spring.mvc.support.annotation.GetAction;
 import study.spring.mvc.support.annotation.PostAction;
 
 @Api
