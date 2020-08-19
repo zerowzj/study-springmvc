@@ -37,9 +37,11 @@
             </list>
         </property>
     </bean>
-    <!-- 拦截器 -->
-<!--    <bean id="demoInterceptor" class="study.spring.mvc.support.interceptor.DemoInterceptor"/>-->
+    <!-- ==================== -->
+    <!-- 拦截器               -->
+    <!-- ==================== -->
+    <!--    <bean id="demoInterceptor" class="study.spring.mvc.support.interceptor.DemoInterceptor"/>-->
     <bean id="watchDogInterceptor" class="study.spring.mvc.support.interceptor.WatchDogInterceptor"/>
-<!--    &lt;!&ndash; 容器上下文 &ndash;&gt;-->
-<!--    <bean class="study.spring.mvc.support.context.SpringContext"/>-->
+    <!-- （子）容器上下文 -->
+    <bean class="study.spring.mvc.support.SpringContext"/>
 </beans>
