@@ -9,6 +9,14 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath:spring/spring-context.xml
+            ,classpath:spring/spring-dao.xml
+            ,classpath:spring/spring-ds.xml
+            <!--,classpath:spring/spring-ds-ms.xml-->
+            <!--,classpath:spring/spring-ds-sharding.xml-->
+            <!--,classpath:spring/spring-ds-sharding-ms.xml-->
+            <!--,classpath:spring/spring-shiro.xml-->
+            <!--,classpath:spring/spring-security.xml-->
+            <!--,classpath:spring/spring-cas.xml-->
         </param-value>
     </context-param>
     <!-- =================== -->
@@ -48,19 +56,19 @@
     <!--<filter-name>springSecurityFilterChain</filter-name>-->
     <!--<url-pattern>/*</url-pattern>-->
     <!--</filter-mapping>-->
-<!--    <filter>-->
-<!--        <description>自定义Filter</description>-->
-<!--        <filter-name>myFilter</filter-name>-->
-<!--        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
-<!--        <init-param>-->
-<!--            <param-name>targetFilterLifecycle</param-name>-->
-<!--            <param-value>false</param-value>-->
-<!--        </init-param>-->
-<!--    </filter>-->
-<!--    <filter-mapping>-->
-<!--        <filter-name>myFilter</filter-name>-->
-<!--        <url-pattern>/*</url-pattern>-->
-<!--    </filter-mapping>-->
+    <filter>
+        <description>自定义Filter</description>
+        <filter-name>myFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <init-param>
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>false</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>myFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <!-- CAS -->
     <!--<filter>-->
     <!--<description>负责对ticket的校验工作，这个过滤器要放在第一个位置</description>-->
@@ -90,37 +98,38 @@
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>
-                /WEB-INF/dispatcher-config-servlet.xml
-<!--                ,/WEB-INF/dispatcher-annot-servlet.xml-->
+                /WEB-INF/dispatcher-common-servlet.xml
+                ,/WEB-INF/dispatcher-cfg-servlet.xml
+                <!--,/WEB-INF/dispatcher-mvc-servlet.xml-->
             </param-value>
         </init-param>
         <init-param>
-            <description>是否探测所有 HandlerMapping</description>
+            <description>探测所有HandlerMapping</description>
             <param-name>detectAllHandlerMappings</param-name>
             <param-value>true</param-value>
         </init-param>
         <init-param>
-            <description>是否探测所有 HandlerAdapter</description>
+            <description>探测所有HandlerAdapter</description>
             <param-name>detectAllHandlerAdapters</param-name>
             <param-value>true</param-value>
         </init-param>
         <init-param>
-            <description>是否探测所有 HandlerExceptionResolver</description>
+            <description>探测所有HandlerExceptionResolver</description>
             <param-name>detectAllHandlerExceptionResolvers</param-name>
             <param-value>true</param-value>
         </init-param>
         <init-param>
-            <description>是否探测所有 ViewResolver</description>
+            <description>探测所有ViewResolver</description>
             <param-name>detectAllViewResolvers</param-name>
             <param-value>true</param-value>
         </init-param>
         <init-param>
-            <description>是否发布事件</description>
+            <description></description>
             <param-name>publishEvents</param-name>
             <param-value>false</param-value>
         </init-param>
         <init-param>
-            <description>是否发布上下文</description>
+            <description></description>
             <param-name>publishContext</param-name>
             <param-value>false</param-value>
         </init-param>
