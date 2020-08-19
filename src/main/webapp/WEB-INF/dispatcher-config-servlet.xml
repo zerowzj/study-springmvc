@@ -7,6 +7,23 @@
     <!-- =================== -->
     <!-- （★）处理器映射     -->
     <!-- =================== -->
+    <!--  -->
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/simple">simpleController</prop>
+            </props>
+        </property>
+        <property name="urlMap">
+            <map>
+                <entry key="/simple" value="simpleController"/>
+            </map>
+        </property>
+    </bean>
+    <!--  -->
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+    <bean name="/beanName" class="study.spring.mvc.controller.BeanNameController" />
+    <!--  -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
         <!-- 拦截器 -->
         <property name="interceptors">
@@ -18,6 +35,8 @@
     <!-- =================== -->
     <!-- （★）处理器适配器   -->
     <!-- =================== -->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter">
+    </bean>
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <!-- 报文转换 -->
         <property name="messageConverters">
@@ -36,12 +55,12 @@
     <!-- （★）视图解析器     -->
     <!-- =================== -->
     <!--  -->
-    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/views/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
+    <!--    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+    <!--        <property name="prefix" value="/WEB-INF/views/"/>-->
+    <!--        <property name="suffix" value=".jsp"/>-->
+    <!--    </bean>-->
     <!-- =================== -->
     <!-- （★）异常解析器     -->
     <!-- =================== -->
-<!--    <bean id="exceptionResolver" class="study.spring.mvc.support.exception.CustomExceptionResolver"/>-->
+    <!--    <bean id="exceptionResolver" class="study.spring.mvc.support.exception.CustomExceptionResolver"/>-->
 </beans>
