@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.Map;
 
 @Controller
-public class DemoController {
+public class RequestMappingController {
 
     @RequestMapping(value = "/sayHi")
     @ResponseBody
