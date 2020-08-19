@@ -18,9 +18,9 @@ public class DemoController {
 
     @RequestMapping(value = "/sayBye")
     @ResponseBody
-    public User sayBye() {
+    public Map<String, Object> sayBye() {
         Map<String, Object> data = Maps.newHashMap();
         data.put("code", "000");
-        return new User();
+        return data;
     }
 }

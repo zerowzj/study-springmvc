@@ -13,14 +13,14 @@
     <!-- ==================== -->
     <!-- 报文转换器            -->
     <!-- ==================== -->
-    <!-- Json -->
+    <!-- String -->
     <bean id="String_Message_Converter" class="org.springframework.http.converter.StringHttpMessageConverter">
     </bean>
     <!-- Json -->
     <bean id="Json_Message_Converter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
         <property name="supportedMediaTypes">
             <list>
-                <value>text/html; charset=UTF-8</value>
+                <value>text/html;charset=UTF-8</value>
                 <value>text/plain;charset=UTF-8</value>
                 <value>application/json;charset=UTF-8</value>
             </list>
@@ -30,7 +30,7 @@
     <bean id="Form_Message_Converter" class="org.springframework.http.converter.FormHttpMessageConverter">
         <property name="supportedMediaTypes">
             <list>
-                <value>text/html; charset=UTF-8</value>
+                <value>text/html;charset=UTF-8</value>
                 <value>text/plain;charset=UTF-8</value>
                 <value>application/json;charset=UTF-8</value>
                 <value>application/x-www-form-urlencoded</value>
@@ -39,7 +39,7 @@
     </bean>
     <!-- 拦截器 -->
 <!--    <bean id="demoInterceptor" class="study.spring.mvc.support.interceptor.DemoInterceptor"/>-->
-<!--    <bean id="watchDogInterceptor" class="study.spring.mvc.support.interceptor.WatchDogInterceptor"/>-->
+    <bean id="watchDogInterceptor" class="study.spring.mvc.support.interceptor.WatchDogInterceptor"/>
 <!--    &lt;!&ndash; 容器上下文 &ndash;&gt;-->
 <!--    <bean class="study.spring.mvc.support.context.SpringContext"/>-->
 </beans>

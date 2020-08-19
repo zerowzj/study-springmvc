@@ -12,14 +12,14 @@
     <!-- =================== -->
     <mvc:annotation-driven>
         <mvc:message-converters>
-            <ref bean="jsonMessageConverter"/>
+            <ref bean="Json_Message_Converter"/>
         </mvc:message-converters>
     </mvc:annotation-driven>
     <!-- =================== -->
     <!-- （★）配置拦截器      -->
     <!-- =================== -->
     <mvc:interceptors>
-<!--        <bean class="study.spring.mvc.support.interceptor.WatchDogInterceptor"/>-->
+        <bean class="study.spring.mvc.support.interceptor.WatchDogInterceptor"/>
 <!--        <mvc:interceptor>-->
 <!--            <mvc:mapping path="/**"/>-->
 <!--            <ref bean="demoInterceptor"/>-->
