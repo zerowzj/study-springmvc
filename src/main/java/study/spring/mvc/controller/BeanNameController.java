@@ -12,7 +12,7 @@ public class BeanNameController extends AbstractController {
 
     @Override
     protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        log.info("aaaaaaaaaaaaaaaaaaaaaaa");
+        log.info("aaa");
         return null;
     }
 }
