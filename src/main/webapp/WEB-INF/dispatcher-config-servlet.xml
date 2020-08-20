@@ -7,7 +7,7 @@
     <!-- =================== -->
     <!-- （★）处理器映射     -->
     <!-- =================== -->
-    <!--  -->
+    <!-- 1 -->
     <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
@@ -20,10 +20,10 @@
             </map>
         </property>
     </bean>
-    <!--  -->
+    <!-- 2 -->
     <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
     <bean name="/beanName" class="study.spring.mvc.controller.BeanNameController" />
-    <!--  -->
+    <!-- 3 -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
         <!-- 拦截器 -->
         <property name="interceptors">
@@ -35,8 +35,9 @@
     <!-- =================== -->
     <!-- （★）处理器适配器   -->
     <!-- =================== -->
-    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter">
-    </bean>
+    <!-- 1 -->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+    <!-- 2 -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <!-- 报文转换 -->
         <property name="messageConverters">
