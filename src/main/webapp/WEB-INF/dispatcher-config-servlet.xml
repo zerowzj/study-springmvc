@@ -7,7 +7,7 @@
     <!-- =================== -->
     <!-- （★）处理器映射     -->
     <!-- =================== -->
-    <!-- 1 -->
+    <!-- （1） -->
     <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
@@ -20,10 +20,10 @@
             </map>
         </property>
     </bean>
-    <!-- 2 -->
+    <!-- （2） -->
     <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
     <bean name="/beanName" class="study.spring.mvc.controller.BeanNameController" />
-    <!-- 3 -->
+    <!-- （3） -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
         <!-- 拦截器 -->
         <property name="interceptors">
@@ -35,9 +35,9 @@
     <!-- =================== -->
     <!-- （★）处理器适配器   -->
     <!-- =================== -->
-    <!-- 1 -->
+    <!-- （1） -->
     <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
-    <!-- 2 -->
+    <!-- （2） -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <!-- 报文转换 -->
         <property name="messageConverters">
@@ -56,12 +56,12 @@
     <!-- （★）视图解析器     -->
     <!-- =================== -->
     <!--  -->
-    <!--    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-    <!--        <property name="prefix" value="/WEB-INF/views/"/>-->
-    <!--        <property name="suffix" value=".jsp"/>-->
-    <!--    </bean>-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
     <!-- =================== -->
     <!-- （★）异常解析器     -->
     <!-- =================== -->
-    <!--    <bean id="exceptionResolver" class="study.spring.mvc.support.exception.CustomExceptionResolver"/>-->
+    <bean class="study.spring.mvc.support.exception.CustomExceptionResolver"/>
 </beans>

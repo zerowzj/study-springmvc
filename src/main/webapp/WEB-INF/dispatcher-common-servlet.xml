@@ -41,6 +41,8 @@
     <!-- ==================== -->
     <!--    <bean id="demoInterceptor" class="study.spring.mvc.support.interceptor.DemoInterceptor"/>-->
     <bean id="watchDogInterceptor" class="study.spring.mvc.support.interceptor.WatchDogInterceptor"/>
-    <!-- （子）容器上下文 -->
+    <!-- ==================== -->
+    <!-- （子）容器上下文      -->
+    <!-- ==================== -->
     <bean class="study.spring.mvc.support.SpringContext"/>
 </beans>
