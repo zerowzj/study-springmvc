@@ -42,7 +42,9 @@
         <!-- 报文转换 -->
         <property name="messageConverters">
             <list>
+                <ref bean="String_Message_Converter"/>
                 <ref bean="Json_Message_Converter"/>
+                <ref bean="Form_Message_Converter"/>
             </list>
         </property>
     </bean>

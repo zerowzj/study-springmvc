@@ -7,14 +7,25 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <!--  -->
     <import resource="dispatcher-common-servlet.xml"/>
-    <!-- =================== -->
-    <!-- （★）注解驱动       -->
-    <!-- =================== -->
+    <!-- ============================= -->
+    <!-- （★）注解驱动      -->
+    <!-- （1）默认加载BeanNameUrl和RequestMapping两个HandlerMapping -->
+    <!-- ============================= -->
     <mvc:annotation-driven>
+        <!-- 参数解析器 -->
+        <mvc:argument-resolvers>
+        </mvc:argument-resolvers>
+        <!-- 返回值处理器 -->
+        <mvc:return-value-handlers>
+        </mvc:return-value-handlers>
+        <!-- 报文转换器 -->
         <mvc:message-converters>
+            <ref bean="String_Message_Converter"/>
             <ref bean="Json_Message_Converter"/>
+            <ref bean="Form_Message_Converter"/>
         </mvc:message-converters>
     </mvc:annotation-driven>
+    <bean name="/beanName" class="study.spring.mvc.controller.BeanNameController" />
     <!-- =================== -->
     <!-- （★）配置拦截器      -->
     <!-- =================== -->
@@ -26,7 +37,7 @@
 <!--        </mvc:interceptor>-->
     </mvc:interceptors>
     <!-- =================== -->
-    <!-- （★）视图解析器      -->
+    <!-- （★）视图解析器     -->
     <!-- =================== -->
     <mvc:view-resolvers>
         <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
