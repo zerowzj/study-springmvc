@@ -1,25 +1,29 @@
 package study.spring.namespace;
 
+import lombok.extern.slf4j.Slf4j;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
 
+@Slf4j
 public class JettyServer {
 
-    private static final String WEB_APP_LOCATION = "D:\\project\\study\\study-spring\\src\\main\\webapp";
+    private static final String PROJECT_DIR = System.getProperty("user.dir");
 
-    private static final String CONTEXT_PATH = "/";
+    private static final String WEB_APP = "\\src\\main\\webapp";
+
+    private static final String CTX_PATH = "/";
 
     private static final int PORT = 8080;
 
     public static void main(String[] args) {
         try {
             Server server = new Server(PORT);
-            WebAppContext webapp = new WebAppContext(WEB_APP_LOCATION, CONTEXT_PATH);
+            WebAppContext webapp = new WebAppContext(PROJECT_DIR + WEB_APP, CTX_PATH);
             server.setHandler(webapp);
             server.start();
             server.join();
         } catch (Exception ex) {
-            ex.printStackTrace();
+            log.error("", ex);
         }
     }
 }
