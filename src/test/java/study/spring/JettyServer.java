@@ -1,4 +1,4 @@
-package study.spring.namespace;
+package study.spring;
 
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.jetty.server.Server;
@@ -16,6 +16,7 @@ public class JettyServer {
     private static final int PORT = 8080;
 
     public static void main(String[] args) {
+        log.info(PROJECT_DIR + WEB_APP);
         try {
             Server server = new Server(PORT);
             WebAppContext webapp = new WebAppContext(PROJECT_DIR + WEB_APP, CTX_PATH);
@@ -23,7 +24,7 @@ public class JettyServer {
             server.start();
             server.join();
         } catch (Exception ex) {
-            log.error("", ex);
+            log.error("异常: ", ex);
         }
     }
 }
