@@ -22,6 +22,7 @@ public class JettyServer {
             WebAppContext webapp = new WebAppContext(WEB_APP, CTX_PATH);
             Server server = new Server(PORT);
             server.setHandler(webapp);
+
             server.start();
             server.join();
         } catch (Exception ex) {
