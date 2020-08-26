@@ -9,17 +9,18 @@ public class JettyServer {
 
     private static final String PROJECT_DIR = System.getProperty("user.dir");
 
-    private static final String WEB_APP = "\\src\\main\\webapp";
+    private static final String WEB_APP_PATH = "\\src\\main\\webapp";
+
+    private static final String WEB_APP = PROJECT_DIR + WEB_APP_PATH;
 
     private static final String CTX_PATH = "/";
 
     private static final int PORT = 8080;
 
     public static void main(String[] args) {
-        log.info(PROJECT_DIR + WEB_APP);
         try {
+            WebAppContext webapp = new WebAppContext(WEB_APP, CTX_PATH);
             Server server = new Server(PORT);
-            WebAppContext webapp = new WebAppContext(PROJECT_DIR + WEB_APP, CTX_PATH);
             server.setHandler(webapp);
             server.start();
             server.join();
